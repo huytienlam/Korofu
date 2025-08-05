@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'SFUFutura';
+  src: url('/fonts/SFUFuturaRegular.TTF') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFUFutura';
+  src: url('/fonts/SFUFuturaBold.TTF') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFUFutura';
+  src: url('/fonts/SFUFuturaHeavy.TTF') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFUFutura';
+  src: url('/fonts/SFUFuturaExtraBold.TTF') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  font-family: 'SFUFutura', sans-serif;
+}
