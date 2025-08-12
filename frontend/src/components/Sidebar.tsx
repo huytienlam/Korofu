@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-
+import Image from "next/image";
 type MenuItem = {
   label: string;
   href: string;
@@ -10,15 +10,123 @@ type MenuItem = {
 };
 
 const MENU_ITEMS: MenuItem[] = [
-  { label: "Your Space", href: "/home", icon: <span>🏠</span> },
-  { label: "Choose Your Food", href: "/choose-food", icon: <span>👁️</span> },
-  { label: "Quick Pick Mode", href: "/quick-pick", icon: <span>⏩</span> },
-  { label: "Food Preferences", href: "/preferences", icon: <span>✍️</span> },
-  { label: "Discover More", href: "/discover", icon: <span>🧭</span> },
-  { label: "Favorite Dishes", href: "/favorites", icon: <span>❤️</span> },
-  { label: "Saved Collection", href: "/saved", icon: <span>🔖</span> },
-  { label: "Recent History", href: "/history", icon: <span>🕓</span> },
-  { label: "Our Community", href: "/community", icon: <span>👥</span> },
+  {
+    label: "Your Space",
+    href: "/home",
+    icon: (
+      <Image
+        src="/assets/icon/Home.png"
+        alt="Home"
+        width={20}
+        height={20}
+        className="scale-150"
+      />
+    ),
+  },
+  {
+    label: "Choose Your Food",
+    href: "/choose-food",
+    icon: (
+      <Image
+        src="/assets/icon/Eye.png"
+        alt="Eye"
+        width={20}
+        height={20}
+        className="scale-150"
+      />
+    ),
+  },
+  {
+    label: "Quick Pick Mode",
+    href: "/quick-pick",
+    icon: (
+      <Image
+        src="/assets/icon/Fast forward.png"
+        alt="Fast forward"
+        width={20}
+        height={20}
+        className="scale-150"
+      />
+    ),
+  },
+  {
+    label: "Food Preferences",
+    href: "/preferences",
+    icon: (
+      <Image
+        src="/assets/icon/Edit.png"
+        alt="Edit"
+        width={20}
+        height={20}
+        className="scale-150"
+      />
+    ),
+  },
+  {
+    label: "Discover More",
+    href: "/discover",
+    icon: (
+      <Image
+        src="/assets/icon/Compass.png"
+        alt="Compass"
+        width={20}
+        height={20}
+        className="scale-150"
+      />
+    ),
+  },
+  {
+    label: "Favorite Dishes",
+    href: "/favorites",
+    icon: (
+      <Image
+        src="/assets/icon/Heart.png"
+        alt="Heart"
+        width={20}
+        height={20}
+        className="scale-150"
+      />
+    ),
+  },
+  {
+    label: "Saved Collection",
+    href: "/saved",
+    icon: (
+      <Image
+        src="/assets/icon/Bookmark.png"
+        alt="Bookmark"
+        width={20}
+        height={20}
+        className="scale-150"
+      />
+    ),
+  },
+  {
+    label: "Recent History",
+    href: "/history",
+    icon: (
+      <Image
+        src="/assets/icon/Stop circle.png"
+        alt="History"
+        width={20}
+        height={20}
+        className="scale-150"
+      />
+    ),
+  },
+  {
+    label: "Our Community",
+    href: "/community",
+    icon: (
+      <Image
+        src="/assets/icon/Users.png"
+        alt="Users"
+        width={20}
+        height={20}
+        className="scale-150"
+      />
+    ),
+  },
 ];
 
 export default function Sidebar() {
@@ -44,7 +152,9 @@ export default function Sidebar() {
                   : "bg-white border-black hover:bg-[#FFF5F1]",
               ].join(" ")}
             >
-              <span className="text-xl">{item.icon}</span>
+              <div className="flex items-center justify-center w-5 h-5">
+                {item.icon}
+              </div>
               <span className="font-extrabold text-[15px] text-[#21120D]">
                 {item.label}
               </span>
