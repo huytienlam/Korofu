@@ -50,10 +50,12 @@ export default function FoodPreferences() {
 
   const addFood = () => {
     if (modalValue.trim() && activeSetItems) {
+      // Trim and limit the text length
+      const trimmedName = modalValue.trim().slice(0, 30); // Limit to 30 characters
       const newColor = getNextColor();
       activeSetItems((prev) => [
         ...prev,
-        { name: modalValue.trim(), color: newColor },
+        { name: trimmedName, color: newColor },
       ]);
       setTotalCount((prev) => prev + 1);
       setModalOpen(false);
@@ -93,14 +95,15 @@ export default function FoodPreferences() {
         </div>
 
         {/* Tags Container */}
-        <div className="pt-12 flex flex-wrap gap-2 content-start overflow-y-auto cursor-pointer">
+        <div className="pt-12 flex flex-wrap gap-2 content-start overflow-y-auto">
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex items-center px-3 py-1 rounded-full border border-black shadow-[2px_2px_0_#000] text-sm"
+              className="flex items-center px-3 my-0.5 py-1 rounded-full border border-black shadow-[2px_2px_0_#000] text-sm max-w-[200px] group relative"
               style={{ backgroundColor: item.color }}
+              title={item.name} // Tooltip for full text
             >
-              <span className="mr-2 font-extrabold text-black">
+              <span className="mr-2 font-extrabold text-black truncate">
                 {item.name}
               </span>
               <Image
@@ -108,9 +111,16 @@ export default function FoodPreferences() {
                 alt="Delete"
                 width={14}
                 height={14}
-                className="cursor-pointer"
+                className="cursor-pointer flex-shrink-0"
                 onClick={() => handleDelete(setItems, index)}
               />
+
+              {/* Tooltip for long text */}
+              {item.name.length > 15 && (
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-20">
+                  {item.name}
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -183,14 +193,20 @@ export default function FoodPreferences() {
                 <h2 className="text-lg font-bold text-black">
                   Add Food Preference
                 </h2>
-                <input
-                  type="text"
-                  value={modalValue}
-                  onChange={(e) => setModalValue(e.target.value)}
-                  className="border-2 border-black p-2 text-black rounded-lg"
-                  placeholder="Enter food name"
-                  onKeyPress={(e) => e.key === "Enter" && addFood()}
-                />
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={modalValue}
+                    onChange={(e) => setModalValue(e.target.value)}
+                    className="border-2 border-black p-2 text-black rounded-lg w-full"
+                    placeholder="Enter food name (max 30 chars)"
+                    onKeyPress={(e) => e.key === "Enter" && addFood()}
+                    maxLength={30}
+                  />
+                  <div className="text-xs text-gray-500 mt-1 text-right">
+                    {modalValue.length}/30
+                  </div>
+                </div>
                 <div className="flex gap-4 justify-end">
                   <button
                     onClick={() => setModalOpen(false)}
