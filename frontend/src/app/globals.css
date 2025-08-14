@@ -113,6 +113,12 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@layer utilities {
+  .text-outline {
+    text-shadow: 2px 0 0 #000, 0 2px 0 #000, -2px 0 0 #000, 0 -2px 0 #000;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -122,43 +128,43 @@
   }
 }
 @font-face {
-  font-family: 'SFUFutura';
-  src: url('/fonts/SFUFuturaLight.TTF') format('truetype');
+  font-family: "SFUFutura";
+  src: url("/fonts/SFUFuturaLight.TTF") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'SFUFutura';
-  src: url('/fonts/SFUFuturaRegular.TTF') format('truetype');
+  font-family: "SFUFutura";
+  src: url("/fonts/SFUFuturaRegular.TTF") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'SFUFutura';
-  src: url('/fonts/SFUFuturaMedium.TTF') format('truetype');
+  font-family: "SFUFutura";
+  src: url("/fonts/SFUFuturaMedium.TTF") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'SFUFutura';
-  src: url('/fonts/SFUFuturaBold.TTF') format('truetype');
+  font-family: "SFUFutura";
+  src: url("/fonts/SFUFuturaBold.TTF") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'SFUFutura';
-  src: url('/fonts/SFUFuturaHeavy.TTF') format('truetype');
+  font-family: "SFUFutura";
+  src: url("/fonts/SFUFuturaHeavy.TTF") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'SFUFutura';
-  src: url('/fonts/SFUFuturaExtraBold.TTF') format('truetype');
+  font-family: "SFUFutura";
+  src: url("/fonts/SFUFuturaExtraBold.TTF") format("truetype");
   font-weight: 800;
   font-style: normal;
 }
@@ -170,5 +176,5 @@
 }
 
 body {
-  font-family: 'SFUFutura', sans-serif;
+  font-family: "SFUFutura", sans-serif;
 }
