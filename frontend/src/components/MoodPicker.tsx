@@ -1,23 +1,57 @@
 "use client";
 
 import { useState } from "react";
+import LoadingScreen from "./LoadingScreen";
 
 type MoodPickerProps = {
   showMoodPicker: boolean;
-  onSkip?: () => void;
-  onSkipToColorPalette?: () => void;
+  onSkip?: () => void; // Callback to go back to prompt
+  onSkipToColorPalette?: () => void; // Callback to go to color palette
 };
+
+// Predefined color palette for mood tags
+const MOOD_COLORS = [
+  "#FFD21E", // yellow
+  "#FF6B35", // orange
+  "#00C8C8", // teal
+  "#9B59B6", // purple
+  "#FF69B4", // pink
+  "#8B4513", // dark brown
+  "#50af63", // green
+  "#FF4757", // red
+  "#2ED573", // lime green
+  "#1E90FF", // dodger blue
+  "#FFA502", // orange
+  "#A55EEA", // purple
+];
+
+const MOOD_TAGS = [
+  "Happy", "Excited", "Relaxed", 
+  "Cozy", "Adventurous", "Comfortable",
+  "Energetic", "Peaceful", "Curious"
+];
 
 export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalette }: MoodPickerProps) {
   const [mood, setMood] = useState("");
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Generate random colors for mood tags
+  const getMoodTagColor = (index: number) => {
+    return MOOD_COLORS[index % MOOD_COLORS.length];
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (mood.trim()) {
-      // Handle mood submission here
       console.log("Mood submitted:", mood);
-      setMood("");
+      setIsLoading(true);
+      // Simulate loading time
+      setTimeout(() => {
+        setIsLoading(false);
+        setMood("");
+        // Here you can add logic to navigate to results or next step
+      }, 3000);
     }
   };
 
@@ -28,7 +62,12 @@ export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalett
   const handleSpotOn = () => {
     if (selectedMood) {
       console.log("Mood confirmed:", selectedMood);
-      // Handle mood confirmation here
+      setIsLoading(true);
+      // Simulate loading time
+      setTimeout(() => {
+        setIsLoading(false);
+        // Here you can add logic to navigate to results or next step
+      }, 3000);
     }
   };
 
@@ -36,9 +75,14 @@ export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalett
     console.log("Mood not quite right, going back");
     setSelectedMood(null);
     if (onSkip) {
-      onSkip();
+      onSkip(); // Call parent's function to go back to prompt
     }
   };
+
+  // Show loading screen
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   // Show mood picker screen
   if (showMoodPicker) {
@@ -46,50 +90,41 @@ export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalett
       <div className="flex flex-col items-center justify-center min-h-[50vh] p-8">
         {/* Title */}
         <h1 className="text-5xl font-extrabold text-[#21120D] mb-8 text-center tracking-tight">
-          Mood Picker
+          How are you feeling today?
         </h1>
         
-        {/* Question */}
+        {/* Description */}
         <div className="text-center mb-12">
+          <p className="text-2xl font-bold text-[#21120D] mb-2">
+            Pick a mood that matches your vibe,
+          </p>
           <p className="text-2xl font-bold text-[#21120D]">
-            Does this match how you're feeling?
+            and we'll find the perfect food for you.
           </p>
         </div>
 
         {/* Mood Tags */}
-        <div className="flex gap-4 mb-12">
-          <button
-            onClick={() => handleMoodSelect("happy")}
-            className={`px-6 py-3 rounded-full border-2 border-black shadow-[3px_3px_0_#000] hover:shadow-[4px_4px_0_#000] transition-shadow font-bold text-[#21120D] ${
-              selectedMood === "happy" 
-                ? "bg-[#FFD21E] shadow-[4px_4px_0_#000]" 
-                : "bg-[#FFD21E]"
-            }`}
-          >
-            happy
-          </button>
-          
-          <button
-            onClick={() => handleMoodSelect("energetic")}
-            className={`px-6 py-3 rounded-full border-2 border-black shadow-[3px_3px_0_#000] hover:shadow-[4px_4px_0_#000] transition-shadow font-bold text-[#21120D] ${
-              selectedMood === "energetic" 
-                ? "bg-[#00C8C8] shadow-[4px_4px_0_#000]" 
-                : "bg-[#00C8C8]"
-            }`}
-          >
-            energetic
-          </button>
-          
-          <button
-            onClick={() => handleMoodSelect("wants something heavy")}
-            className={`px-6 py-3 rounded-full border-2 border-black shadow-[3px_3px_0_#000] hover:shadow-[4px_4px_0_#000] transition-shadow font-bold text-[#21120D] ${
-              selectedMood === "wants something heavy" 
-                ? "bg-[#FF69B4] shadow-[4px_4px_0_#000]" 
-                : "bg-[#FF69B4]"
-            }`}
-          >
-            wants something heavy
-          </button>
+        <div className="grid grid-cols-3 gap-4 mb-12">
+          {MOOD_TAGS.map((moodTag, index) => {
+            const tagColor = getMoodTagColor(index);
+            return (
+              <button
+                key={moodTag}
+                onClick={() => handleMoodSelect(moodTag)}
+                className={`px-6 py-4 border-2 border-black rounded-2xl shadow-[4px_4px_0_#000] hover:shadow-[6px_6px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 font-bold text-[#21120D] ${
+                  selectedMood === moodTag 
+                    ? "shadow-[6px_6px_0_#000]" 
+                    : "hover:bg-opacity-90"
+                }`}
+                style={{ 
+                  backgroundColor: selectedMood === moodTag ? tagColor : tagColor,
+                  opacity: selectedMood === moodTag ? 1 : 0.8
+                }}
+              >
+                {moodTag}
+              </button>
+            );
+          })}
         </div>
 
         {/* Action Buttons */}
@@ -97,11 +132,14 @@ export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalett
           <button
             onClick={handleSpotOn}
             disabled={!selectedMood}
-            className="px-8 py-4 bg-[#F88366] border-2 border-black rounded-2xl shadow-[4px_4px_0_#000] hover:shadow-[6px_6px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-[4px_4px_0_#000] disabled:active:translate-x-0 disabled:active:translate-y-0 font-bold text-white"
+            className={`px-8 py-4 border-2 border-black rounded-2xl shadow-[4px_4px_0_#000] hover:shadow-[6px_6px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 font-bold text-[#21120D] ${
+              selectedMood 
+                ? "bg-[#FFD21E] hover:bg-[#FFE55C]" 
+                : "bg-gray-300 opacity-50 cursor-not-allowed"
+            }`}
           >
             Spot on!
           </button>
-          
           <button
             onClick={handleNotQuite}
             className="px-8 py-4 bg-[#FFF5C0] border-2 border-black rounded-2xl shadow-[4px_4px_0_#000] hover:shadow-[6px_6px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 font-bold text-red-600"
@@ -118,54 +156,40 @@ export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalett
     <div className="flex flex-col items-center justify-center min-h-[50vh] p-8">
       {/* Title */}
       <h1 className="text-5xl font-extrabold text-[#21120D] mb-8 text-center tracking-tight">
-        Mood Picker
+        What's your mood today?
       </h1>
       
-      {/* Prompt Text */}
-      <div className="text-center mb-16">
-        <p className="text-2xl font-bold text-[#21120D] mb-3">
-          How are you feeling today?
+      {/* Description */}
+      <div className="text-center mb-12">
+        <p className="text-2xl font-bold text-[#21120D] mb-2">
+          Tell us how you're feeling,
         </p>
-        <p className="text-xl text-[#21120D] opacity-80">
-          Let your mood guide you to the perfect bite!
+        <p className="text-2xl font-bold text-[#21120D]">
+          and we'll find the perfect food for you.
         </p>
       </div>
 
       {/* Input Form */}
-      <form onSubmit={handleSubmit} className="w-full max-w-3xl">
-        <div className="flex gap-4 items-end">
-          {/* Input Field */}
-          <div className="flex-1 relative">
-            <input
-              type="text"
-              value={mood}
-              onChange={(e) => setMood(e.target.value)}
-              placeholder="What are you feeling today?"
-              className="w-full px-8 py-6 text-xl font-medium text-[#21120D] bg-[#FF8A63] border-[3px] border-black rounded-3xl shadow-[6px_6px_0_#000] placeholder-[#21120D] placeholder-opacity-70 focus:outline-none focus:shadow-[8px_8px_0_#000] focus:border-[#FF6F61] transition-all duration-200"
-            />
-          </div>
-          
-          {/* Send Button */}
+      <form onSubmit={handleSubmit} className="w-full max-w-md">
+        <div className="flex gap-4 mb-8">
+          <input
+            type="text"
+            value={mood}
+            onChange={(e) => setMood(e.target.value)}
+            placeholder="I'm feeling..."
+            className="flex-1 px-6 py-4 text-lg font-bold text-[#21120D] bg-white border-2 border-black rounded-2xl shadow-[4px_4px_0_#000] focus:outline-none focus:shadow-[6px_6px_0_#000] transition-shadow placeholder-[#21120D] placeholder-opacity-50"
+          />
           <button
             type="submit"
             disabled={!mood.trim()}
-            className="px-8 py-6 bg-[#FFD21E] border-[3px] border-black rounded-3xl shadow-[6px_6px_0_#000] hover:shadow-[8px_8px_0_#000] hover:bg-[#FFE066] active:shadow-[4px_4px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-[6px_6px_0_#000] disabled:active:translate-x-0 disabled:active:translate-y-0 flex items-center justify-center"
+            className={`px-6 py-4 border-2 border-black rounded-2xl shadow-[4px_4px_0_#000] hover:shadow-[6px_6px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 font-bold text-[#21120D] ${
+              mood.trim() 
+                ? "bg-[#FFD21E] hover:bg-[#FFE55C]" 
+                : "bg-gray-300 opacity-50 cursor-not-allowed"
+            }`}
           >
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="text-[#21120D]"
-            >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#21120D]">
+              <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         </div>

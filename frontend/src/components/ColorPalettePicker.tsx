@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Wheel from '@uiw/react-color-wheel';
+import LoadingScreen from "./LoadingScreen";
 
 const MAX_PALETTE_COLORS = 10;
 
@@ -17,6 +18,7 @@ export default function ColorPalettePicker() {
     "#50af63"  // green
   ]);
   const [showLimitMessage, setShowLimitMessage] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleColorChange = (color: any) => {
     setSelectedColor(color.hex);
@@ -44,20 +46,26 @@ export default function ColorPalettePicker() {
     setColorPalette(colorPalette.filter((_, i) => i !== index));
   };
 
-  const removeSelectedFromPalette = () => {
-    const colorIndex = colorPalette.indexOf(selectedColor);
-    if (colorIndex !== -1) {
-      setColorPalette(colorPalette.filter((_, i) => i !== colorIndex));
-    }
+  const handleServeColors = () => {
+    setIsLoading(true);
+    // Simulate loading time
+    setTimeout(() => {
+      setIsLoading(false);
+      // Here you can add logic to navigate to results or next step
+    }, 3000);
   };
 
   const isPaletteFull = colorPalette.length >= MAX_PALETTE_COLORS;
   const canAddColor = !colorPalette.includes(selectedColor);
-  const canRemoveColor = colorPalette.includes(selectedColor);
 
   // Create arrays for top and bottom rows
   const topRowColors = colorPalette.slice(0, 5);
   const bottomRowColors = colorPalette.slice(5, 10);
+
+  // Show loading screen
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[50vh] p-8">
@@ -197,9 +205,8 @@ export default function ColorPalettePicker() {
             </div>
           </div>
 
-          {/* Add and Remove Buttons */}
-          <div className="flex gap-3 mb-4">
-            {/* Add to Palette Button */}
+          {/* Add Button */}
+          <div className="flex justify-center mb-4">
             <button
               onClick={addToPalette}
               disabled={!canAddColor}
@@ -210,19 +217,6 @@ export default function ColorPalettePicker() {
               }`}
             >
               {isPaletteFull ? "Replace Oldest Color" : "Add to Palette"}
-            </button>
-
-            {/* Remove from Palette Button */}
-            <button
-              onClick={removeSelectedFromPalette}
-              disabled={!canRemoveColor}
-              className={`px-6 py-3 border-2 border-black rounded-xl shadow-[3px_3px_0_#000] transition-all duration-200 font-bold text-[#21120D] ${
-                canRemoveColor 
-                  ? "bg-red-500 hover:bg-red-600 hover:shadow-[4px_4px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1" 
-                  : "bg-gray-300 opacity-50 cursor-not-allowed"
-              }`}
-            >
-              Remove from Palette
             </button>
           </div>
 
@@ -237,7 +231,10 @@ export default function ColorPalettePicker() {
 
       {/* Serve my colors Button */}
       <div className="mt-12">
-        <button className="px-12 py-6 bg-[#FFD21E] border-3 border-black rounded-2xl shadow-[6px_6px_0_#000] hover:shadow-[8px_8px_0_#000] active:shadow-[4px_4px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 font-bold text-[#21120D] text-xl">
+        <button 
+          onClick={handleServeColors}
+          className="px-12 py-6 bg-[#FFD21E] border-3 border-black rounded-2xl shadow-[6px_6px_0_#000] hover:shadow-[8px_8px_0_#000] active:shadow-[4px_4px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 font-bold text-[#21120D] text-xl"
+        >
           Serve my colors!
         </button>
       </div>
