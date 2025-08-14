@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@uiw/react-color-wheel": "^2.7.3",
     "next": "15.4.5",
     "postcss": "^8.5.6",
     "react": "19.1.0",
