@@ -5,10 +5,10 @@ import Sidebar from '../../components/Sidebar';
 
 export default function DiscoverMore() {
   return (
-    <div className="min-h-screen bg-[#FFF5F1]">
+    <div className="min-h-screen">
       <UserNavbar username="Username" />
 
-      <div className="max-w-7xl mx-auto px-6 py-8 flex gap-6">
+      <div className="min-h-screen flex pl-10 mt-5">
         <Sidebar />
         
         <main className="flex-1 p-6 rounded-3xl">

@@ -5,18 +5,41 @@ import Sidebar from '../../components/Sidebar';
 
 export default function QuickPick() {
   return (
-    <div className="min-h-screen bg-[#FFF5F1]">
+    <div className="min-h-screen">
       <UserNavbar username="Username" />
-
-      <div className="max-w-7xl mx-auto px-6 py-8 flex gap-6">
+      
+      <div className="min-h-screen flex pl-10 mt-5">
         <Sidebar />
         
-        <main className="flex-1 p-6 rounded-3xl">
-          <h1 className="text-3xl font-extrabold text-[#21120D] mb-8">Quick Pick Mode</h1>
-          
-          <div className="bg-white border-2 border-black rounded-3xl p-6 shadow-[8px_8px_0_#000]">
-            <p className="text-lg mb-4">Let us pick food for you quickly!</p>
-            {/* Add your quick pick content here */}
+        <main className="flex-1 flex flex-col items-center p-6 rounded-3xl">
+          <div className="inline-flex flex-col justify-center items-center gap-4">
+            <div className="w-[465px] h-20 text-center justify-center text-teal-300 text-5xl font-bold font-['SFU_Futura'] leading-[55.50px] [text-shadow:_5px_5px_0px_rgb(0_0_0)] [-webkit-text-stroke:2px_black]">
+              Quick Pick Mode
+            </div>
+            <div className="self-stretch h-28 text-center justify-center text-black text-3xl font-medium font-['Quicksand']">
+              Feeling spontaneous? Skip the picks - we’ll analyze your vibe and serve up a delicious match.
+            </div>
+            <div className="inline-flex justify-start items-center gap-12">
+              <button
+                data-color="Yellow"
+                data-size="Large"
+                className="w-80 h-20 px-3.5 py-1 bg-amber-300 rounded-[5px] shadow-[3px_3px_0px_rgba(0,0,0,1)] outline outline-2 outline-offset-[-2px] outline-black flex justify-center items-center gap-2.5 cursor-pointer hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all"
+              >
+                <span className="text-center text-black text-2xl font-black font-['SFU_Futura'] leading-loose">
+                  Surprise me!
+                </span>
+              </button>
+
+              <button
+                data-color="Pink"
+                data-size="Large"
+                className="w-80 h-20 px-3.5 py-1 bg-pink-300 rounded-[5px] shadow-[3px_3px_0px_rgba(0,0,0,1)] outline outline-2 outline-offset-[-2px] outline-black flex justify-center items-center gap-2.5 cursor-pointer hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all"
+              >
+                <span className="text-center text-black text-2xl font-black font-['SFU_Futura'] leading-loose">
+                  I’d rather pick myself.
+                </span>
+              </button>
+            </div>
           </div>
         </main>
       </div>

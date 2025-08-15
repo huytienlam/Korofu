@@ -11,10 +11,10 @@ export default function UserHome() {
   const moodTags = ['energetic', 'funky', 'happy', 'new'];
 
   return (
-    <div className="min-h-screen bg-[#FFF5F1]">
+    <div className="min-h-screen">
       <UserNavbar username={username} />
 
-      <div className="max-w-7xl mx-auto px-6 py-8 flex gap-6">
+      <div className="min-h-screen flex pl-10 mt-5">
         {/* Sidebar */}
         <Sidebar />
 
