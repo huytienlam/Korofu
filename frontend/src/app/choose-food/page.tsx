@@ -42,6 +42,7 @@ export default function ChooseFood() {
           <Sidebar />
           
           <main className="flex-1 bg-white border-2 border-black rounded-3xl shadow-[8px_8px_0_#000] overflow-hidden">
+            
             {/* Input Bar */}
             <div className="p-6 border-b-2 border-black/20">
               <div className="flex items-center gap-4">
@@ -84,7 +85,7 @@ export default function ChooseFood() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFF5F1] border-2 border-blue-500">
+    <div className="min-h-screen">
       <UserNavbar username="Username" />
 
       <div className="min-h-screen flex pl-10 mt-5">
