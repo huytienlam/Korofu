@@ -30,7 +30,7 @@ const MENU_ITEMS: MenuItem[] = [
   },
   {
     label: "Choose Your Food",
-    href: "/choose-food",
+    href: "/choose-your-food",
     icon: {
       default: "/assets/icon/Choose Your Food_Default.png",
       hover: "/assets/icon/Choose Your Food_Hover.png",
@@ -39,7 +39,7 @@ const MENU_ITEMS: MenuItem[] = [
   },
   {
     label: "Quick Pick Mode",
-    href: "/quick-pick",
+    href: "/quick-pick-mode",
     icon: {
       default: "/assets/icon/Quick Pick Mode_Default.png",
       hover: "/assets/icon/Quick Pick Mode_Hover.png",
