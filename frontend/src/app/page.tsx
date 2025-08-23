@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="container mx-auto mt-10 ">
+      <main className="container mx-auto mt-10">
         <Hero />
       </main>
     </>

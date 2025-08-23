@@ -106,7 +106,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-[300px] h-screen flex flex-col">
+    <aside className="w-90 h-screen flex flex-col items-center">
       {MENU_ITEMS.map((item) => {
         const isActive = pathname === item.href;
 

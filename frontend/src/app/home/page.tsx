@@ -15,7 +15,7 @@ export default function UserHome() {
     <div className="min-h-screen">
       <UserNavbar username={username} />
 
-      <div className="min-h-screen flex pl-10 mt-5">
+      <div className="min-h-screen flex mt-5">
         {/* Sidebar */}
         <Sidebar />
 

@@ -8,7 +8,7 @@ export default function QuickPick() {
     <div className="min-h-screen">
       <UserNavbar username="Username" />
       
-      <div className="min-h-screen flex pl-10 mt-5">
+      <div className="min-h-screen flex mt-5">
         <Sidebar />
         
         <main className="flex-1 flex flex-col items-center p-6 rounded-3xl">
