@@ -2,7 +2,7 @@
 
 import UserNavbar from '../../components/UserNavbar';
 import Sidebar from '../../components/Sidebar';
-
+import RecipeCard from '@/components/Foodcards/Recipe';
 export default function SavedCollection() {
   return (
     <div className="min-h-screen">
@@ -13,10 +13,17 @@ export default function SavedCollection() {
         
         <main className="flex-1 p-6 rounded-3xl">
           <h1 className="text-3xl font-extrabold text-[#21120D] mb-8">Saved Collection</h1>
-          
-          <div className="bg-white border-2 border-black rounded-3xl p-6 shadow-[8px_8px_0_#000]">
-            <p className="text-lg mb-4">Your saved food items</p>
-            {/* Add your saved collection content here */}
+          <div className="flex gap-6">
+            <RecipeCard 
+              tittle="Spaghetti Carbonara" 
+              subtittle="HCMC." 
+              rating={4}
+            />
+            <RecipeCard 
+              tittle="Spaghetti Carbonara" 
+              subtittle="HCMC." 
+              rating={2}
+            />
           </div>
         </main>
       </div>
