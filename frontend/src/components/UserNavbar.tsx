@@ -9,10 +9,10 @@ type UserNavbarProps = {
 
 export default function UserNavbar({ username }: UserNavbarProps) {
   return (
-    <nav className="w-full-screen bg-[#F9F5F2]">
+    <nav className="w-full-screen h-[100px] bg-[#F9F5F2] flex items-center justify-center">
       <div className="w-full px-10 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/home" className="flex items-center">
           <Image
             src="/assets/logo/Logo_Yellow.png"
             alt="Korofu Logo"

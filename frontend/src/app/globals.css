@@ -8,6 +8,26 @@
 /* THEME AND COLORS */
 
 @theme inline {
+  /* KOROFU COLORS */
+  --color-korofu-default: var(--korofu-default);
+
+  --color-korofu-yellow: var(--korofu-yellow);
+  --color-korofu-dark-red: var(--korofu-dark-red);
+  --color-korofu-pink: var(--korofu-pink);
+  --color-korofu-aqua: var(--korofu-aqua);
+  --color-korofu-indigo: var(--korofu-indigo);
+  --color-korofu-gold: var(--korofu-gold);
+  --color-korofu-orange: var(--korofu-orange);
+  --color-korofu-purple: var(--korofu-purple);
+  --color-korofu-gray: var(--korofu-gray);
+  --color-korofu-beige: var(--korofu-beige);
+  --color-korofu-blue: var(--korofu-blue);
+  --color-korofu-green: var(--korofu-green);
+
+  --color-korofu-light-red: var(--korofu-light-red);
+  --color-korofu-light-yellow: var(--korofu-light-yellow);
+
+  /* DEFAULT */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -48,6 +68,8 @@
 }
 
 :root {
+
+  /* ORIGINAL */
   --radius: 0.625rem;
   --background: #F9F5F2;
   --foreground: #0A0A0A;
@@ -80,6 +102,25 @@
   --sidebar-accent-foreground: #343434;
   --sidebar-border: #EAEAEA;
   --sidebar-ring: #B4B4B4;
+
+  /* COLORS TO USE */
+  --korofu-default: #F9F5F2;
+
+  --korofu-yellow: #FFE262;
+  --korofu-dark-red: #FF594D;
+  --korofu-pink: #FF91E8;
+  --korofu-aqua: #4FD3C6;
+  --korofu-indigo: #91A8EC;
+  --korofu-gold: #E9B349;
+  --korofu-orange: #FF914D;
+  --korofu-purple: #BFADFF;
+  --korofu-gray: #E8E8E8;
+  --korofu-beige: #FFDED0;
+  --korofu-blue: #ADDFFF;
+  --korofu-green: #A2E59C;
+
+  --korofu-light-red: #FF6D4D;
+  --korofu-light-yellow: #FFF5CC;
 }
 
 .dark {
@@ -157,14 +198,14 @@
 
 @font-face {
   font-family: "SFUFutura";
-  src: url("/fonts/SFUFuturaBold.TTF") format("truetype");
+  src: url("/fonts/SFUFuturaHeavy.TTF") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SFUFutura";
-  src: url("/fonts/SFUFuturaHeavy.TTF") format("truetype");
+  src: url("/fonts/SFUFuturaBold.TTF") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
@@ -188,6 +229,46 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-body {
+* {
   font-family: "SFUFutura", "Quicksand", sans-serif;
+}
+
+@layer components{
+
+  .large-button {
+    @apply
+    w-80 h-18 px-3.5 py-1
+    rounded-[5px] shadow-[3px_3px_0px_rgba(0,0,0,1)]
+    outline outline-2 outline-offset-[-2px] outline-black
+    flex justify-center items-center gap-2.5
+    cursor-pointer
+    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
+  }
+
+  .large-button-text {
+    @apply
+    text-center text-black text-2xl font-semibold leading-loose
+  } 
+
+  .drop-shadow-loading-text {
+    @apply
+    text-center justify-center
+    text-4xl font-bold
+    leading-[45px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black]
+  }
+
+  .drop-shadow-title-middle {
+    @apply
+    text-center justify-center
+    text-4xl font-bold
+    leading-[57.5px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black]
+  }
+
+  .drop-shadow-title-top {
+    @apply
+    text-left
+    text-4xl font-bold 
+    leading-[57.5px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black]
+  }
+
 }
