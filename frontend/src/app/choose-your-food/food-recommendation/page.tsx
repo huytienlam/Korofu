@@ -37,8 +37,8 @@ export default function QuickPick() {
               The taste universe conspired to bring you…
             </div>
 
-            <div className="flex flex-row justify-between gap-12 mr-10">
-              <div className="flex flex-col gap-4">
+            <div className="flex flex-row justify-between gap-12 mr-10 bg-red-200">
+              <div className="flex flex-col gap-4 bg-blue-100">
                 {dishes.map((dish, index) => (
                     <DishCard
                     key={index}
@@ -48,9 +48,9 @@ export default function QuickPick() {
                     />
                 ))}
               </div>
-              <div className="flex flex-col justify-center align-center">
-                <div className="flex flex-col gap-5">
-                  <div className="flex flex-row gap-6">
+              <div className="flex flex-col justify-center align-center bg-pink-300">
+                <div className="flex flex-col gap-5 bg-orange-100">
+                  <div className="flex flex-row gap-6 bg-green-200">
                     <Link href="/quick-pick-mode/loading">
                       <button
                         data-color="Light Red"

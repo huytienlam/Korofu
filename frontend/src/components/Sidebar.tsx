@@ -108,7 +108,7 @@ export default function Sidebar() {
   return (
     <aside className="w-90 p-5 h-[calc(100vh-100px)] flex flex-col items-center">
       {MENU_ITEMS.map((item) => {
-        const isActive = pathname === item.href;
+        const isActive = pathname.startsWith(item.href);
 
         return (
           <Link

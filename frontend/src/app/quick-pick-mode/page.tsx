@@ -33,7 +33,7 @@ export default function QuickPick() {
                 </button>
               </Link>
 
-              <Link href="/quick-pick-mode/loading">
+              <Link href="/choose-your-food">
                 <button
                   data-color="Pink"
                   data-size="Large"

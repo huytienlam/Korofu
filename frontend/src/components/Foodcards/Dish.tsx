@@ -13,7 +13,7 @@ const DishCard: React.FC<DishCardProps> = ({ title, subtitle, imageUrl }) => {
   const [liked, setLiked] = useState(false);
 
   return (
-    <div className="card relative flex items-center gap-4">
+    <div className="card relative flex items-center gap-4 w-full">
       {/* Hình bên trái */}
       <div className="w-28 h-28 bg-gray-200 flex-shrink-0 overflow-hidden">
         {imageUrl ? (
@@ -26,19 +26,19 @@ const DishCard: React.FC<DishCardProps> = ({ title, subtitle, imageUrl }) => {
       </div>
 
       {/* Nội dung chữ */}
-      <div className="flex flex-col flex-1 pr-14">
+      <div className="flex flex-col flex-1 gap-1">
         <h2 className="text-2xl font-bold text-[#21120D]">{title}</h2>
-        <p className="text-lg text-[#21120D]/80">{subtitle}</p>
+        <p className="!font-[Quicksand] text-xl leading-tight">{subtitle}</p>
       </div>
 
       {/* Nút cố định ở góc phải trên */}
-      <div className="absolute top-[20px] right-[18px] flex flex-col gap-2 items-end">
+      <div className="flex flex-col gap-2 self-start">
         <button>
           <Image src="/assets/icon/close.png" alt="close" width={24} height={24} />
         </button>
         <button onClick={() => setLiked(!liked)}>
           <Image
-            src={liked ? "/assets/icon/heart-outline.png" : "/assets/icon/heart-filled.png"}
+            src={liked ? "/assets/icon/heart-filled.png" : "/assets/icon/heart-outline.png"}
             alt="heart"
             width={24}
             height={24}

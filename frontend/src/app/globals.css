@@ -248,7 +248,22 @@
   .large-button-text {
     @apply
     text-center text-black text-2xl font-semibold leading-loose
-  } 
+  }
+
+  .medium-button {
+    @apply
+    w-60 h-15 px-3.5 py-1
+    rounded-[5px] shadow-[3px_3px_0px_rgba(0,0,0,1)]
+    outline outline-2 outline-offset-[-2px] outline-black
+    flex justify-center items-center gap-2.5
+    cursor-pointer
+    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
+  }
+  
+  .medium-button-text {
+    @apply
+    text-center text-black text-xl font-semibold leading-loose
+  }
 
   .drop-shadow-loading-text {
     @apply
@@ -266,6 +281,7 @@
 
   .drop-shadow-title-top {
     @apply
+    mb-6
     text-left
     text-4xl font-bold 
     leading-[57.5px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black]
