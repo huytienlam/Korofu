@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import './card.css';
 
 import Image from "next/image";
 
@@ -7,13 +6,38 @@ interface DishCardProps {
   title: string;
   subtitle: string;
   imageUrl?: string;
+  active?: boolean;
+  onClick?: () => void;
 }
 
-const DishCard: React.FC<DishCardProps> = ({ title, subtitle, imageUrl }) => {
+const DishCard: React.FC<DishCardProps> = ({ title, subtitle, imageUrl, active = false, onClick, }) => {
   const [liked, setLiked] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+
+  if (dismissed) {
+    return (
+      <div className="card">
+        <p className="text-xl text-center !font-[Quicksand]">
+          You disliked <span className="font-semibold">{title}</span>.  
+          It will not appear again in your recommendations. 
+          <button
+            onClick={() => setDismissed(false)}
+            className="ml-2 font-semibold underline hover:text-blue-800"
+          >
+            Undo?
+          </button>
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <div className="card relative flex items-center gap-4 w-full">
+    <div
+      onClick={onClick}
+      className={`card relative transition-colors ${
+        active ? "bg-korofu-yellow" : "bg-white"
+      }`}
+    >
       {/* Hình bên trái */}
       <div className="w-28 h-28 bg-gray-200 flex-shrink-0 overflow-hidden">
         {imageUrl ? (
@@ -33,10 +57,20 @@ const DishCard: React.FC<DishCardProps> = ({ title, subtitle, imageUrl }) => {
 
       {/* Nút cố định ở góc phải trên */}
       <div className="flex flex-col gap-2 self-start">
-        <button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setDismissed(true);
+          }}
+        >
           <Image src="/assets/icon/close.png" alt="close" width={24} height={24} />
         </button>
-        <button onClick={() => setLiked(!liked)}>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setLiked(!liked)
+          }}
+        >
           <Image
             src={liked ? "/assets/icon/heart-filled.png" : "/assets/icon/heart-outline.png"}
             alt="heart"
