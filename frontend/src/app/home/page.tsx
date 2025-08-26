@@ -19,7 +19,7 @@ export default function UserHome() {
         <Sidebar />
 
         {/* Main Content */}
-        <main className="flex-1 p-6 rounded-3xl">
+        <main className="flex-1 p-6 rounded-3xl mr-10">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-3xl font-extrabold text-[#21120D]">Hey there, {username}!</h1>
           </div>

@@ -146,7 +146,7 @@ export default function FoodPreferences() {
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
 
-        <main className="flex-1 p-6 rounded-3xl">
+        <main className="flex-1 p-6 rounded-3xl mr-10">
           {/* Title */}
           {/* <h1 className="text-3xl font-extrabold text-[#FFA764] mb-8 text-outline">
             Manage Food Preferences

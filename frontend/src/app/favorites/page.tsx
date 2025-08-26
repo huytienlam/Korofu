@@ -11,7 +11,7 @@ export default function FavoriteDishes() {
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
         
-        <main className="flex-1 p-6 rounded-3xl">
+        <main className="flex-1 p-6 rounded-3xl mr-10">
           <h1 className="text-3xl font-extrabold text-[#21120D] mb-8">Favorite Dishes</h1>
           
           <div className="bg-white border-2 border-black rounded-3xl p-6 shadow-[8px_8px_0_#000]">

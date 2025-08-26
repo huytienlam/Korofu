@@ -245,10 +245,6 @@
     flex justify-center items-center gap-2.5
     cursor-pointer
     hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
-  }
-
-  .large-button-text {
-    @apply
     text-center text-black text-2xl font-semibold leading-loose
   }
 
@@ -260,12 +256,51 @@
     flex justify-center items-center gap-2.5
     cursor-pointer
     hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
-  }
-  
-  .medium-button-text {
-    @apply
     text-center text-black text-xl font-semibold leading-loose
   }
+
+  .small-button {
+    @apply
+    w-20 h-12 px-3.5 py-1
+    rounded-[7px] shadow-[3px_3px_0px_rgba(0,0,0,1)]
+    outline outline-2 outline-offset-[-2px] outline-black
+    flex justify-center items-center gap-2.5
+    cursor-pointer
+    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
+    text-center text-black text-xl font-semibold leading-loose
+  }
+
+  .cancel-button {
+    @apply
+    flex items-center justify-center
+    cursor-pointer
+    bg-korofu-light-yellow border-2 border-black 
+    shadow-[3px_3px_0px_0px_black] rounded-[7px] w-12 h-12 absolute top-2 left-2
+    leading-loose text-2xl font-bold !font-['Quicksand'] text-korofu-light-red
+    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
+  }
+
+  .skip-button {
+    @apply
+    flex items-center justify-center px-2
+    cursor-pointer
+    bg-korofu-light-red border-2 border-black 
+    shadow-[3px_3px_0px_0px_black] rounded-[7px] h-12 absolute top-2 right-2
+    text-center text-2xl font-semibold leading-loose text-korofu-light-yellow
+    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
+  }
+
+  .popup {
+    @apply
+    relative
+    bg-white text-center
+    py-15 px-10 max-w-[30%] w-full z-10
+    outline outline-2 outline-black
+    rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)];
+  }
+
+
+  /* TEXT STYLES */
 
   .drop-shadow-loading-text {
     @apply

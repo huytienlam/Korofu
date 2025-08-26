@@ -4,7 +4,7 @@ import Link from "next/link";
 import UserNavbar from '../../components/UserNavbar';
 import Sidebar from '../../components/Sidebar';
 
-export default function QuickPick() {
+export default function QuickPickMode() {
   return (
     <div className="min-h-screen">
       <UserNavbar username="Username" />

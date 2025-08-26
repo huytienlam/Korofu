@@ -5,7 +5,7 @@ import Sidebar from '../../../components/Sidebar';
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function QuickPick() {
+export default function QuickPickModeLoadingShuffle() {
   const router = useRouter();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function QuickPick() {
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
         
-        <main className="flex-1 flex flex-col items-center justify-center">
+        <main className="flex-1 flex flex-col items-center justify-center mr-10">
             <p className="drop-shadow-loading-text text-korofu-aqua">
                 Shuffling...
             </p>

@@ -24,7 +24,7 @@ const dishes = [
     },
 ];
 
-export default function QuickPick() {
+export default function FoodRecommendation() {
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const handleCardClick = (index: number) => {
@@ -38,13 +38,13 @@ export default function QuickPick() {
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
         
-        <main className="flex-1 flex flex-col">
+        <main className="flex-1 flex flex-col mr-10">
 
             <div className="drop-shadow-title-top text-korofu-aqua">
               The taste universe conspired to bring you…
             </div>
 
-            <div className="flex flex-row justify-between gap-12 mr-10">
+            <div className="flex flex-row justify-between gap-12">
               <div className="flex flex-col gap-4">
                 {dishes.map((dish, index) => (
                     <DishCard
@@ -64,22 +64,18 @@ export default function QuickPick() {
                       <button
                         data-color="Light Red"
                         data-size="Medium"
-                        className="medium-button bg-korofu-light-red"
+                        className="medium-button bg-korofu-light-red text-korofu-light-yellow"
                       >
-                        <span className="medium-button-text text-korofu-light-yellow">
                           View Recipes
-                        </span>
                       </button>
                     </Link>
                     <Link href="/quick-pick-mode/loading">
                       <button
                         data-color="Light Yellow"
                         data-size="Medium"
-                        className="medium-button bg-korofu-light-yellow"
+                        className="medium-button bg-korofu-light-yellow text-korofu-light-red"
                       >
-                        <span className="medium-button-text text-korofu-light-red">
                           View Restaurants
-                        </span>
                       </button>
                     </Link>
                   </div>
