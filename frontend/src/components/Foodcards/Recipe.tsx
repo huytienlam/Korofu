@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 interface RecipeCardProps {
-  tittle: string;
-  subtittle: string;
+  title: string;
+  contributor: string;
   imageUrl?: string;
   rating: number;
 }
 
-const RecipeCard: React.FC<RecipeCardProps> = ({ tittle, subtittle, imageUrl, rating }) => {
+const RecipeCard: React.FC<RecipeCardProps> = ({ title, contributor, imageUrl, rating }) => {
   const [saved, setSaved] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ tittle, subtittle, imageUrl, ra
       {/* Hình bên trái */}
       <div className="w-28 h-28 bg-gray-200 flex-shrink-0 overflow-hidden">
         {imageUrl ? (
-          <img src={imageUrl} alt={tittle} className="w-full h-full object-cover" />
+          <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-gray-500">
             Img
@@ -27,7 +27,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ tittle, subtittle, imageUrl, ra
 
       {/* Nội dung chữ */}
       <div className="flex flex-col flex-1 pr-14">
-        <h2 className="text-2xl font-bold text-[#21120D]">{tittle}</h2>
+        <h2 className="text-2xl font-bold text-[#21120D]">{title}</h2>
 
         {/* Rating stars */}
         <div className="flex items-center gap-1 my-1">
@@ -44,7 +44,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ tittle, subtittle, imageUrl, ra
 
         {/* Subtitle with location */}
         <p className="text-lg text-[#21120D]/80 flex items-center gap-1">
-          {subtittle}
+          {contributor}
         </p>
       </div>
 
