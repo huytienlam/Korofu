@@ -6,39 +6,35 @@ import { useState } from "react";
 export const Navbar = () => {
 
   return (
-    <nav className='block top-0 left-0 right-0 z-50 bg-[#F9F5F2]'>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <Image src="/assets/logo/Logo Full Yellow.svg" alt="Logo" width={180} height={32} />
-            </Link>
-          </div>
+    <nav className='w-full-screen h-[100px] bg-[#F9F5F2] flex items-center justify-center'>
+      <div className="w-full px-10 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/home" className="flex items-center">
+          <Image
+            src="/assets/logo/Logo_Yellow.png"
+            alt="Korofu Logo"
+            width={260}
+            height={83}
+            priority
+          />
+        </Link>
+        <div className="flex items-center gap-10">
           {/* Navigation Links */}
-          <div className="flex items-center max-md:hidden space-x-10">
-            <Link href="/home" className="text-[#21120D] hover:text-[#21120D]/80">
-              Home
-            </Link>
-            <Link href="/preview" className="text-[#21120D] hover:text-[#21120D]/80">
-              Preview
-            </Link>
-            <Link href="/about" className="text-[#21120D] hover:text-[#21120D]/80">
-              About
-            </Link>
-            <Link href="/contact" className="text-[#21120D] hover:text-[#21120D]/80">  
-              Contact
-            </Link>
+          <div className="flex items-center max-md:hidden gap-10 text-lg font-medium text-black font-['Quicksand']">
+            <Link href="/home">Home</Link>
+            <Link href="/preview">Preview</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
           </div>
-          <div className='flex items-center space-x-4'>
-            <button className="px-6 py-2 bg-[#00E5A1] text-black rounded-lg hover:bg-[#00D194] transition-colors font-medium">
+          <div className='flex items-center gap-10 font-["SFUFutura"] font-semibold text-xl'>
+            <button className="px-6 py-2 bg-[#4FD3C6] text-black rounded-[5px] border-[2px] border-black shadow-[3px_3px_0_#000] hover:bg-white transition-colors">
               Log In
             </button>
-            <button className="px-6 py-2 bg-[#FF8FE5] text-black rounded-lg hover:bg-[#FF7AE0] transition-colors font-medium">
+            <button className="px-6 py-2 bg-[#FF91E8] text-black rounded-[5px] border-[2px] border-black shadow-[3px_3px_0_#000] hover:bg-white transition-colors">
               Sign Up
             </button>
           </div>
         </div>
-
       </div>
     </nav>
   );
