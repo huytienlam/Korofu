@@ -28,7 +28,7 @@ export default function ChooseYourFood() {
                   data-size="Large"
                   className="large-button bg-korofu-green"
                 >
-                  <span className="large-button-text">Let's go!</span>
+                  Let's go!
                 </button>
               </Link>
 
@@ -38,7 +38,7 @@ export default function ChooseYourFood() {
                   data-size="Large"
                   className="large-button bg-korofu-beige"
                 >
-                  <span className="large-button-text">Wow me instead?</span>
+                  Wow me instead?
                 </button>
               </Link>
             </div>

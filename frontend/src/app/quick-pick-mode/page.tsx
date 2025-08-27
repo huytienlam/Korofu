@@ -28,7 +28,7 @@ export default function QuickPickMode() {
                   data-size="Large"
                   className="large-button bg-korofu-yellow"
                 >
-                  <span className="large-button-text">Surprise me!</span>
+                  Surprise me!
                 </button>
               </Link>
 
@@ -38,9 +38,7 @@ export default function QuickPickMode() {
                   data-size="Large"
                   className="large-button bg-korofu-pink"
                 >
-                  <span className="large-button-text">
                     I’d rather pick myself.
-                  </span>
                 </button>
               </Link>
             </div>

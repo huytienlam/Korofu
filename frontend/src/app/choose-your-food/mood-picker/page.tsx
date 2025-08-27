@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import UserNavbar from "../../../components/UserNavbar";
 import Sidebar from "../../../components/Sidebar";
 import CancelPopup from "../../../components/Popups/Cancel";
@@ -14,6 +15,13 @@ export default function MoodPicker() {
     // state for skip logic
     const [moodSkip, setMoodSkip] = useState(false);
     const [colorSkip, setColorSkip] = useState(false);
+
+    const router = useRouter(); // ✅ initialize router
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault(); // stop page reload
+        router.push("/choose-your-food/loading-mood"); // ✅ navigate
+    };
 
     return (
         <div className="min-h-screen">
@@ -36,7 +44,7 @@ export default function MoodPicker() {
                         Skip
                         <span className="ml-1 inline-flex items-center">
                             <img
-                                src="/assets/icon/Skip_Yellow.png"
+                                src="/assets/icon/Skip_Yellow.svg"
                                 alt="skip icon"
                                 className="w-10"
                             ></img>
@@ -51,8 +59,24 @@ export default function MoodPicker() {
                             How are you feeling today? <br></br>
                             Let your mood guide you to the perfect bite!
                         </div>
-                        
                     </div>
+
+                    {/* Input Form */}
+                    <form onSubmit={handleSubmit} className="w-[80%] mb-15">
+                        <div className="flex gap-4">
+                            <textarea
+                                placeholder="What are you feeling today?"
+                                className="llm-input
+                                            bg-korofu-light-red text-korofu-light-yellow placeholder-korofu-light-yellow"
+                            />
+                            <button
+                                type="submit"
+                                className="llm-input-submit-button bg-korofu-light-yellow"
+                            >
+                                <img src="/assets/icon/Send_Red.svg" className="h-10"/>
+                            </button>
+                        </div>
+                    </form>
                 </main>
             </div>
 

@@ -239,7 +239,7 @@
     outline outline-2 outline-offset-[-2px] outline-black
     flex justify-center items-center gap-2.5
     cursor-pointer
-    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
+    hover:translate-y-1 hover:shadow-[0px_0px_0px_rgba(0,0,0,1)] transition-all
     text-center text-black text-2xl font-semibold leading-loose;
   }
 
@@ -249,7 +249,7 @@
     outline outline-2 outline-offset-[-2px] outline-black
     flex justify-center items-center gap-2.5
     cursor-pointer
-    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
+    hover:translate-y-1 hover:shadow-[0px_0px_0px_rgba(0,0,0,1)] transition-all
     text-center text-black text-xl font-semibold leading-loose;
   }
 
@@ -259,7 +259,7 @@
     outline outline-2 outline-offset-[-2px] outline-black
     flex justify-center items-center gap-2.5
     cursor-pointer
-    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
+    hover:translate-y-1 hover:shadow-[0px_0px_0px_rgba(0,0,0,1)] transition-all
     text-center text-black text-xl font-semibold leading-loose;
   }
 
@@ -269,7 +269,7 @@
     bg-korofu-light-yellow border-2 border-black 
     shadow-[3px_3px_0px_0px_black] rounded-[7px] w-12 h-12 absolute top-2 left-2
     leading-loose text-2xl font-bold !font-['Quicksand'] text-korofu-light-red
-    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all;
+    hover:translate-y-1 hover:shadow-[0px_0px_0px_rgba(0,0,0,1)] transition-all;
   }
 
   .skip-button {
@@ -278,8 +278,11 @@
     bg-korofu-light-red border-2 border-black 
     shadow-[3px_3px_0px_0px_black] rounded-[7px] h-12 absolute top-2 right-2
     text-center text-2xl font-semibold leading-loose text-korofu-light-yellow
-    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all;
+    hover:translate-y-1 hover:shadow-[0px_0px_0px_rgba(0,0,0,1)] transition-all;
   }
+
+
+  /* OTHER COMPONENT STYLES */
 
   .popup {
     @apply relative
@@ -288,6 +291,30 @@
     outline outline-2 outline-black
     rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)];
   }
+
+  .llm-input {
+    @apply
+    flex justify-center flex-1 px-6 py-4 text-lg font-semibold 
+    border-2 border-black rounded-2xl shadow-[3px_3px_0_#000]
+    focus:outline-none focus:shadow-[0px_0px_0_#000] transition-shadow
+  }
+
+  .llm-input-submit-button {
+    @apply
+    px-10 py-4 border-2 border-black rounded-2xl 
+    shadow-[3px_3px_0_#000] hover:shadow-[0px_0px_0_#000] active:shadow-[2px_2px_0_#000]
+    active:translate-x-1 active:translate-y-1 transition-all duration-200
+  }
+
+  .mood-tag {
+    @apply
+    px-4 py-0.5
+    rounded-4xl shadow-[3px_3px_0px_rgba(0,0,0,1)]
+    outline outline-2 outline-offset-[-2px] outline-black
+    flex justify-center items-center gap-2.5
+    text-center text-black text-lg font-bold leading-loose;
+  }
+
 
   /* TEXT STYLES */
 

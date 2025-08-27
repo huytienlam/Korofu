@@ -39,7 +39,7 @@ export default function ColorPicker() {
                         Skip
                         <span className="ml-1 inline-flex items-center">
                             <img
-                                src="/assets/icon/Skip_Yellow.png"
+                                src="/assets/icon/Skip_Yellow.svg"
                                 alt="skip icon"
                                 className="w-10"
                             />
