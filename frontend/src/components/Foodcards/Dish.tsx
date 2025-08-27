@@ -22,7 +22,7 @@ const DishCard: React.FC<DishCardProps> = ({ title, subtitle, imageUrl, active =
           It will not appear again in your recommendations. 
           <button
             onClick={() => setDismissed(false)}
-            className="ml-2 font-semibold underline hover:text-blue-800"
+            className="ml-2 font-semibold underline hover:text-korofu-dark-red"
           >
             Undo?
           </button>

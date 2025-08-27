@@ -42,7 +42,7 @@ export default function FoodRecommendationShuffle() {
 
         <main className="flex-1 flex flex-col mr-10">
           <div className="drop-shadow-title-top text-korofu-aqua">
-            The taste universe conspired to bring you…
+            The flavor gods have spoken and chosen…
           </div>
 
           <div className="flex flex-row justify-between gap-12">
@@ -61,20 +61,27 @@ export default function FoodRecommendationShuffle() {
             <div className="flex flex-col justify-center align-center">
               <div className="flex flex-col gap-5">
                 <div className="flex flex-row gap-6">
-                  <Link href="/quick-pick-mode/loading">
+                  <Link
+                    href="/quick-pick-mode/loading"
+                    className={activeIndex === null ? "pointer-events-none" : ""}
+                  >
                     <button
-                      data-color="Light Red"
-                      data-size="Medium"
-                      className="medium-button bg-korofu-light-red text-korofu-light-yellow"
+                      className={`medium-button bg-korofu-light-red text-korofu-light-yellow 
+                      ${activeIndex === null ? "opacity-50 cursor-not-allowed" : ""}`}
+                      disabled={activeIndex === null}
                     >
                       View Recipes
                     </button>
                   </Link>
-                  <Link href="/quick-pick-mode/loading">
+
+                  <Link
+                    href="/quick-pick-mode/loading"
+                    className={activeIndex === null ? "pointer-events-none" : ""}
+                  >
                     <button
-                      data-color="Light Yellow"
-                      data-size="Medium"
-                      className="medium-button bg-korofu-light-yellow text-korofu-light-red"
+                      className={`medium-button bg-korofu-light-yellow text-korofu-light-red 
+                      ${activeIndex === null ? "opacity-50 cursor-not-allowed" : ""}`}
+                      disabled={activeIndex === null}
                     >
                       View Restaurants
                     </button>

@@ -1,18 +1,13 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import UserNavbar from "../../../components/UserNavbar";
 import Sidebar from "../../../components/Sidebar";
 import SkipPopup from "../../../components/Popups/Skip";
 import CancelPopup from "../../../components/Popups/Cancel";
 
-const moods = [
-  "happy",
-  "cheerful",
-  "wants something heavy",
-];
+const moods = ["happy", "cheerful", "wants something heavy"];
 
 const colors = [
   "bg-korofu-yellow",
@@ -32,12 +27,17 @@ const colors = [
 
 export default function MoodPickerResults() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // load skip state from query
+  const initialMoodSkip = searchParams?.get("moodSkip") === "true";
+  const initialColorSkip = searchParams?.get("colorSkip") === "true";
 
   const [showSkipPopup, setShowSkipPopup] = useState(false);
   const [showCancelPopup, setShowCancelPopup] = useState(false);
 
-  const [moodSkip, setMoodSkip] = useState(false);
-  const [colorSkip, setColorSkip] = useState(false);
+  const [moodSkip, setMoodSkip] = useState(initialMoodSkip ?? false);
+  const [colorSkip, setColorSkip] = useState(initialColorSkip ?? false);
 
   const moodWithColors = useMemo(() => {
     return moods.map((mood) => {
@@ -47,13 +47,16 @@ export default function MoodPickerResults() {
   }, []);
 
   const handleSpotOn = () => {
-    // ✅ mood is picked, just go next
-    router.push("/choose-your-food/color-palette-picker");
+    // ✅ mood confirmed
+    router.push(
+      `/choose-your-food/color-palette-picker?moodSkip=false&colorSkip=${colorSkip}`
+    );
   };
 
   const handleNope = () => {
-    // ✅ go back to mood picker for re-input
-    router.push("/choose-your-food/mood-picker");
+    router.push(
+      `/choose-your-food/mood-picker?moodSkip=${moodSkip}&colorSkip=${colorSkip}`
+    );
   };
 
   return (
@@ -64,64 +67,62 @@ export default function MoodPickerResults() {
         <Sidebar />
 
         <main className="relative flex-1 flex flex-col items-center justify-center mr-10">
-            <div
-                className="cancel-button"
-                onClick={() => setShowCancelPopup(true)}
->
-                x
-            </div>
-            <div
-                className="skip-button"
-                onClick={() => setShowSkipPopup(true)}
-            >
-                Skip
-                <span className="ml-1 inline-flex items-center">
-                    <img
-                        src="/assets/icon/Skip_Yellow.svg"
-                        alt="skip icon"
-                        className="w-10"
-                    ></img>
-                </span>
-            </div>
-            <div className="flex flex-col justify-center items-center gap-4 mb-30">
-                <div className="drop-shadow-title-middle text-korofu-light-yellow">
-                    Mood Picker
-                </div>
-                <div className="max-w-[40rem] text-center justify-center text-black text-2xl font-medium font-['Quicksand']">
-                    Does this match how you're feeling?
-                </div>
+          <div
+            className="cancel-button"
+            onClick={() => setShowCancelPopup(true)}
+          >
+            x
+          </div>
+          <div
+            className="skip-button"
+            onClick={() => setShowSkipPopup(true)}
+          >
+            Skip
+            <span className="ml-1 inline-flex items-center">
+              <img
+                src="/assets/icon/Skip_Yellow.svg"
+                alt="skip icon"
+                className="w-10"
+              />
+            </span>
+          </div>
 
-                {/* Mood Tags */}
-                <div className="flex flex-row gap-5 flex-wrap mt-5 mb-15">
-                    {moodWithColors.map(({ mood, color }) => (
-                        <div key={mood} className={`mood-tag ${color}`}>
-                        {mood}
-                        </div>
-                    ))}
-                </div>
-
-                <div className="inline-flex justify-start items-center gap-12">
-                    {/* Spot on */}
-                    <button
-                        onClick={handleSpotOn}
-                        className="large-button bg-korofu-light-red text-korofu-light-yellow"
-                    >
-                        Spot on!
-                    </button>
-
-                    {/* Nope */}
-                    <button
-                        onClick={handleNope}
-                        className="large-button bg-korofu-light-yellow text-korofu-light-red"
-                    >
-                        Nope, not quite.
-                    </button>
-                </div>
+          <div className="flex flex-col justify-center items-center gap-4 mb-30">
+            <div className="drop-shadow-title-middle text-korofu-light-yellow">
+              Mood Picker
             </div>
+            <div className="max-w-[40rem] text-center justify-center text-black text-2xl font-medium font-['Quicksand']">
+              Does this match how you're feeling?
+            </div>
+
+            {/* Mood Tags */}
+            <div className="flex flex-row gap-5 flex-wrap mt-5 mb-15">
+              {moodWithColors.map(({ mood, color }) => (
+                <div key={mood} className={`mood-tag ${color}`}>
+                  {mood}
+                </div>
+              ))}
+            </div>
+
+            <div className="inline-flex justify-start items-center gap-12">
+              <button
+                onClick={handleSpotOn}
+                className="large-button bg-korofu-light-red text-korofu-light-yellow"
+              >
+                Spot on!
+              </button>
+
+              <button
+                onClick={handleNope}
+                className="large-button bg-korofu-light-yellow text-korofu-light-red"
+              >
+                Nope, not quite.
+              </button>
+            </div>
+          </div>
         </main>
       </div>
 
-      {/* Skip Popup */}
       {showSkipPopup && (
         <SkipPopup
           onClose={() => setShowSkipPopup(false)}
@@ -130,11 +131,8 @@ export default function MoodPickerResults() {
           setColorSkip={setColorSkip}
         />
       )}
-      {/* Cancel Popup */}
       {showCancelPopup && (
-        <CancelPopup
-          onClose={() => setShowCancelPopup(false)}
-        />
+        <CancelPopup onClose={() => setShowCancelPopup(false)} />
       )}
     </div>
   );
