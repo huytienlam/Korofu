@@ -1,10 +1,8 @@
-'use client'
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from "react";
+"use client";
+import Image from "next/image";
+import Link from "next/link";
 
 export const Navbar = () => {
-
   return (
     <nav className='w-full-screen h-[100px] bg-[#F9F5F2] flex items-center justify-center'>
       <div className="w-full px-10 py-4 flex items-center justify-between">

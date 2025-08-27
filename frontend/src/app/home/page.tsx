@@ -1,27 +1,29 @@
 "use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import UserNavbar from '../../components/UserNavbar';
-import Sidebar from '../../components/Sidebar';
-import Link from 'next/link';
+import { useState } from "react";
+import Image from "next/image";
+import UserNavbar from "../../components/UserNavbar";
+import Sidebar from "../../components/Sidebar";
+import Link from "next/link";
 
 export default function UserHome() {
-  const [username] = useState('Username');
-  const [currentMood] = useState('happy');
-  const moodTags = ['energetic', 'funky', 'happy', 'new'];
+  const [username] = useState("Username");
+  const [currentMood] = useState("happy");
+  const moodTags = ["energetic", "funky", "happy", "new"];
 
   return (
     <div className="min-h-screen">
-      <UserNavbar username="Username" />
-      
+      <UserNavbar />
+
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
 
         {/* Main Content */}
         <main className="flex-1 p-6 rounded-3xl mr-10">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-extrabold text-[#21120D]">Hey there, {username}!</h1>
+            <h1 className="text-3xl font-extrabold text-[#21120D]">
+              Hey there, {username}!
+            </h1>
           </div>
 
           {/* Mood and Color Palette Sections - Side by Side */}
@@ -30,7 +32,9 @@ export default function UserHome() {
             <div className="bg-white border-2 border-black rounded-3xl p-6 flex-1 shadow-[8px_8px_0_#000]">
               <div className="flex items-center mb-4">
                 <span className="text-2xl mr-4">😊</span>
-                <p className="text-lg font-bold">You seem to be so happy these days!</p>
+                <p className="text-lg font-bold">
+                  You seem to be so happy these days!
+                </p>
               </div>
               <p className="mb-2">Your mood</p>
               <div className="flex gap-2 flex-wrap">
@@ -38,7 +42,7 @@ export default function UserHome() {
                   <span
                     key={tag}
                     className={`px-4 py-1 rounded-full border-2 border-black ${
-                      tag === currentMood ? 'bg-yellow-300' : 'bg-white'
+                      tag === currentMood ? "bg-yellow-300" : "bg-white"
                     }`}
                   >
                     {tag}
@@ -51,7 +55,9 @@ export default function UserHome() {
             <div className="bg-white border-2 border-black rounded-3xl p-6 flex-1 shadow-[8px_8px_0_#000]">
               <div className="flex items-center mb-4">
                 <div className="w-8 h-8 rounded-full bg-cyan-300 border-2 border-black mr-4"></div>
-                <p className="text-lg font-bold">Recently, you really seem to love a bright soft aqua.</p>
+                <p className="text-lg font-bold">
+                  Recently, you really seem to love a bright soft aqua.
+                </p>
               </div>
               <p className="mb-2">Your color palette</p>
               <div className="flex gap-3 items-center">
@@ -71,20 +77,18 @@ export default function UserHome() {
             <div className="flex gap-6">
               {/* Left side - Menu options */}
               <div className="flex-1">
-                <h2 className="text-xl font-bold mb-4">Today's Menu</h2>
-                <p className="mb-4 font-medium">We think you will like these!</p>
-                <p className="text-sm text-gray-600 mb-4">If you don't?</p>
-                
+                <h2 className="text-xl font-bold mb-4">Today&apos;s Menu</h2>
+                <p className="mb-4 font-medium">
+                  We think you will like these!
+                </p>
+                <p className="text-sm text-gray-600 mb-4">If you don&apos;t?</p>
+
                 <div className="space-y-3">
                   <button className="w-full py-3 bg-yellow-200 border-2 border-black rounded-xl text-center font-semibold ">
-                    <Link href="/choose-food">
-                    Choose my own food!
-                    </Link>
+                    <Link href="/choose-food">Choose my own food!</Link>
                   </button>
                   <button className="w-full py-3 bg-cyan-200 border-2 border-black rounded-xl text-center font-semibold">
-                    <Link href="/quick-pick">
-                    Quick pick for me!                    
-                    </Link>
+                    <Link href="/quick-pick">Quick pick for me!</Link>
                   </button>
                 </div>
               </div>
@@ -103,28 +107,42 @@ export default function UserHome() {
                     </div>
                     <div>
                       <h3 className="font-bold">Pizza</h3>
-                      <p className="text-sm text-gray-600">Crust, mozzarella cheese, tomato sauce.</p>
+                      <p className="text-sm text-gray-600">
+                        Crust, mozzarella cheese, tomato sauce.
+                      </p>
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <button className="p-2 hover:bg-gray-100 rounded">🗑️</button>
-                    <button className="p-2 hover:bg-gray-100 rounded">❤️</button>
+                    <button className="p-2 hover:bg-gray-100 rounded">
+                      🗑️
+                    </button>
+                    <button className="p-2 hover:bg-gray-100 rounded">
+                      ❤️
+                    </button>
                   </div>
                 </div>
 
                 <div className="flex justify-between items-center p-4 border-2 border-black rounded-xl bg-white shadow-[4px_4px_0_#000]">
                   <div className="flex items-center gap-4">
                     <div className="relative w-16 h-16 rounded-lg border-2 border-black overflow-hidden bg-gradient-to-br from-yellow-200 to-orange-200">
-                      <div className="w-full h-full flex items-center justify-center text-2xl">🍝</div>
+                      <div className="w-full h-full flex items-center justify-center text-2xl">
+                        🍝
+                      </div>
                     </div>
                     <div>
                       <h3 className="font-bold">Pasta</h3>
-                      <p className="text-sm text-gray-600">Pasta, sauce, meat, veggies, cheese.</p>
+                      <p className="text-sm text-gray-600">
+                        Pasta, sauce, meat, veggies, cheese.
+                      </p>
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <button className="p-2 hover:bg-gray-100 rounded">🗑️</button>
-                    <button className="p-2 hover:bg-gray-100 rounded">❤️</button>
+                    <button className="p-2 hover:bg-gray-100 rounded">
+                      🗑️
+                    </button>
+                    <button className="p-2 hover:bg-gray-100 rounded">
+                      ❤️
+                    </button>
                   </div>
                 </div>
               </div>
@@ -136,7 +154,9 @@ export default function UserHome() {
             <div className="flex gap-6">
               {/* Left side - Description */}
               <div className="flex-1">
-                <h2 className="text-xl font-bold mb-4">These are your recent dishes!</h2>
+                <h2 className="text-xl font-bold mb-4">
+                  These are your recent dishes!
+                </h2>
                 <p className="text-lg">Wanna give these lovelies a retry?</p>
               </div>
 
@@ -172,10 +192,14 @@ export default function UserHome() {
                   </div>
                   <div className="flex gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-yellow-400">★</span>
+                      <span key={i} className="text-yellow-400">
+                        ★
+                      </span>
                     ))}
                   </div>
-                  <p className="text-sm text-gray-600 mb-2">224 Nguyễn Thị Minh Khai, Phường 6, Quận 3, TPHCM</p>
+                  <p className="text-sm text-gray-600 mb-2">
+                    224 Nguyễn Thị Minh Khai, Phường 6, Quận 3, TPHCM
+                  </p>
                   <div className="flex gap-2">
                     <button className="p-1">✏️</button>
                     <button className="p-1">🔖</button>
@@ -185,14 +209,18 @@ export default function UserHome() {
                 <div className="p-4 border-2 border-black rounded-xl bg-white shadow-[4px_4px_0_#000]">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-8 h-8 bg-blue-500 rounded"></div>
-                    <h3 className="font-bold">Domino's Pizza</h3>
+                    <h3 className="font-bold">Domino&apos;s Pizza</h3>
                   </div>
                   <div className="flex gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-yellow-400">★</span>
+                      <span key={i} className="text-yellow-400">
+                        ★
+                      </span>
                     ))}
                   </div>
-                  <p className="text-sm text-gray-600 mb-2">24 Pham Hong Thai Street, Ben Nghe Ward, District 1</p>
+                  <p className="text-sm text-gray-600 mb-2">
+                    24 Pham Hong Thai Street, Ben Nghe Ward, District 1
+                  </p>
                   <div className="flex gap-2">
                     <button className="p-1">✏️</button>
                     <button className="p-1">🔖</button>
@@ -203,14 +231,16 @@ export default function UserHome() {
               {/* Right side - Offers call to action */}
               <div className="flex-1">
                 <h2 className="text-xl font-bold mb-4">Nearby Offers</h2>
-                <p className="text-lg mb-6">Hand-picked deals catered just for you!</p>
-                
+                <p className="text-lg mb-6">
+                  Hand-picked deals catered just for you!
+                </p>
+
                 <div className="space-y-3">
                   <button className="w-full py-3 bg-blue-200 border-2 border-black rounded-xl text-center font-medium">
                     Any more new restaurants?
                   </button>
                   <button className="w-full py-3 bg-pink-200 border-2 border-black rounded-xl text-center font-medium">
-                    I'd prefer my familiars.
+                    I&apos;d prefer my familiars.
                   </button>
                 </div>
               </div>

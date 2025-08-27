@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface SkipPopupProps {
   onClose: () => void;
@@ -17,51 +16,64 @@ export default function SkipPopup({
   setColorSkip,
 }: SkipPopupProps) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const currentParams = new URLSearchParams(searchParams.toString());
 
-  // Popup text depending on type
+  const moodAlreadySkipped = currentParams.get("moodSkip") === "true";
+
+  // Messages depending on type and moodSkip
   const messages = {
-    mood: "Skipping the mood? Your cravings might stay hidden!",
-    color: "Skipping the color palette? You might miss a perfect match!",
+    mood: "Skipping the mood?\nYour cravings might stay hidden!",
+    color: moodAlreadySkipped
+      ? "Looks like you skipped both mood and color. Proceed with Quick Pick Mode?"
+      : "Skipping the color palette?\nYou might miss a perfect match!",
     both: "Looks like you skipped both mood and color. Proceed with Quick Pick Mode?",
   };
 
-  // Handle Yes click logic
   const handleYes = () => {
     if (type === "mood") {
       setMoodSkip(true);
-      router.push("/choose-your-food/color-palette-picker"); // 👉 move to next page
+      currentParams.set("moodSkip", "true");
+      router.push(`/choose-your-food/color-palette-picker?${currentParams.toString()}`);
     } else if (type === "color") {
-      setColorSkip(true);
-      router.push("/choose-your-food/loading-food"); // 👉 move to recommendations
+      if (moodAlreadySkipped) {
+        // skip both → quick pick
+        setColorSkip(true);
+        currentParams.set("colorSkip", "true");
+        router.push(`/quick-pick-mode/loading?${currentParams.toString()}`);
+      } else {
+        // skip color only
+        setColorSkip(true);
+        currentParams.set("colorSkip", "true");
+        router.push(`/choose-your-food/loading-food?${currentParams.toString()}`);
+      }
     } else if (type === "both") {
       setMoodSkip(true);
       setColorSkip(true);
-      router.push("/quick-pick-mode/food-recommendation"); // 👉 special flow
+      currentParams.set("moodSkip", "true");
+      currentParams.set("colorSkip", "true");
+      router.push(`/quick-pick-mode/loading?${currentParams.toString()}`);
     }
   };
 
-  // Handle No logic
   const handleNo = () => {
-    if (type === "mood") {
-      setMoodSkip(false);
-      onClose();
-    } else if (type === "color") {
-      setColorSkip(false);
-      onClose();
-    } else if (type === "both") {
-      setColorSkip(false); // Reset color skip back to false
-      router.push("/color-palette");
-    }
+    // Always just stay on the page, close popup
+    setMoodSkip(false);
+    setColorSkip(false);
+    onClose();
   };
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-50" onClick={onClose}></div>
+      <div
+        className="absolute inset-0 bg-black opacity-50"
+        onClick={onClose}
+      ></div>
 
-      {/* Popup */}
       <div className="popup">
-        <p className="text-2xl mb-15 mt-3 font-semibold">{messages[type]}</p>
+        <p className="text-2xl mb-15 mt-3 font-semibold whitespace-pre-line">
+          {messages[type]}
+        </p>
         <div className="flex justify-center gap-6">
           <button
             onClick={handleYes}

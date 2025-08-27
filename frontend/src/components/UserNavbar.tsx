@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
 type UserNavbarProps = {
-  username: string;
+  username?: string; // optional prop
 };
 
 export default function UserNavbar({ username }: UserNavbarProps) {
@@ -25,6 +25,22 @@ export default function UserNavbar({ username }: UserNavbarProps) {
     };
   }, []);
 
+  const [localUsername, setLocalUsername] = useState<string>(username || "Username");
+
+  useEffect(() => {
+    const savedProfile = localStorage.getItem("userProfile");
+    if (savedProfile) {
+      try {
+        const parsedProfile = JSON.parse(savedProfile);
+        if (parsedProfile.name) {
+          setLocalUsername(parsedProfile.name);
+        }
+      } catch (error) {
+        console.error("Error parsing saved profile:", error);
+      }
+    }
+  }, []);
+
   return (
     <nav className="w-full-screen h-[100px] bg-[#F9F5F2] flex items-center justify-center">
       <div className="w-full px-10 py-4 flex items-center justify-between">
@@ -41,35 +57,14 @@ export default function UserNavbar({ username }: UserNavbarProps) {
 
         {/* Actions */}
         <div className="flex items-center gap-4">
-          <button
-            aria-label="mood"
-          >
-            <Image
-              src="/assets/icon/Mood.png"        
-              alt="Mood icon"
-              width={48}
-              height={48}
-            />
+          <button aria-label="mood">
+            <Image src="/assets/icon/Mood.png" alt="Mood icon" width={48} height={48} />
           </button>
-          <button
-            aria-label="search"
-          >
-            <Image
-              src="/assets/icon/Search_Hover.png"  
-              alt="Search icon hover"
-              width={48}
-              height={48}
-            />
+          <button aria-label="search">
+            <Image src="/assets/icon/Search_Hover.png" alt="Search icon hover" width={48} height={48} />
           </button>
-          <button
-            aria-label="Notifications"
-          >
-            <Image
-              src="/assets/icon/Notifications_Hover.png"  
-              alt="Notifications icon hover"
-              width={48}
-              height={48}
-            />
+          <button aria-label="Notifications">
+            <Image src="/assets/icon/Notifications_Hover.png" alt="Notifications icon hover" width={48} height={48} />
           </button>
           {/* Avatar + Username + Dropdown */}
           <div className="relative" ref={dropdownRef}>
@@ -86,7 +81,7 @@ export default function UserNavbar({ username }: UserNavbarProps) {
                   className="object-cover"
                 />
               </div>
-              <span className="font-extrabold text-[#211204]">{username}</span>
+              <span className="font-extrabold text-[#211204]">{localUsername}</span>
             </button>
 
             {/* Dropdown menu */}

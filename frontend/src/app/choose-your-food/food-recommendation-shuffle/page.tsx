@@ -1,4 +1,4 @@
-// app/choose-your-food/food-recommendation/page.tsx
+// app/choose-your-food/food-recommendation-shuffle/page.tsx
 "use client";
 
 import React, { useState, useMemo } from "react";
@@ -8,24 +8,24 @@ import UserNavbar from '../../../components/UserNavbar';
 import Sidebar from '../../../components/Sidebar';
 import DishCard from '../../../components/Foodcards/Dish';
 
-const dishes = [
-  {
-    title: "Pizza",
-    subtitle: "Crust, mozzarella cheese, tomato sauce.",
+const shuffledDishes = [
+    {
+    title: "Thai Red Curry",
+    subtitle: "Curry paste, coconut milk, meat, Thai basil.",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
+      "https://takestwoeggs.com/wp-content/uploads/2025/03/Thai-Red-Curry-2.jpg",
   },
   {
-    title: "Pasta",
-    subtitle: "Pasta, sauce, meat, veggies, cheese.",
+    title: "Ramen",
+    subtitle: "Broth, noodles, tare, egg, scallions.",
     imageUrl:
-      "https://www.allrecipes.com/thmb/IrY572TXic4UXXVn8EetsarI3S0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-269500-creamy-garlic-pasta-Beauties-4x3-f404628aad2a435a9985b2cf764209b5.jpg",
+      "https://soomfoods.com/cdn/shop/articles/45_d115125d-8365-4865-af0e-5a8f42b577af_1600x.png?v=1750100505",
   },
   {
-    title: "Fried Chicken",
-    subtitle: "Chicken, batter.",
+    title: "Tacos",
+    subtitle: "Tortillas, meat, onion, cilantro, salsa.",
     imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI7uXAnhdOWJpu4Maf6a9yjc1RikPvL0nq_Q&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfDlBVCkK2SizG-nsiurP2phVkoYWRLxpsxw&s",
   },
 ];
 
@@ -55,22 +55,23 @@ const hardcodedColors = [
   "#9D4EDD",
 ]
 
-export default function FoodRecommendation() {
+export default function FoodRecommendationShuffle() {
   const searchParams = useSearchParams();
   const moodSkip = searchParams.get("moodSkip") === "true";
   const colorSkip = searchParams.get("colorSkip") === "true";
-  // palette can be read if you want to show the chosen colors
-  const palette = searchParams.get("palette") ? JSON.parse(decodeURIComponent(searchParams.get("palette")!)) : [];
+  const palette = searchParams.get("palette") 
+    ? JSON.parse(decodeURIComponent(searchParams.get("palette")!)) 
+    : [];
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const handleCardClick = (index: number) => setActiveIndex((prev) => (prev === index ? null : index));
 
   const moodWithColors = useMemo(() => {
-      return moods.map((mood) => {
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        return { mood, color: randomColor };
-      });
-    }, []);
+        return moods.map((mood) => {
+          const randomColor = colors[Math.floor(Math.random() * colors.length)];
+          return { mood, color: randomColor };
+        });
+      }, []);
 
   return (
     <div className="min-h-screen">
@@ -79,12 +80,12 @@ export default function FoodRecommendation() {
         <Sidebar />
         <main className="flex-1 flex flex-col mr-10">
           <div className="drop-shadow-title-top text-korofu-yellow">
-            The food stars aligned and chose...
+            Destiny plated up just for you…
           </div>
 
           <div className="flex flex-row justify-between gap-12">
             <div className="flex flex-col gap-4">
-              {dishes.map((dish, index) => (
+              {shuffledDishes.map((dish, index) => (
                 <DishCard
                   key={index}
                   title={dish.title}
@@ -157,11 +158,12 @@ export default function FoodRecommendation() {
                     </button>
                   </Link>
                 </div>
+
                 <p className="text-xl text-center">
                   Hmm... not the one?&nbsp;
                   <Link
                     href={{
-                      pathname: "/choose-your-food/loading-shuffle",
+                      pathname: "/choose-your-food/loading-food",
                       query: {
                         moodSkip: moodSkip.toString(),
                         colorSkip: colorSkip.toString(),
