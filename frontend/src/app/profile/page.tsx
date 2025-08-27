@@ -4,6 +4,7 @@ import Image from "next/image";
 import UserNavbar from "../../components/UserNavbar";
 import Sidebar from "../../components/Sidebar";
 import { useState, useEffect } from "react";
+import SavePopup from "../../components/Popups/Save";
 
 interface ProfileData {
   name: string;
@@ -26,20 +27,21 @@ const ProfilePage = () => {
     id: "",
   });
 
-  // Load data from localStorage on component mount
+  const [showSavePopup, setShowSavePopup] = useState(false);
+
+  // Load data from localStorage
   useEffect(() => {
     const savedProfile = localStorage.getItem("userProfile");
     if (savedProfile) {
       try {
-        const parsedProfile = JSON.parse(savedProfile);
-        setProfileData(parsedProfile);
+        setProfileData(JSON.parse(savedProfile));
       } catch (error) {
         console.error("Error parsing saved profile:", error);
       }
     }
   }, []);
 
-  // Handle input changes
+  // Input changes
   const handleInputChange = (field: keyof ProfileData, value: string) => {
     setProfileData((prev) => ({
       ...prev,
@@ -47,29 +49,12 @@ const ProfilePage = () => {
     }));
   };
 
-  // Save to localStorage
-  const handleSave = () => {
-    try {
-      localStorage.setItem("userProfile", JSON.stringify(profileData));
-      alert("Profile saved successfully!");
-    } catch (error) {
-      console.error("Error saving profile:", error);
-      alert("Error saving profile. Please try again.");
-    }
-  };
-
-  // Cancel changes - reload from localStorage
+  // Cancel → reset from storage
   const handleCancel = () => {
     const savedProfile = localStorage.getItem("userProfile");
     if (savedProfile) {
-      try {
-        const parsedProfile = JSON.parse(savedProfile);
-        setProfileData(parsedProfile);
-      } catch (error) {
-        console.error("Error loading saved profile:", error);
-      }
+      setProfileData(JSON.parse(savedProfile));
     } else {
-      // Reset to empty if no saved data
       setProfileData({
         name: "",
         dateOfBirth: "",
@@ -89,13 +74,13 @@ const ProfilePage = () => {
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
 
-        <main className="flex-1 p-6 rounded-3xl mr-10">
+        <main className="flex-1 mr-10 overflow-y-auto">
           {/* Title */}
 
           {/* Card Container */}
-          <div className="p-10 w-full max-w-5xl mx-auto">
+          <div className="p-2 w-full max-w-5xl mx-auto">
             {/* Avatar Section */}
-            <div className="flex items-center justify-between mb-10">
+            <div className="flex items-center justify-between mb-5">
               {/* Left: Avatar + Name */}
               <div className="flex items-center gap-6">
                 <div className="relative">
@@ -119,17 +104,13 @@ const ProfilePage = () => {
               <div className="flex gap-6">
                 <button
                   onClick={handleCancel}
-                  className="w-30 h-15 bg-[#E8E8E8] border-2 border-black 
-                 shadow-[4px_4px_0_#000] rounded-[11px] 
-                 font-bold text-lg hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                  className="small-button bg-korofu-gray"
                 >
                   Cancel
                 </button>
                 <button
-                  onClick={handleSave}
-                  className="w-35 h-15 bg-[#FFE262] border-2 border-black 
-                 shadow-[4px_4px_0_#000] rounded-[11px] 
-                 font-bold text-lg hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                  onClick={() => setShowSavePopup(true)} // ✅ open popup
+                  className="small-button bg-korofu-yellow"
                 >
                   Save
                 </button>
@@ -241,6 +222,13 @@ const ProfilePage = () => {
           </div>
         </main>
       </div>
+      {/* ✅ Render SavePopup if active */}
+      {showSavePopup && (
+        <SavePopup
+          onClose={() => setShowSavePopup(false)}
+          profileData={profileData} // pass data
+        />
+      )}
     </div>
   );
 };
