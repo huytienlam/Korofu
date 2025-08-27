@@ -45,6 +45,7 @@ export default function QuickPick() {
             The taste universe conspired to bring you…
           </div>
 
+<<<<<<< Updated upstream
           <div className="flex flex-row justify-between gap-12">
             <div className="flex flex-col gap-4">
               {dishes.map((dish, index) => (
@@ -57,6 +58,10 @@ export default function QuickPick() {
                   onClick={() => handleCardClick(index)}
                 />
               ))}
+=======
+            <div className="drop-shadow-title-top text-korofu-yellow">
+              The food stars aligned and chose...
+>>>>>>> Stashed changes
             </div>
             <div className="flex flex-col justify-center align-center">
               <div className="flex flex-col gap-5">

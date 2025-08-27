@@ -20,8 +20,8 @@ export default function SkipPopup({
 
   // Popup text depending on type
   const messages = {
-    mood: "Skipping the mood? Your cravings might stay hidden!",
-    color: "Skipping the color palette? You might miss a perfect match!",
+    mood: "Skipping the mood?\nYour cravings might stay hidden!",
+    color: "Skipping the color palette?\nYou might miss a perfect match!",
     both: "Looks like you skipped both mood and color. Proceed with Quick Pick Mode?",
   };
 
@@ -61,7 +61,9 @@ export default function SkipPopup({
 
       {/* Popup */}
       <div className="popup">
-        <p className="text-2xl mb-15 mt-3 font-semibold">{messages[type]}</p>
+        <p className="text-2xl mb-15 mt-3 font-semibold whitespace-pre-line">
+          {messages[type]}
+        </p>
         <div className="flex justify-center gap-6">
           <button
             onClick={handleYes}
