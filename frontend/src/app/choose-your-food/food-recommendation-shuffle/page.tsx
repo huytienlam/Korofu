@@ -33,7 +33,7 @@ export default function QuickPick() {
 
   return (
     <div className="min-h-screen">
-      <UserNavbar username="Username" />
+      <UserNavbar />
       
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
@@ -81,7 +81,7 @@ export default function QuickPick() {
                   </div>
                   <p className="text-xl text-center">
                     Hmm... not the one?&nbsp;
-                    <Link href="/quick-pick-mode/loading-shuffle">
+                    <Link href="/choose-your-food/food-recommendation">
                       <strong className="underline">Shuffle again!</strong>
                     </Link>
                   </p>

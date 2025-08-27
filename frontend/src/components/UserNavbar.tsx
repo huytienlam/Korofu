@@ -4,8 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-export default function UserNavbar() {
-  const [username, setUsername] = useState<string>("Username");
+type UserNavbarProps = {
+  username?: string; // optional prop
+};
+
+export default function UserNavbar({ username }: UserNavbarProps) {
+  const [localUsername, setLocalUsername] = useState<string>(username || "Username");
 
   useEffect(() => {
     const savedProfile = localStorage.getItem("userProfile");
@@ -13,13 +17,14 @@ export default function UserNavbar() {
       try {
         const parsedProfile = JSON.parse(savedProfile);
         if (parsedProfile.name) {
-          setUsername(parsedProfile.name);
+          setLocalUsername(parsedProfile.name);
         }
       } catch (error) {
         console.error("Error parsing saved profile:", error);
       }
     }
   }, []);
+
   return (
     <nav className="w-full-screen h-[100px] bg-[#F9F5F2] flex items-center justify-center">
       <div className="w-full px-10 py-4 flex items-center justify-between">
@@ -37,28 +42,13 @@ export default function UserNavbar() {
         {/* Actions */}
         <div className="flex items-center gap-4">
           <button aria-label="mood">
-            <Image
-              src="/assets/icon/Mood.png"
-              alt="Mood icon"
-              width={48}
-              height={48}
-            />
+            <Image src="/assets/icon/Mood.png" alt="Mood icon" width={48} height={48} />
           </button>
           <button aria-label="search">
-            <Image
-              src="/assets/icon/Search_Hover.png"
-              alt="Search icon hover"
-              width={48}
-              height={48}
-            />
+            <Image src="/assets/icon/Search_Hover.png" alt="Search icon hover" width={48} height={48} />
           </button>
           <button aria-label="Notifications">
-            <Image
-              src="/assets/icon/Notifications_Hover.png"
-              alt="Notifications icon hover"
-              width={48}
-              height={48}
-            />
+            <Image src="/assets/icon/Notifications_Hover.png" alt="Notifications icon hover" width={48} height={48} />
           </button>
           <a href="/profile">
             <div className="flex items-center gap-3">
@@ -69,9 +59,9 @@ export default function UserNavbar() {
                   fill
                   sizes="48px"
                   className="object-cover"
-                />{" "}
+                />
               </div>
-              <span className="font-extrabold text-[#211204]">{username}</span>
+              <span className="font-extrabold text-[#211204]">{localUsername}</span>
             </div>
           </a>
         </div>

@@ -1,20 +1,11 @@
 "use client";
 
-<<<<<<< Updated upstream:frontend/src/app/choose-your-food/oldpage.tsx
-import UserNavbar from "../../components/UserNavbar";
-import Sidebar from "../../components/Sidebar";
-import MoodPicker from "../../components/MoodPicker";
-import ColorPalettePicker from "../../components/ColorPalettePicker";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-=======
 import UserNavbar from '../../../components/UserNavbar';
 import Sidebar from '../../../components/Sidebar';
 import MoodPicker from '../../../components/MoodPicker';
 import ColorPalettePicker from '../../../components/ColorPalettePicker';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
->>>>>>> Stashed changes:frontend/src/app/choose-your-food/old-page/page.tsx
 
 export default function ChooseFood() {
   const router = useRouter();
@@ -94,7 +85,7 @@ export default function ChooseFood() {
 
   return (
     <div className="min-h-screen">
-      <UserNavbar username="Username" />
+      <UserNavbar />
 
       <div className="min-h-screen flex mt-5">
         <Sidebar />

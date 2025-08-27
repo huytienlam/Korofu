@@ -11,13 +11,8 @@ export default function QuickPickMode() {
 
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
-<<<<<<< Updated upstream
-
-        <main className="flex-1 flex flex-col items-center justify-center">
-=======
         
         <main className="flex-1 flex flex-col items-center justify-center mr-10">
->>>>>>> Stashed changes
           <div className="flex flex-col justify-center items-center gap-4 mb-30">
             <div className="drop-shadow-title-middle text-korofu-aqua">
               Quick Pick Mode
