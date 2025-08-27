@@ -4,7 +4,6 @@
 @tailwind utilities;
 @custom-variant dark (&:is(.dark *));
 
-
 /* THEME AND COLORS */
 
 @theme inline {
@@ -68,95 +67,93 @@
 }
 
 :root {
-
   /* ORIGINAL */
   --radius: 0.625rem;
-  --background: #F9F5F2;
-  --foreground: #0A0A0A;
-  --card: #FFFFFF;
-  --card-foreground: #0A0A0A;
-  --popover: #FFFFFF;
-  --popover-foreground: #0A0A0A;
+  --background: #f9f5f2;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
   --primary: #343434;
-  --primary-foreground: #FCFCFC;
-  --secondary: #F7F7F7;
+  --primary-foreground: #fcfcfc;
+  --secondary: #f7f7f7;
   --secondary-foreground: #343434;
-  --muted: #F7F7F7;
-  --muted-foreground: #7E7E7E;
-  --accent: #F7F7F7;
+  --muted: #f7f7f7;
+  --muted-foreground: #7e7e7e;
+  --accent: #f7f7f7;
   --accent-foreground: #343434;
-  --destructive: #DA3B3B;
-  --border: #EAEAEA;
-  --input: #EAEAEA;
-  --ring: #B4B4B4;
-  --chart-1: #E16F3D;
-  --chart-2: #3B83DB;
-  --chart-3: #4653C9;
-  --chart-4: #E9CA49;
-  --chart-5: #D7D547;
-  --sidebar: #FCFCFC;
+  --destructive: #da3b3b;
+  --border: #eaeaea;
+  --input: #eaeaea;
+  --ring: #b4b4b4;
+  --chart-1: #e16f3d;
+  --chart-2: #3b83db;
+  --chart-3: #4653c9;
+  --chart-4: #e9ca49;
+  --chart-5: #d7d547;
+  --sidebar: #fcfcfc;
   --sidebar-foreground: #262626;
   --sidebar-primary: #343434;
-  --sidebar-primary-foreground: #FCFCFC;
-  --sidebar-accent: #F7F7F7;
+  --sidebar-primary-foreground: #fcfcfc;
+  --sidebar-accent: #f7f7f7;
   --sidebar-accent-foreground: #343434;
-  --sidebar-border: #EAEAEA;
-  --sidebar-ring: #B4B4B4;
+  --sidebar-border: #eaeaea;
+  --sidebar-ring: #b4b4b4;
 
   /* COLORS TO USE */
-  --korofu-default: #F9F5F2;
+  --korofu-default: #f9f5f2;
 
-  --korofu-yellow: #FFE262;
-  --korofu-dark-red: #FF594D;
-  --korofu-pink: #FF91E8;
-  --korofu-aqua: #4FD3C6;
-  --korofu-indigo: #91A8EC;
-  --korofu-gold: #E9B349;
-  --korofu-orange: #FF914D;
-  --korofu-purple: #BFADFF;
-  --korofu-gray: #E8E8E8;
-  --korofu-beige: #FFDED0;
-  --korofu-blue: #ADDFFF;
-  --korofu-green: #A2E59C;
+  --korofu-yellow: #ffe262;
+  --korofu-dark-red: #ff594d;
+  --korofu-pink: #ff91e8;
+  --korofu-aqua: #4fd3c6;
+  --korofu-indigo: #91a8ec;
+  --korofu-gold: #e9b349;
+  --korofu-orange: #ff914d;
+  --korofu-purple: #bfadff;
+  --korofu-gray: #e8e8e8;
+  --korofu-beige: #ffded0;
+  --korofu-blue: #addfff;
+  --korofu-green: #a2e59c;
 
-  --korofu-light-red: #FF6D4D;
-  --korofu-light-yellow: #FFF5CC;
+  --korofu-light-red: #ff6d4d;
+  --korofu-light-yellow: #fff5cc;
 }
 
 .dark {
   --background: #262626;
-  --foreground: #FCFCFC;
+  --foreground: #fcfcfc;
   --card: #343434;
-  --card-foreground: #FCFCFC;
+  --card-foreground: #fcfcfc;
   --popover: #343434;
-  --popover-foreground: #FCFCFC;
-  --primary: #EAEAEA;
+  --popover-foreground: #fcfcfc;
+  --primary: #eaeaea;
   --primary-foreground: #343434;
   --secondary: #454545;
-  --secondary-foreground: #FCFCFC;
+  --secondary-foreground: #fcfcfc;
   --muted: #454545;
-  --muted-foreground: #B4B4B4;
+  --muted-foreground: #b4b4b4;
   --accent: #454545;
-  --accent-foreground: #FCFCFC;
-  --destructive: #E15538;
-  --border: #FFFFFF1A;
-  --input: #FFFFFF26;
-  --ring: #7E7E7E;
-  --chart-1: #5F6CE1;
-  --chart-2: #73C66E;
-  --chart-3: #D7D547;
-  --chart-4: #B46DE6;
-  --chart-5: #DA8C4E;
+  --accent-foreground: #fcfcfc;
+  --destructive: #e15538;
+  --border: #ffffff1a;
+  --input: #ffffff26;
+  --ring: #7e7e7e;
+  --chart-1: #5f6ce1;
+  --chart-2: #73c66e;
+  --chart-3: #d7d547;
+  --chart-4: #b46de6;
+  --chart-5: #da8c4e;
   --sidebar: #343434;
-  --sidebar-foreground: #FCFCFC;
-  --sidebar-primary: #5F6CE1;
-  --sidebar-primary-foreground: #FCFCFC;
+  --sidebar-foreground: #fcfcfc;
+  --sidebar-primary: #5f6ce1;
+  --sidebar-primary-foreground: #fcfcfc;
   --sidebar-accent: #454545;
-  --sidebar-accent-foreground: #FCFCFC;
-  --sidebar-border: #FFFFFF1A;
-  --sidebar-ring: #7E7E7E;
+  --sidebar-accent-foreground: #fcfcfc;
+  --sidebar-border: #ffffff1a;
+  --sidebar-ring: #7e7e7e;
 }
-
 
 /* BASE STYLES */
 
@@ -233,113 +230,99 @@
   font-family: "SFUFutura", "Quicksand", sans-serif;
 }
 
-@layer components{
-
+@layer components {
   /* BUTTON STYLES */
 
   .large-button {
-    @apply
-    w-80 h-18 px-3.5 py-1
+    @apply w-80 h-18 px-3.5 py-1
     rounded-[5px] shadow-[3px_3px_0px_rgba(0,0,0,1)]
     outline outline-2 outline-offset-[-2px] outline-black
     flex justify-center items-center gap-2.5
     cursor-pointer
     hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
-    text-center text-black text-2xl font-semibold leading-loose
+    text-center text-black text-2xl font-semibold leading-loose;
   }
 
   .medium-button {
-    @apply
-    w-60 h-15 px-3.5 py-1
+    @apply w-60 h-15 px-3.5 py-1
     rounded-[5px] shadow-[3px_3px_0px_rgba(0,0,0,1)]
     outline outline-2 outline-offset-[-2px] outline-black
     flex justify-center items-center gap-2.5
     cursor-pointer
     hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
-    text-center text-black text-xl font-semibold leading-loose
+    text-center text-black text-xl font-semibold leading-loose;
   }
 
   .small-button {
-    @apply
-    w-20 h-12 px-3.5 py-1
+    @apply w-20 h-12 px-3.5 py-1
     rounded-[7px] shadow-[3px_3px_0px_rgba(0,0,0,1)]
     outline outline-2 outline-offset-[-2px] outline-black
     flex justify-center items-center gap-2.5
     cursor-pointer
     hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
-    text-center text-black text-xl font-semibold leading-loose
+    text-center text-black text-xl font-semibold leading-loose;
   }
 
   .cancel-button {
-    @apply
-    flex items-center justify-center
+    @apply flex items-center justify-center
     cursor-pointer
     bg-korofu-light-yellow border-2 border-black 
     shadow-[3px_3px_0px_0px_black] rounded-[7px] w-12 h-12 absolute top-2 left-2
     leading-loose text-2xl font-bold !font-['Quicksand'] text-korofu-light-red
-    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
+    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all;
   }
 
   .skip-button {
-    @apply
-    flex items-center justify-center px-2
+    @apply flex items-center justify-center px-2
     cursor-pointer
     bg-korofu-light-red border-2 border-black 
     shadow-[3px_3px_0px_0px_black] rounded-[7px] h-12 absolute top-2 right-2
     text-center text-2xl font-semibold leading-loose text-korofu-light-yellow
-    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all
+    hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all;
   }
 
   .popup {
-    @apply
-    relative
+    @apply relative
     bg-white text-center
     py-15 px-10 max-w-[30%] w-full z-10
     outline outline-2 outline-black
     rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)];
   }
 
-
   /* TEXT STYLES */
 
   .drop-shadow-loading-text {
-    @apply
-    text-center justify-center
+    @apply text-center justify-center
     text-4xl font-bold
-    leading-[45px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black]
+    leading-[45px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black];
   }
 
   .drop-shadow-title-middle {
-    @apply
-    text-center justify-center
+    @apply text-center justify-center
     text-4xl font-bold
-    leading-[57.5px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black]
+    leading-[57.5px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black];
   }
 
   .drop-shadow-title-top {
-    @apply
-    mb-6
+    @apply mb-6
     text-left
     text-4xl font-bold 
-    leading-[57.5px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black]
+    leading-[57.5px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black];
   }
-
 
   /* CARD STYLES */
 
   .card {
-    @apply
-    flex items-center gap-4
+    @apply flex items-center gap-4
     cursor-pointer
     bg-white border-2 border-black
     shadow-[6px_6px_0px_0px_black]
     rounded-[10px] p-[20px_18px]
     w-full h-37.5;
-}
+  }
 
   .card-square {
-    @apply
-    bg-white border-2 border-black
+    @apply bg-white border-2 border-black
     shadow-[6px_6px_0px_0px_black]
     rounded-[10px] p-[20px_18px]
     w-[246px] h-[319px];

@@ -1,11 +1,11 @@
 "use client";
 
-import UserNavbar from '../../components/UserNavbar';
-import Sidebar from '../../components/Sidebar';
-import MoodPicker from '../../components/MoodPicker';
-import ColorPalettePicker from '../../components/ColorPalettePicker';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import UserNavbar from "../../components/UserNavbar";
+import Sidebar from "../../components/Sidebar";
+import MoodPicker from "../../components/MoodPicker";
+import ColorPalettePicker from "../../components/ColorPalettePicker";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function ChooseFood() {
   const router = useRouter();
@@ -13,7 +13,7 @@ export default function ChooseFood() {
   const [showColorPalette, setShowColorPalette] = useState(false);
 
   const handleClose = () => {
-    router.push('/home');
+    router.push("/home");
   };
 
   const handleSkip = () => {
@@ -36,25 +36,24 @@ export default function ChooseFood() {
   if (showColorPalette) {
     return (
       <div className="min-h-screen bg-[#FFF5F1] border-2 border-blue-500">
-        <UserNavbar username="Username" />
+        <UserNavbar />
 
         <div className="max-w-7xl mx-auto px-6 py-8 flex gap-6">
           <Sidebar />
-          
+
           <main className="flex-1 bg-white border-2 border-black rounded-3xl shadow-[8px_8px_0_#000] overflow-hidden">
-            
             {/* Input Bar */}
             <div className="p-6 border-b-2 border-black/20">
               <div className="flex items-center gap-4">
-                <button 
+                <button
                   onClick={handleClose}
                   className="w-8 h-8 rounded-full bg-white border-2 border-black shadow-[2px_2px_0_#000] flex items-center justify-center text-sm font-bold text-[#21120D] hover:shadow-[3px_3px_0_#000] transition-shadow"
                 >
                   ✕
                 </button>
-                
+
                 <div className="flex-1"></div>
-                
+
                 <button className="px-4 py-2 bg-white border-2 border-black rounded-xl shadow-[2px_2px_0_#000] hover:shadow-[3px_3px_0_#000] transition-shadow flex items-center gap-2">
                   <span className="font-bold text-[#21120D] text-sm">Skip</span>
                   <svg
@@ -90,21 +89,21 @@ export default function ChooseFood() {
 
       <div className="min-h-screen flex mt-5">
         <Sidebar />
-        
+
         <main className="flex-1 bg-white border-2 border-black rounded-3xl shadow-[8px_8px_0_#000] overflow-hidden">
           {/* Input Bar */}
           <div className="p-6 border-b-2 border-black/20">
             <div className="flex items-center gap-4">
-              <button 
+              <button
                 onClick={handleClose}
                 className="w-8 h-8 rounded-full bg-white border-2 border-black shadow-[2px_2px_0_#000] flex items-center justify-center text-sm font-bold text-[#21120D] hover:shadow-[3px_3px_0_#000] transition-shadow"
               >
                 ✕
               </button>
-              
+
               <div className="flex-1"></div>
-              
-              <button 
+
+              <button
                 onClick={showMoodPicker ? handleSkipToColorPalette : handleSkip}
                 className="px-4 py-2 bg-white border-2 border-black rounded-xl shadow-[2px_2px_0_#000] hover:shadow-[3px_3px_0_#000] transition-shadow flex items-center gap-2"
               >
@@ -129,8 +128,8 @@ export default function ChooseFood() {
             </div>
           </div>
 
-          <MoodPicker 
-            showMoodPicker={showMoodPicker} 
+          <MoodPicker
+            showMoodPicker={showMoodPicker}
             onSkip={handleBackToPrompt}
             onSkipToColorPalette={handleSkipToColorPalette}
           />

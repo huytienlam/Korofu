@@ -141,8 +141,8 @@ export default function FoodPreferences() {
 
   return (
     <div className="min-h-screen">
-      <UserNavbar username="Username" />
-      
+      <UserNavbar />
+
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
 

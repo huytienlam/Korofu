@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import UserNavbar from '../../components/UserNavbar';
-import Sidebar from '../../components/Sidebar';
+import UserNavbar from "../../components/UserNavbar";
+import Sidebar from "../../components/Sidebar";
 
 export default function ChooseYourFood() {
   return (
     <div className="min-h-screen">
-      <UserNavbar username="Username" />
-      
+      <UserNavbar />
+
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
-        
+
         <main className="flex-1 flex flex-col items-center justify-center mr-10">
           <div className="flex flex-col justify-center items-center gap-4 mb-30">
             <div className="drop-shadow-title-middle text-korofu-yellow">
@@ -28,9 +28,7 @@ export default function ChooseYourFood() {
                   data-size="Large"
                   className="large-button bg-korofu-green"
                 >
-                  <span className="large-button-text">
-                    Let's go!
-                  </span>
+                  <span className="large-button-text">Let's go!</span>
                 </button>
               </Link>
 
@@ -40,9 +38,7 @@ export default function ChooseYourFood() {
                   data-size="Large"
                   className="large-button bg-korofu-beige"
                 >
-                  <span className="large-button-text">
-                    Wow me instead?
-                  </span>
+                  <span className="large-button-text">Wow me instead?</span>
                 </button>
               </Link>
             </div>
