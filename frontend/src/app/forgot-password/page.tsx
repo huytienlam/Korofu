@@ -23,30 +23,31 @@ const ForgotPassword = () => {
 
   // Step 1 → Step 2
   const handleNextFromStep1 = () => {
-    if (!email) return alert("Please enter your email/username.");
     generateCode();
     setStep(2);
     const storedCode = localStorage.getItem("verificationCode");
 
-    alert(`Your code is ${storedCode}`);
+    // alert(`Your code is ${storedCode}`);
   };
 
   // Step 2 → Step 3
   const handleNextFromStep2 = () => {
     const storedCode = localStorage.getItem("verificationCode");
-    if (inputCode === storedCode) {
-      setStep(3);
-    } else {
-      alert("Invalid verification code!");
-    }
+    // if (inputCode === storedCode) {
+    //   setStep(3);
+    // } else {
+    //   // alert("Invalid verification code!");
+    // }
+
+    setStep(3);
   };
 
   // Step 3 → Step 4
   const handleComplete = () => {
-    if (!password || password.length < 8)
-      return alert("Password must be at least 8 characters.");
-    if (password !== confirmPassword) return alert("Passwords do not match.");
-    localStorage.setItem("newPassword", password);
+    // if (!password || password.length < 8)
+    //   return alert("Password must be at least 8 characters.");
+    // if (password !== confirmPassword) return alert("Passwords do not match.");
+    // localStorage.setItem("newPassword", password);
     setStep(4);
   };
 
@@ -239,7 +240,7 @@ const ForgotPassword = () => {
               />
               <span
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute right-3 top-2.5 mr-25 cursor-pointer"
+                className="absolute right-3 top-2.5 mr-20 cursor-pointer"
               >
                 <Image
                   src="/assets/login-logo/Eye.png"
