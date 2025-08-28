@@ -74,10 +74,12 @@ export default function SavedCollection() {
               savedRestaurants.map((restaurant) => (
                 <RestaurantCard
                   key={restaurant.id}
+                  id={restaurant.id}
                   name={restaurant.name}
                   location={restaurant.location}
                   rating={restaurant.rating}
                   imageUrl={restaurant.imageUrl}
+                  onRemove={handleRemoveRestaurant}
                 />
               ))
             )}

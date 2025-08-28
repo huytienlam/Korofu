@@ -103,6 +103,7 @@ export default function RecentHistory() {
               recentRestaurants.map((restaurant) => (
                 <RestaurantCard
                   key={restaurant.id}
+                  id={restaurant.id}
                   name={restaurant.name}
                   location={restaurant.location}
                   rating={restaurant.rating}

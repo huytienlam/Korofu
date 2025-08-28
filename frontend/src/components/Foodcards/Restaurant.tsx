@@ -1,17 +1,38 @@
 import React, { useState } from "react";
-
 import Image from "next/image";
 import { MapPin } from 'lucide-react';
+import { usePathname } from "next/navigation";
 
 interface RestaurantCardProps {
+  id: string;
   name: string;
   location: string;
   imageUrl?: string;
   rating: number;
+  onRemove?: (id: string) => void;
 }
 
-const RestaurantCard: React.FC<RestaurantCardProps> = ({ name, location, imageUrl, rating }) => {
+const RestaurantCard: React.FC<RestaurantCardProps> = ({ 
+  id,
+  name, 
+  location, 
+  imageUrl, 
+  rating,
+  onRemove 
+}) => {
   const [saved, setSaved] = useState(false);
+  const pathname = usePathname();
+  const isSavedPage = pathname === "/saved";
+
+  const handleBookmarkClick = () => {
+    if (isSavedPage) {
+      // Nếu đang ở trang Saved, click vào bookmark sẽ xóa item
+      onRemove?.(id);
+    } else {
+      // Ở các trang khác thì toggle save bình thường
+      setSaved(!saved);
+    }
+  };
 
   return (
     <div className="card relative flex items-center gap-4">
@@ -55,9 +76,9 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ name, location, imageUr
         <button>
           <Image src="/assets/icon/Feedback.png" alt="Feedback" width={24} height={24} />
         </button>
-        <button onClick={() => setSaved(!saved)}>
+        <button onClick={handleBookmarkClick}>
           <Image
-            src={saved ? "/assets/icon/Bookmark.png" : "/assets/icon/Bookmark_Default.png"}
+            src={isSavedPage || saved ? "/assets/icon/Bookmark.png" : "/assets/icon/Bookmark_Default.png"}
             alt="bookmark"
             width={24}
             height={24}
