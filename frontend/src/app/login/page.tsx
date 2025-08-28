@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#FFF5CC] relative">
       {/* Logo box */}
-      <div className="rounded-[11px] absolute top-7 left-7 w-15 h-15 flex items-center justify-center border-4 border-black bg-white shadow-[4px_4px_0_#000]">
+      <div className="rounded-[11px] absolute top-7 left-7 w-15 h-15 flex items-center justify-center border-3 border-black bg-white shadow-[4px_4px_0_#000]">
         <Link href="/">
           <Image
             src="/assets/logo/Logo Bowl Light Yellow.svg"
@@ -20,7 +20,7 @@ const Login = () => {
       </div>
 
       {/* Login Form */}
-      <div className="w-100 h-auto bg-white border-4 border-black rounded-lg shadow-[4px_4px_0_#000] p-6 text-center">
+      <div className="w-100 h-auto bg-white border-3 border-black rounded-lg shadow-[4px_4px_0_#000] p-6 text-center">
         {/* Title */}
         <Image
           src="/assets/login-logo/Logo.png"
@@ -67,7 +67,7 @@ const Login = () => {
         {/* Links */}
         <div className="flex justify-between text-sm mb-4">
           <Link
-            href="forgotpassword"
+            href="forgot-password"
             className="text-sm font-semibold hover:underline ml-6"
           >
             Forgot Password?
