@@ -61,7 +61,7 @@ const Login = () => {
 
         {/* Log In button */}
         <button className="w-75 py-2 bg-[#FFF5CC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] text-[#FF6D4D] font-semibold mb-3  hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-          Log In
+          <Link href="/">Login</Link>
         </button>
 
         {/* Links */}
