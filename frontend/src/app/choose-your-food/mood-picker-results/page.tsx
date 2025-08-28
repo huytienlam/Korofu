@@ -6,24 +6,10 @@ import UserNavbar from "../../../components/UserNavbar";
 import Sidebar from "../../../components/Sidebar";
 import SkipPopup from "../../../components/Popups/Skip";
 import CancelPopup from "../../../components/Popups/Cancel";
+import { colors } from "../../../data/mockData"
 
 const moods = ["happy", "cheerful", "wants something heavy"];
 
-const colors = [
-  "bg-korofu-yellow",
-  "bg-korofu-aqua",
-  "bg-korofu-pink",
-  "bg-korofu-dark-red",
-  "bg-korofu-indigo",
-  "bg-korofu-gold",
-  "bg-korofu-orange",
-  "bg-korofu-purple",
-  "bg-korofu-beige",
-  "bg-korofu-blue",
-  "bg-korofu-green",
-  "bg-korofu-light-red",
-  "bg-korofu-light-yellow",
-];
 
 export default function MoodPickerResults() {
   const router = useRouter();
