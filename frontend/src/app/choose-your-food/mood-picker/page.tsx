@@ -21,12 +21,20 @@ export default function MoodPicker() {
   const [moodSkip, setMoodSkip] = useState(initialMoodSkip ?? false);
   const [colorSkip, setColorSkip] = useState(initialColorSkip ?? false);
 
+  const [moodInput, setMoodInput] = useState("");
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push(
-      `/choose-your-food/loading-mood?moodSkip=${moodSkip}&colorSkip=${colorSkip}`
-    );
+    if (moodInput.trim()) {
+      router.push(
+        `/choose-your-food/loading-mood?moodSkip=${moodSkip}&colorSkip=${colorSkip}&mood=${encodeURIComponent(
+          moodInput.trim()
+        )}`
+      );
+    }
   };
+
+  const isDisabled = moodInput.trim() === "";
 
   return (
     <div className="min-h-screen">
@@ -72,10 +80,17 @@ export default function MoodPicker() {
               <textarea
                 placeholder="What are you feeling today?"
                 className="llm-input bg-korofu-light-red text-korofu-light-yellow placeholder-korofu-light-yellow"
+                value={moodInput}
+                onChange={(e) => setMoodInput(e.target.value)}
               />
               <button
                 type="submit"
-                className="llm-input-submit-button bg-korofu-light-yellow"
+                disabled={isDisabled}
+                className={`llm-input-submit-button bg-korofu-light-yellow transition-all duration-200 ${
+                  isDisabled
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:shadow-[0px_0px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1"
+                }`}
               >
                 <img src="/assets/icon/Send_Red.svg" className="h-10" />
               </button>

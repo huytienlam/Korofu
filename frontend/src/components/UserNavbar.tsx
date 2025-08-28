@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
@@ -9,6 +10,7 @@ type UserNavbarProps = {
 };
 
 export default function UserNavbar({ username }: UserNavbarProps) {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -61,7 +63,8 @@ export default function UserNavbar({ username }: UserNavbarProps) {
             <Image src="/assets/icon/Mood.png" alt="Mood icon" width={48} height={48} />
           </button>
           <button aria-label="search">
-            <Image src="/assets/icon/Search_Hover.png" alt="Search icon hover" width={48} height={48} />
+            <Image src="/assets/icon/Search_Hover.png" alt="Search icon hover" width={48} height={48}
+                    onClick={() => router.push("/discover")}/>
           </button>
           <button aria-label="Notifications">
             <Image src="/assets/icon/Notifications_Hover.png" alt="Notifications icon hover" width={48} height={48} />
