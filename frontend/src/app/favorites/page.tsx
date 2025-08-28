@@ -14,7 +14,7 @@ export default function FavoriteDishes() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5DC]">
+    <div className="min-h-screen bg-[#F9F5F2]">
       <UserNavbar />
 
       <div className="flex flex-1 max-h-screen">
