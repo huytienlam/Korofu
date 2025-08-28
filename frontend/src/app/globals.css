@@ -365,6 +365,12 @@
     leading-[57.5px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black];
   }
 
+  .drop-shadow-title-homepage {
+    @apply mb-6
+    text-left
+    text-5xl font-bold 
+    leading-[57.5px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black];
+  }
 
   /* CARD STYLES */
 
@@ -382,5 +388,19 @@
     shadow-[6px_6px_0px_0px_black]
     rounded-[10px] p-[20px_18px]
     w-[246px] h-[319px];
+  }
+
+  /* ANIMATIONS */
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
   }
 }

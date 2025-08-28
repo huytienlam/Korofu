@@ -2,45 +2,42 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <div className="flex flex-row items-center justify-between py-16 px-6 max-w-7xl mx-auto">
-      <div className="flex-1 max-w-xl">
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-8" style={{ 
-          color: '#FFA764',
-          textShadow: '4px 4px 0px rgba(0, 0, 0, 0.87)',
-          letterSpacing: '0.02em',
-          lineHeight: '1.2',
-          fontFamily: 'SFUFutura',
-          fontWeight: '700'
-        }}>
+    <div className="flex flex-row items-center justify-between py-10 px-2 max-w-7xl mx-auto relative mb-20">
+      {/* Background Elements */}
+                                                 
+      <div className="flex-1 w-[975px] h-[535px]">
+
+        <div className="font-extrabold text-6xl text-korofu-yellow drop-shadow-title-top mb-12 leading-tight">
           LET YOUR MOOD
           <br />
           CHOOSE YOUR FOOD
-        </h1>
-        <p className="text-xl text-gray-800 mb-10 font-normal">
+        </div>
+
+        <p className="text-3xl text-gray-800 mb-10 font-normal leading-relaxed">
           Discover food with heart, color, and emotions
           <br />
           - no more endless scrolling.
         </p>
-        <div className="flex flex-row justify-between">
-          <button className="px-12 py-4 bg-[#FF5C5C] text-black rounded-lg hover:bg-[#FF4242] transition-colors font-medium border-2 border-black w-full sm:w-[220px]">
+
+        <div className="flex flex-row gap-10 justify-start">
+          <button className="px-6 py-3 bg-korofu-orange text-black rounded-lg hover:bg-[#FF4242] transition-colors font-bold border-2 border-black shadow-[4px_4px_0_#000] hover:translate-y-1 hover:shadow-[0px_0px_0_#000] text-lg w-[330px]">
             Try It Out!
           </button>
-          <button className="px-12 py-4 bg-[#7B9CFF] text-black rounded-lg hover:bg-[#6085FF] transition-colors font-medium border-2 border-black w-full sm:w-[220px]">
+          <button className="px-6 py-3 bg-[#6085FF] text-black rounded-lg hover:bg-korofu-blue transition-colors font-bold border-2 border-black shadow-[4px_4px_0_#000] hover:translate-y-1 hover:shadow-[0px_0px_0_#000] text-lg w-[330px]">
             Get Started!
           </button>
         </div>
       </div>
       
-      <div className="flex-1 flex justify-center items-center">
-        <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
+      <div className="flex justify-center items-center">
           <Image
             src="/assets/elements/Handdrawn Pizza.svg"
             alt="Pizza Slice Illustration"
-            layout="fill"
-            objectFit="contain"
+            className="object-contain"
             priority
+            width={500} 
+            height={500}
           />
-        </div>
       </div>
     </div>
   );
