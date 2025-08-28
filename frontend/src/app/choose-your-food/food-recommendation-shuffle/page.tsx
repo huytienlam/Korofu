@@ -88,6 +88,7 @@ export default function FoodRecommendationShuffle() {
               {shuffledDishes.map((dish, index) => (
                 <DishCard
                   key={index}
+                  id={index.toString()}
                   title={dish.title}
                   subtitle={dish.subtitle}
                   imageUrl={dish.imageUrl}

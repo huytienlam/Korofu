@@ -30,7 +30,7 @@ export default function RestaurantsPage() {
 
         <main className="flex-1 flex flex-col mr-10 p-2">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-korofu-gold drop-shadow-title-top mb-0">
+            <h2 className="text-korofu-green drop-shadow-title-top mb-0">
               Pizza Restaurants
             </h2>
             <CategoryNavigation

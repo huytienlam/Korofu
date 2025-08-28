@@ -19,10 +19,10 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
     const baseStyle = "small-button w-45 font-semibold";
     
     if (currentCategory === category) {
-      return `${baseStyle} bg-korofu-gold text-black hover:translate-y-0 cursor-default shadow-[3px_3px_0_#000]`;
+      return `${baseStyle} bg-korofu-green text-black hover:translate-y-0 cursor-default shadow-[3px_3px_0_#000]`;
     }
     
-    return `${baseStyle} bg-korofu-purple`;
+    return `${baseStyle} bg-korofu-beige`;
   };
 
   return (

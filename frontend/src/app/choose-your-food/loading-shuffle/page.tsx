@@ -21,7 +21,7 @@ export default function ChooseYourFoodLoadingShuffle() {
       router.push(
         `/choose-your-food/food-recommendation-shuffle?moodSkip=${moodSkip}&colorSkip=${colorSkip}&palette=${encodeURIComponent(JSON.stringify(palette))}`
       );
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [router, moodSkip, colorSkip, palette]);

@@ -7,9 +7,9 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ title, imageUrl }) => {
   return (
-    <div className="card-square flex flex-col items-center justify-center text-center gap-4 p-4">
+    <div className="card h-60 w-45 flex flex-col items-center justify-center text-center gap-4 p-4">
       {/* Hình bên trên */}
-      <div className="w-40 h-40 bg-gray-200 overflow-hidden flex items-center justify-center">
+      <div className="w-30 h-30 bg-gray-200 overflow-hidden flex items-center justify-center">
         {imageUrl ? (
           <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
         ) : (
@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({ title, imageUrl }) => {
       </div>
 
       {/* Title */}
-      <h2 className="text-2xl font-bold text-[#21120D]">{title}</h2>
+      <h2 className="text-xl font-semibold text-black">{title}</h2>
     </div>
   );
 };

@@ -138,8 +138,8 @@ export default function UserNavbar({ username }: UserNavbarProps) {
             />
           </button>
           {/* Notifications + Toggle Dropdown  */}
-          <div className="relative" ref={notificationRef}>
-            <button
+            <div
+              className="relative" ref={notificationRef}
               onClick={() => setOpenNotification((prev) => !prev)}
               aria-label="Notifications"
             >
@@ -150,11 +150,10 @@ export default function UserNavbar({ username }: UserNavbarProps) {
                 height={48}
                 className="cursor-pointer"
               />
-            </button>
 
             {/* Notification Dropdown */}
             {openNotification && (
-              <div className="rounded-lg absolute right-0 mt-2 w-70 bg-white border-2 border-black shadow-[4px_4px_0_#000] z-50 max-h-96 overflow-y-auto">
+              <div className="rounded-lg absolute right-0 mt-5 w-80 bg-white border-2 border-black shadow-[4px_4px_0_#000] z-50 max-h-96 overflow-y-auto">
                 {/* Header */}
                 <div className="px-4 py-3">
                   <h3 className="font-bold text-2xl text-black">

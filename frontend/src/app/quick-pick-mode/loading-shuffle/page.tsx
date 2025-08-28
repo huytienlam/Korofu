@@ -11,7 +11,7 @@ export default function QuickPickModeLoadingShuffle() {
   useEffect(() => {
     const timer = setTimeout(() => {
       router.push("/quick-pick-mode/food-recommendation-shuffle");
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [router]);

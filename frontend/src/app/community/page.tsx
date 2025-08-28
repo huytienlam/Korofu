@@ -62,7 +62,7 @@ export default function OurCommunity() {
                 />
               </div>
               <div onClick={() => setIsPopupOpen(true)} className="flex-1 px-4 py-1 bg-white rounded-lg shadow-[3px_3px_0px_rgba(0,0,0,1)] outline outline-2 outline-offset-[-2px] outline-black flex items-center">
-                <span className="py-2 flex-1 text-black text-xl font-semibold font-['SFU_Futura'] leading-loose">
+                <span className="py-2 flex-1 text-black text-xl font-semibold leading-loose">
                   What are you thinking?
                 </span>
               </div>
@@ -72,12 +72,12 @@ export default function OurCommunity() {
             <div className="w-[480px] flex justify-between items-center">
               <div className="flex items-center gap-3">
                 <Video size={36}/>
-                <span className="text-black text-xl font-semibold font-['SFU_Futura']">Reel</span>
+                <span className="text-black text-xl font-semibold">Reel</span>
               </div>
 
               <div className="flex items-center gap-3">
                 <Image size={36}/>
-                <span className="text-black text-xl font-semibold font-['SFU_Futura']">Photo/Video</span>
+                <span className="text-black text-xl font-semibold">Photo/Video</span>
               </div>
             </div>
           </div>

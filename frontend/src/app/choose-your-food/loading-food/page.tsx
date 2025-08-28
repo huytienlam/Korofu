@@ -19,7 +19,7 @@ export default function ChooseYourFoodLoadingFood() {
       router.push(
         `/choose-your-food/food-recommendation?moodSkip=${moodSkip}&colorSkip=${colorSkip}&palette=${encodeURIComponent(JSON.stringify(palette))}`
       );
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [router, moodSkip, colorSkip, palette]);

@@ -87,6 +87,7 @@ export default function FoodRecommendation() {
               {dishes.map((dish, index) => (
                 <DishCard
                   key={index}
+                  id={index.toString()}
                   title={dish.title}
                   subtitle={dish.subtitle}
                   imageUrl={dish.imageUrl}

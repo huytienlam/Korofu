@@ -29,9 +29,9 @@ export default function SavedCollection() {
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
 
-        <main className="flex-1 p-6 rounded-3xl mr-10">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="drop-shadow-title-top text-korofu-light-red">
+        <main className="flex-1 flex flex-col mr-10 p-2">
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="drop-shadow-title-top text-korofu-indigo mb-0">
               Saved Collection
             </h1>
 
@@ -39,7 +39,7 @@ export default function SavedCollection() {
               <button
                 onClick={() => setViewMode("recipes")}
                 className={`medium-button ${
-                  viewMode === "recipes" ? "bg-korofu-light-red text-korofu-light-yellow" : "bg-white"
+                  viewMode === "recipes" ? "bg-korofu-indigo" : "bg-korofu-gray"
                 }`}
               >
                 View Recipes
@@ -47,7 +47,7 @@ export default function SavedCollection() {
               <button
                 onClick={() => setViewMode("restaurants")}
                 className={`medium-button ${
-                  viewMode === "restaurants" ? "bg-korofu-light-yellow text-korofu-light-red" : "bg-white"
+                  viewMode === "restaurants" ? "bg-korofu-indigo" : "bg-korofu-gray"
                 }`}
               >
                 View Restaurants

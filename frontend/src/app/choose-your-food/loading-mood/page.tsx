@@ -15,7 +15,7 @@ export default function ChooseYourFoodLoadingMood() {
   useEffect(() => {
     const timer = setTimeout(() => {
       router.push(`/choose-your-food/mood-picker-results?mood=${mood ?? ""}`);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [router, mood]);

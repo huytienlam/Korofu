@@ -20,7 +20,7 @@ export default function FavoriteDishes() {
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
 
-        <main className="flex-1 p-6 rounded-3xl mr-10">
+        <main className="flex-1 flex flex-col mr-10 p-2">
           <h1 className="drop-shadow-title-top text-korofu-light-red">
             Favorite Dishes
           </h1>

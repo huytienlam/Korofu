@@ -53,9 +53,9 @@ export default function RecentHistory() {
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
 
-        <main className="flex-1 p-6 rounded-3xl mr-10">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="drop-shadow-title-top text-korofu-light-red">
+        <main className="flex-1 flex flex-col mr-10 p-2">
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="drop-shadow-title-top text-korofu-gold mb-0">
               Recent History
             </h1>
 
@@ -63,7 +63,7 @@ export default function RecentHistory() {
               <button
                 onClick={() => setViewMode("recipes")}
                 className={`medium-button ${
-                  viewMode === "recipes" ? "bg-korofu-light-red text-korofu-light-yellow" : "bg-white"
+                  viewMode === "recipes" ? "bg-korofu-gold" : "bg-korofu-purple"
                 }`}
               >
                 View Recipes
@@ -71,18 +71,13 @@ export default function RecentHistory() {
               <button
                 onClick={() => setViewMode("restaurants")}
                 className={`medium-button ${
-                  viewMode === "restaurants" ? "bg-korofu-light-yellow text-korofu-light-red" : "bg-white"
+                  viewMode === "restaurants" ? "bg-korofu-gold" : "bg-korofu-purple"
                 }`}
               >
                 View Restaurants
               </button>
             </div>
           </div>
-
-          {/* Last Visited Time */}
-          <p className="text-lg text-gray-600 mb-6">
-            Last visited: {new Date().toLocaleDateString()} {new Date().toLocaleTimeString()}
-          </p>
 
           <div className="grid grid-cols-2 gap-6">
             {viewMode === "recipes" ? (
@@ -112,6 +107,11 @@ export default function RecentHistory() {
               ))
             )}
           </div>
+
+          {/* Last Visited Time */}
+          <p className="text-lg text-gray-600 mt-6">
+            Last visited: {new Date().toLocaleDateString()} {new Date().toLocaleTimeString()}
+          </p>
 
           {((viewMode === "recipes" && recentRecipes.length === 0) ||
             (viewMode === "restaurants" && recentRestaurants.length === 0)) && (
