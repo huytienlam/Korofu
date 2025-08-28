@@ -226,11 +226,39 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-* {
-  font-family: "SFUFutura", "Quicksand", sans-serif;
-}
-
 @layer components {
+  * {
+  font-family: "SFUFutura", "Quicksand", sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
+  }
+
+  /* Chrome, Edge, Safari */
+  *::-webkit-scrollbar {
+    width: 6px;       /* thin */
+    height: 6px;      /* for horizontal scroll */
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent; /* no background */
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: white;   /* white scrollbar */
+  }
+
+  *::-webkit-scrollbar-button {
+    display: none; /* hide arrows */
+  }
+
+  .tags-scroll::-webkit-scrollbar-thumb {
+    background-color: white;
+  }
+
+  .tags-scroll {
+    scrollbar-color: white transparent; /* for Firefox */
+  }
+
   /* BUTTON STYLES */
 
   .large-button {
@@ -336,6 +364,7 @@
     text-4xl font-bold 
     leading-[57.5px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black];
   }
+
 
   /* CARD STYLES */
 

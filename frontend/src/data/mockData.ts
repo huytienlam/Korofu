@@ -1,3 +1,19 @@
+export const colors = [
+  "bg-korofu-yellow",
+  "bg-korofu-aqua",
+  "bg-korofu-pink",
+  "bg-korofu-dark-red",
+  "bg-korofu-indigo",
+  "bg-korofu-gold",
+  "bg-korofu-orange",
+  "bg-korofu-purple",
+  "bg-korofu-beige",
+  "bg-korofu-blue",
+  "bg-korofu-green",
+  "bg-korofu-light-red",
+  "bg-korofu-light-yellow",
+];
+
 export interface Recipe {
   id: string;
   title: string;
@@ -20,6 +36,7 @@ export interface Dish {
   description: string;
   imageUrl?: string;
 }
+
 const dishes = [
     {
       title: "Thai Red Curry",
@@ -40,6 +57,7 @@ const dishes = [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfDlBVCkK2SizG-nsiurP2phVkoYWRLxpsxw&s",
     },
   ];
+
 export const mockPizzaRecipes: Recipe[] = [
   {
     id: "1",
@@ -141,7 +159,7 @@ export const mockPizzaDishes: Dish[] = [
     id: "2",
     title: "Calzone",
     description: "Dough, mozzarella cheese, tomato sauce, fillings",
-    imageUrl: "https://www.allrecipes.com/thmb/Bwkz2gVOQUJcPYSzOJgD94XDi5Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/18874-Real-Italian-Calzones-ddmfs-127-4x3-1-a30a0e72801f42bcb0643ed4b57e8a3c.jpg"
+    imageUrl: "https://product.hstatic.net/200000233543/product/calzone-pizza-recipe_1a27f44d75254f0c8d7456d7ad7a28c8.jpg"
   },
   {
     id: "3",
@@ -165,6 +183,6 @@ export const mockPizzaDishes: Dish[] = [
     id: "6",
     title: "Stromboli",
     description: "Rolled pizza dough with fillings",
-    imageUrl: "https://www.allrecipes.com/thmb/551U8dZpbAmeyQpYO0__qcC-I7U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-23123-stromboli-ddmfs-2x1-7b6c52855dd64aae8644a931121c5e5b.jpg"
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiJJFvPvAHFyiWgu4Z639oxleJKpOpw8R-iw&s"
   }
 ];

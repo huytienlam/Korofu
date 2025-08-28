@@ -4,8 +4,9 @@ import Image from "next/image";
 import UserNavbar from "../../components/UserNavbar";
 import Sidebar from "../../components/Sidebar";
 import { useState } from "react";
-
-const tagColors = ["#E9B349", "#FF91E8", "#FFFFFF"];
+import { colors as tagColors } from "../../data/mockData";
+import SavePopup from "../../components/Popups/Save";
+import CancelPopup from "../../components/Popups/Cancel";
 
 interface FoodItem {
   name: string;
@@ -15,6 +16,10 @@ interface FoodItem {
 type SetItemsFunction = React.Dispatch<React.SetStateAction<FoodItem[]>>;
 
 export default function FoodPreferences() {
+
+  const [showSavePopup, setShowSavePopup] = useState(false);
+  const [showCancelPopup, setShowCancelPopup] = useState(false);
+  
   // Count state for total tags to determine color
   const [totalCount, setTotalCount] = useState(3); // Starting with 3 initial items
 
@@ -38,7 +43,7 @@ export default function FoodPreferences() {
   );
 
   const getNextColor = () => {
-    const colorIndex = totalCount % 3;
+    const colorIndex = totalCount % tagColors.length;
     return tagColors[colorIndex];
   };
 
@@ -77,7 +82,9 @@ export default function FoodPreferences() {
     <div className="relative flex flex-col items-center">
       {/* Card */}
       <div
-        className="relative w-[260px] h-[450px] border-2 border-black rounded-2xl shadow-[8px_8px_0_#000] p-4 flex flex-col"
+        className="relative w-80 h-[62.5vh]
+                  border-2 border-black rounded-2xl
+                  shadow-[4px_4px_0_#000] p-4 flex flex-col"
         style={{ backgroundColor: bgColor }}
       >
         {/* Add button */}
@@ -95,15 +102,17 @@ export default function FoodPreferences() {
         </div>
 
         {/* Tags Container */}
-        <div className="pt-12 flex flex-wrap gap-2 content-start overflow-y-auto">
+        <div className="tags-scroll flex flex-wrap gap-2 content-start overflow-y-auto pr-4 -mr-3">
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex items-center px-3 my-0.5 py-1 rounded-full border border-black shadow-[2px_2px_0_#000] text-sm max-w-[200px] group relative"
+              className={`flex items-center px-3 py-1 rounded-full border border-black
+                          shadow-[2px_2px_0_#000] text-sm group relative
+                          ${item.color} break-all max-w-full whitespace-normal`}
               style={{ backgroundColor: item.color }}
-              title={item.name} // Tooltip for full text
+              title={item.name}
             >
-              <span className="mr-2 font-extrabold text-black truncate">
+              <span className="mr-2 font-bold text-black">
                 {item.name}
               </span>
               <Image
@@ -146,18 +155,35 @@ export default function FoodPreferences() {
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
 
-        <main className="flex-1 p-6 rounded-3xl mr-10">
+        <main className="flex-1 flex flex-col mr-10 p-2">
           {/* Title */}
           {/* <h1 className="text-3xl font-extrabold text-[#FFA764] mb-8 text-outline">
             Manage Food Preferences
           </h1> */}
 
-          <h1 className="text-3xl font-extrabold text-[#21120D] mb-8 ">
-            Manage Food Preferences
-          </h1>
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="drop-shadow-title-top text-korofu-orange mb-0">
+              Manage Food Preferences
+            </h1>
+            {/* Save and Cancel buttons */}
+            <div className="flex align-center justify-center gap-6">
+              <button 
+                className="small-button bg-korofu-yellow"
+                onClick={() => setShowSavePopup(true)}
+              >
+                Save
+              </button>
+              <button 
+                className="small-button bg-korofu-gray"
+                onClick={() => setShowCancelPopup(true)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
 
           {/* Cards */}
-          <div className="flex flex-row justify-center gap-12 mb-8 relative">
+          <div className="flex flex-row justify-center gap-12 relative">
             {renderCard(
               "#FF6D4D",
               dislikes,
@@ -177,29 +203,22 @@ export default function FoodPreferences() {
               "/assets/preferences/restricted.png"
             )}
           </div>
-          {/* Save and Cancel buttons */}
-          <div className="flex justify-center mt-15 gap-25">
-            <button className="bg-[#FF914D] w-32 border-2 border-black px-8 py-3 font-bold text-[#21120D] shadow-[2px_2px_0_#000] hover:shadow-[2px_2px_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-              Save
-            </button>
-            <button className="bg-[#E8E8E8] w-32 border-2 border-black px-8 py-3 font-bold text-[#21120D] shadow-[2px_2px_0_#000] hover:shadow-[2px_2px_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-              Cancel
-            </button>
-          </div>
+
           {/* Modal */}
           {modalOpen && (
             <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-              <div className="bg-white border-2 border-black p-6 rounded-xl shadow-[6px_6px_0_#000] w-[300px] flex flex-col gap-4">
-                <h2 className="text-lg font-bold text-black">
-                  Add Food Preference
+              <div className="popup">
+                <h2 className="text-2xl mb-10 mt-3 font-semibold text-center">
+                  What should we keep off your plate?
                 </h2>
-                <div className="relative">
+                <div className="relative mb-10">
                   <input
                     type="text"
                     value={modalValue}
                     onChange={(e) => setModalValue(e.target.value)}
-                    className="border-2 border-black p-2 text-black rounded-lg w-full"
-                    placeholder="Enter food name (max 30 chars)"
+                    className="border-2 border-black p-2 text-black rounded-lg w-full
+                              font-semibold bg-korofu-light-red text-korofu-light-yellow"
+                    placeholder="Food"
                     onKeyPress={(e) => e.key === "Enter" && addFood()}
                     maxLength={30}
                   />
@@ -210,13 +229,13 @@ export default function FoodPreferences() {
                 <div className="flex gap-4 justify-end">
                   <button
                     onClick={() => setModalOpen(false)}
-                    className="px-4 py-2 bg-gray-300 border-2 border-black rounded-lg font-bold text-black shadow-[2px_2px_0_#000] hover:shadow-[1px_1px_0_#000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+                    className="small-button bg-korofu-light-yellow text-korofu-light-red"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={addFood}
-                    className="px-4 py-2 bg-[#FF914D] border-2 border-black rounded-lg font-bold text-black shadow-[2px_2px_0_#000] hover:shadow-[1px_1px_0_#000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+                    className="small-button bg-korofu-light-red text-korofu-light-yellow"
                   >
                     Add
                   </button>
@@ -226,6 +245,15 @@ export default function FoodPreferences() {
           )}
         </main>
       </div>
+      {showSavePopup && (
+        <SavePopup
+          onClose={() => setShowSavePopup(false)}
+          profileData={{ dislikes, allergies, restricted }}
+        />
+      )}
+      {showCancelPopup && (
+        <CancelPopup onClose={() => setShowCancelPopup(false)} />
+      )}
     </div>
   );
 }

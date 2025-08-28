@@ -103,16 +103,16 @@ const ProfilePage = () => {
               {/* Right: Buttons */}
               <div className="flex gap-6">
                 <button
-                  onClick={handleCancel}
-                  className="small-button bg-korofu-gray"
-                >
-                  Cancel
-                </button>
-                <button
                   onClick={() => setShowSavePopup(true)} // ✅ open popup
                   className="small-button bg-korofu-yellow"
                 >
                   Save
+                </button>
+                <button
+                  onClick={handleCancel}
+                  className="small-button bg-korofu-gray"
+                >
+                  Cancel
                 </button>
               </div>
             </div>
