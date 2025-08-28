@@ -1,18 +1,41 @@
 import React, { useState } from "react";
-
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 interface DishCardProps {
+  id: string;
   title: string;
   subtitle: string;
   imageUrl?: string;
   active?: boolean;
   onClick?: () => void;
+  onRemove?: (id: string) => void;
 }
 
-const DishCard: React.FC<DishCardProps> = ({ title, subtitle, imageUrl, active = false, onClick, }) => {
+const DishCard: React.FC<DishCardProps> = ({ 
+  id,
+  title, 
+  subtitle, 
+  imageUrl, 
+  active = false, 
+  onClick,
+  onRemove
+}) => {
   const [liked, setLiked] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const pathname = usePathname();
+  const isFavoritePage = pathname === "/favorites";
+
+  const handleHeartClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (isFavoritePage) {
+      // Nếu đang ở trang Favorites, click vào heart sẽ xóa item
+      onRemove?.(id);
+    } else {
+      // Ở các trang khác thì toggle like bình thường
+      setLiked(!liked);
+    }
+  };
 
   if (dismissed) {
     return (
@@ -65,14 +88,9 @@ const DishCard: React.FC<DishCardProps> = ({ title, subtitle, imageUrl, active =
         >
           <Image src="/assets/icon/close.png" alt="close" width={24} height={24} />
         </button>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setLiked(!liked)
-          }}
-        >
+        <button onClick={handleHeartClick}>
           <Image
-            src={liked ? "/assets/icon/heart-filled.png" : "/assets/icon/heart-outline.png"}
+            src={isFavoritePage || liked ? "/assets/icon/heart-filled.png" : "/assets/icon/heart-outline.png"}
             alt="heart"
             width={24}
             height={24}
