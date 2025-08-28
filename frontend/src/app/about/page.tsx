@@ -4,7 +4,7 @@ import { Navbar } from '@/components/Navbar';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
 
-export default function QuickPick() {
+export default function About() {
     const team = [
     { name: "Nguyễn Thiện Nhân", role1: "UI/UX Designer", role2: "Developer", role3: "", img: "/assets/images/Nhan.jpg" },
     { name: "Lâm Tiến Huy", role1: "Project Manager", role2: "UI/UX Designer", role3: "Developer", img: "/assets/images/htl.png" },
@@ -35,7 +35,7 @@ export default function QuickPick() {
                     </div>
                     {/* Tiêu đề */}
                     <div className="text-center space-y-3">
-                        <p className="text-xl text-black !font-[Quicksand] relative inline-block">
+                        <p className="text-2xl text-black !font-[Quicksand] font-medium relative inline-block">
                             It all started with one simple question... 
                             <span className="relative inline-block">
                             {/* Hình chữ nhật hồng phía sau */}

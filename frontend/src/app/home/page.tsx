@@ -11,7 +11,7 @@ import Card from "../../components/Foodcards/Card";
 import RestaurantCard from "../../components/Foodcards/Restaurant";
 
 const moods = ["energetic", "funky", "happy", "new"];
-const hardcodedColors = ["#FF6B6B", "#FFD93D", "#6BCB77", "#4D96FF", "#9D4EDD", "#FFFFFF", "#000000"]
+const hardcodedColors = ["#FF6B6B", "#FFD93D", "#6BCB77", "#4D96FF", "#9D4EDD", "#d76f00ff", "#ae1562ff"]
 const TodayMenu = [
   {
     title: "Pizza",

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Camera } from "lucide-react";
 import { useState } from 'react';
 
-export default function QuickPick() {
+export default function Contact() {
     const [images, setImages] = useState<string[]>([])
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,9 +37,9 @@ export default function QuickPick() {
                         </h1>
                     </div>
                     {/* Tiêu đề */}
-                    <div className="text-center space-y-8">
-                        <p className="text-xl text-black !font-[Quicksand]">
-                        We’d love to hear from you! Whether you have questions, feedback, or ideas for collaboration, feel free to reach out through any of the channels below.
+                    <div className="text-center space-y-8 flex flex-col items-center">
+                        <p className="text-2xl text-black !font-[Quicksand] font-medium w-[70%]">
+                            We’d love to hear from you! Whether you have questions, feedback, or ideas for collaboration, feel free to reach out through any of the channels below.
                         </p>
                         <div className="flex justify-center gap-4">
                             <Image src="/assets/icon/fb.png" alt="icon1" width={48} height={48} />

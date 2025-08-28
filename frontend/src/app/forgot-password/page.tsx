@@ -67,7 +67,7 @@ const ForgotPassword = () => {
 
       {/* Forgot Password Form */}
       <div className="w-130 h-auto bg-white border-3 border-black rounded-lg shadow-[4px_4px_0_#000] p-6 text-center">
-        <h1 className="text-3xl font-extrabold text-[#21120D] mb-8">
+        <h1 className="text-3xl font-bold text-[#21120D] mb-8">
           Forgot Password?
         </h1>
 
