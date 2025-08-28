@@ -48,12 +48,12 @@ export default function OurCommunity() {
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
         
-        <main className="flex-1 p-6 rounded-3xl mr-10 ml-10">
-          <p className="drop-shadow-title-top text-[#ADDFFF]">Our Community</p>
+        <main className="flex-1 flex flex-col mr-10 p-2">
+          <p className="drop-shadow-title-top text-korofu-blue">Our Community</p>
           {/* Posting Box */}
-          <div className="w-[1000px] self-stretch px-5 py-6 bg-[#FFF5CC] rounded-2xl shadow-[3px_3px_0px_rgba(0,0,0,1)] outline outline-2 outline-offset-[-2px] outline-black flex flex-col items-center gap-5">
+          <div className="w-[100%] self-stretch px-6 py-6 bg-[#FFF5CC] rounded-2xl shadow-[3px_3px_0px_rgba(0,0,0,1)] outline outline-2 outline-offset-[-2px] outline-black flex flex-col items-center gap-5">
             {/* Post Input */}
-            <div className="w-[900px] flex items-center gap-6">
+            <div className="w-[95%] flex items-center gap-6">
               <div className="size-16 rounded-full overflow-hidden shadow-[5px_5px_0px_rgba(0,0,0,1)] outline outline-2 outline-black">
                 <img
                   className="w-full h-full object-cover"
@@ -62,7 +62,7 @@ export default function OurCommunity() {
                 />
               </div>
               <div onClick={() => setIsPopupOpen(true)} className="flex-1 px-4 py-1 bg-white rounded-lg shadow-[3px_3px_0px_rgba(0,0,0,1)] outline outline-2 outline-offset-[-2px] outline-black flex items-center">
-                <span className="flex-1 text-black text-xl font-semibold font-['SFU_Futura'] leading-loose">
+                <span className="py-2 flex-1 text-black text-xl font-semibold font-['SFU_Futura'] leading-loose">
                   What are you thinking?
                 </span>
               </div>
@@ -86,7 +86,7 @@ export default function OurCommunity() {
           {posts.map((post) => (
             <div
               key={post.id}
-              className="w-[1000px] mt-6 px-8 py-6 bg-white rounded-2xl shadow-[3px_3px_0px_rgba(0,0,0,1)] outline outline-2 outline-offset-[-2px] outline-black flex flex-col gap-6"
+              className="w-[100%] mt-6 px-6 py-6 bg-white rounded-2xl shadow-[3px_3px_0px_rgba(0,0,0,1)] outline outline-2 outline-offset-[-2px] outline-black flex flex-col gap-6"
             >
               {/* User Info */}
               <div className="flex items-center gap-5 ml-6">
@@ -114,18 +114,18 @@ export default function OurCommunity() {
 
               {/* Images */}
               {post.images.length > 0 && (
-                <div className="flex justify-center">
+                <div className="flex justify-center w-full">
                   {post.images.length === 1 ? (
-                    <div className="w-[890px] h-[516px] overflow-hidden shadow-[3px_3px_0px_rgba(0,0,0,1)] border-2 border-black">
+                    <div className="w-[95%] overflow-hidden shadow-[3px_3px_0_#000] border-2 border-black">
                       <img
                         src={post.images[0]}
                         alt="post"
-                        className="w-[890px] h-[516px] object-cover object-center"
+                        className="w-full object-cover object-center"
                       />
                     </div>
                   ) : (
                     <div
-                      className={`grid gap-[30px] ${
+                      className={`grid gap-4 w-full ${
                         post.images.length === 2
                           ? "grid-cols-2"
                           : post.images.length === 3
@@ -134,12 +134,16 @@ export default function OurCommunity() {
                       }`}
                     >
                       {post.images.map((img, i) => (
-                        <img
+                        <div
                           key={i}
-                          src={img}
-                          alt={`post img ${i}`}
-                          className="w-[430px] h-[243px] object-cover shadow-[3px_3px_0px_rgba(0,0,0,1)] border-2 border-black"
-                        />
+                          className="w-[95%] mx-auto h-60 overflow-hidden shadow-[3px_3px_0_#000] border-2 border-black"
+                        >
+                          <img
+                            src={img}
+                            alt={`post img ${i}`}
+                            className="w-full h-full object-cover object-center"
+                          />
+                        </div>
                       ))}
                     </div>
                   )}

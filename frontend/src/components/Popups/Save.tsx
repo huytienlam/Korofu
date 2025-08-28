@@ -31,7 +31,7 @@ export default function SavePopup({ onClose, profileData }: SavePopupProps) {
             onClick={onClose}
             className="absolute top-3 right-4 text-3xl font-bold !font-[Quicksand] text-gray-700 hover:text-black"
           >
-            x
+            ✕
           </button>
           <p className="text-2xl my-15 font-semibold text-center">
             Your changes are successfully saved.

@@ -28,9 +28,9 @@ export default function RecipesPage() {
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
 
-        <main className="flex-1 p-6 rounded-3xl mr-10">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-korofu-purple drop-shadow-title-top">
+        <main className="flex-1 flex flex-col mr-10 p-2">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-korofu-gold drop-shadow-title-top mb-0">
               Pizza Recipes
             </h2>
             <CategoryNavigation

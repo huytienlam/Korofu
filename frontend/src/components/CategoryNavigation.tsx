@@ -16,33 +16,30 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
   onRetry
 }) => {
   const getButtonStyle = (category: CategoryType) => {
-    const baseStyle = "px-6 py-3 border-2 border-black rounded-2xl font-semibold transition-all duration-200";
+    const baseStyle = "small-button w-45 font-semibold";
     
     if (currentCategory === category) {
-      return `${baseStyle} bg-korofu-purple text-black shadow-[3px_3px_0_#000]`;
+      return `${baseStyle} bg-korofu-gold text-black hover:translate-y-0 cursor-default shadow-[3px_3px_0_#000]`;
     }
     
-    return `${baseStyle} bg-korofu-yellow text-black shadow-[3px_3px_0_#000] hover:shadow-[0px_0px_0_#000] hover:translate-x-1 hover:translate-y-1`;
+    return `${baseStyle} bg-korofu-purple`;
   };
 
   return (
     
-    <div className="flex items-center gap-4 mb-6">
-        <button
-            onClick={() => onCategoryChange("recipes")}
-            className={getButtonStyle("recipes")}
-        >
-            View Recipes
-        </button>
+    <div className="flex items-center gap-4">
       <button
-        onClick={() => onCategoryChange("dishes")}
-        className={getButtonStyle("dishes")}
+          onClick={() => onCategoryChange("dishes")}
+          className={getButtonStyle("dishes")}
       >
-        View Dishes
+          View Dishes
       </button>
-      
-
-      
+      <button
+          onClick={() => onCategoryChange("recipes")}
+          className={getButtonStyle("recipes")}
+      >
+          View Recipes
+      </button>
       <button
         onClick={() => onCategoryChange("restaurants")}
         className={getButtonStyle("restaurants")}
@@ -53,9 +50,7 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
       {showRetry && onRetry && (
         <button
           onClick={onRetry}
-          className="px-6 py-3 bg-korofu-orange border-2 border-black rounded-2xl font-semibold text-[#FFF5CC] 
-                   shadow-[3px_3px_0_#000] hover:shadow-[0px_0px_0_#000] 
-                   hover:translate-x-1 hover:translate-y-1 transition-all duration-200"
+          className="small-button bg-korofu-pink font-bold"
         >
           Retry
         </button>
