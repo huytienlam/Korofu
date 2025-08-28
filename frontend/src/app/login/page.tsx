@@ -2,19 +2,21 @@
 import { useState } from "react";
 import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#FFF5CC] relative">
       {/* Logo box */}
       <div className="rounded-[11px] absolute top-7 left-7 w-15 h-15 flex items-center justify-center border-4 border-black bg-white shadow-[4px_4px_0_#000]">
-        <Image
-          src="/assets/logo/Logo Bowl Light Yellow.svg"
-          alt="Logo"
-          width={48}
-          height={48}
-        />
+        <Link href="/">
+          <Image
+            src="/assets/logo/Logo Bowl Light Yellow.svg"
+            alt="Logo"
+            width={48}
+            height={48}
+          />
+        </Link>
       </div>
 
       {/* Login Form */}
@@ -64,18 +66,18 @@ const Login = () => {
 
         {/* Links */}
         <div className="flex justify-between text-sm mb-4">
-          <a
+          <Link
             href="forgotpassword"
             className="text-sm font-semibold hover:underline ml-6"
           >
             Forgot Password?
-          </a>
-          <a
+          </Link>
+          <Link
             href="/signup"
             className="text-[#FF6D4D] text-sm font-semibold hover:underline mr-6"
           >
             Register Now!
-          </a>
+          </Link>
         </div>
 
         {/* Divider */}

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <nav className='w-full-screen h-[100px] bg-[#F9F5F2] flex items-center justify-center'>
+    <nav className="w-full-screen h-[100px] bg-[#F9F5F2] flex items-center justify-center">
       <div className="w-full px-10 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/home" className="flex items-center">
@@ -25,12 +25,16 @@ export const Navbar = () => {
             <Link href="/contact">Contact</Link>
           </div>
           <div className='flex items-center gap-10 font-["SFUFutura"] font-semibold text-xl'>
-            <button className="px-6 py-2 bg-[#4FD3C6] text-black rounded-[5px] border-[2px] border-black shadow-[3px_3px_0_#000] hover:bg-white transition-colors">
-              Log In
-            </button>
-            <button className="px-6 py-2 bg-[#FF91E8] text-black rounded-[5px] border-[2px] border-black shadow-[3px_3px_0_#000] hover:bg-white transition-colors">
-              Sign Up
-            </button>
+            <Link href="/login">
+              <button className="px-6 py-2 bg-[#4FD3C6] text-black rounded-[5px] border-[2px] border-black shadow-[3px_3px_0_#000] hover:bg-white transition-colors">
+                Log In
+              </button>
+            </Link>
+            <Link href="/signup">
+              <button className="px-6 py-2 bg-[#FF91E8] text-black rounded-[5px] border-[2px] border-black shadow-[3px_3px_0_#000] hover:bg-white transition-colors">
+                Sign Up
+              </button>
+            </Link>
           </div>
         </div>
       </div>
