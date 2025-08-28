@@ -47,11 +47,11 @@ export default function Footer() {
 
           {/* Social icons */}
         <div className="flex justify-center gap-4">
-            <Image src="/assets/logo/fb.png" alt="icon1" width={48} height={48} />
-            <Image src="/assets/logo/insta.png" alt="icon2" width={48} height={48} />
-            <Image src="/assets/logo/mail.png" alt="icon3" width={48} height={48} />
-            <Image src="/assets/logo/gg.png" alt="icon4" width={48} height={48} />
-            <Image src="/assets/logo/apple.png" alt="icon5" width={48} height={48} />
+            <Image src="/assets/icon/fb.png" alt="icon1" width={48} height={48} />
+            <Image src="/assets/icon/insta.png" alt="icon2" width={48} height={48} />
+            <Image src="/assets/icon/mail.png" alt="icon3" width={48} height={48} />
+            <Image src="/assets/icon/gg.png" alt="icon4" width={48} height={48} />
+            <Image src="/assets/icon/apple.png" alt="icon5" width={48} height={48} />
         </div>
     </div>
     </footer>

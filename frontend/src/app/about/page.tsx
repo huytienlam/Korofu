@@ -17,9 +17,9 @@ export default function QuickPick() {
         <div className="min-h-screen">
             <Navbar />
             <div className="container mx-auto px-6 py-12 space-y-16">
+                <h1 className="text-4xl font-bold text-black text-center">About us</h1>
                 {/* Tiêu đề */}
                 <div className="text-center space-y-3">
-                    <h1 className="text-4xl font-bold text-black">About us</h1>
                     <p className="text-xl text-black !font-[Quicksand]">
                     It all started with one simple question... 
                     <span className="font-bold">“Hôm nay ăn gì?”</span><br />
