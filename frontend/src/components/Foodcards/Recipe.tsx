@@ -1,16 +1,37 @@
 import React, { useState } from "react";
-
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 interface RecipeCardProps {
+  id: string;
   title: string;
   contributor: string;
   imageUrl?: string;
   rating: number;
+  onRemove?: (id: string) => void;
 }
 
-const RecipeCard: React.FC<RecipeCardProps> = ({ title, contributor, imageUrl, rating }) => {
+const RecipeCard: React.FC<RecipeCardProps> = ({ 
+  id,
+  title, 
+  contributor, 
+  imageUrl, 
+  rating,
+  onRemove
+}) => {
   const [saved, setSaved] = useState(false);
+  const pathname = usePathname();
+  const isSavedPage = pathname === "/saved";
+
+  const handleBookmarkClick = () => {
+    if (isSavedPage) {
+      // Nếu đang ở trang Saved, click vào bookmark sẽ xóa item
+      onRemove?.(id);
+    } else {
+      // Ở các trang khác thì toggle save bình thường
+      setSaved(!saved);
+    }
+  };
 
   return (
     <div className="card relative flex items-center gap-4">
@@ -53,9 +74,9 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ title, contributor, imageUrl, r
         <button>
           <Image src="/assets/icon/Feedback.png" alt="Feedback" width={24} height={24} />
         </button>
-        <button onClick={() => setSaved(!saved)}>
+        <button onClick={handleBookmarkClick}>
           <Image
-            src={saved ? "/assets/icon/Bookmark.png" : "/assets/icon/Bookmark_Default.png"}
+            src={isSavedPage || saved ? "/assets/icon/Bookmark.png" : "/assets/icon/Bookmark_Default.png"}
             alt="bookmark"
             width={24}
             height={24}
