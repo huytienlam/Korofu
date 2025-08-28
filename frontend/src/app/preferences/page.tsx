@@ -16,10 +16,9 @@ interface FoodItem {
 type SetItemsFunction = React.Dispatch<React.SetStateAction<FoodItem[]>>;
 
 export default function FoodPreferences() {
-
   const [showSavePopup, setShowSavePopup] = useState(false);
   const [showCancelPopup, setShowCancelPopup] = useState(false);
-  
+
   // Count state for total tags to determine color
   const [totalCount, setTotalCount] = useState(3); // Starting with 3 initial items
 
@@ -102,7 +101,7 @@ export default function FoodPreferences() {
         </div>
 
         {/* Tags Container */}
-        <div className="tags-scroll flex flex-wrap gap-2 content-start overflow-y-auto pr-4 -mr-3">
+        <div className="tags-scroll flex flex-wrap gap-2 content-start overflow-y-auto pr-4 -mr-3 pb-2">
           {items.map((item, index) => (
             <div
               key={index}
@@ -112,9 +111,7 @@ export default function FoodPreferences() {
               style={{ backgroundColor: item.color }}
               title={item.name}
             >
-              <span className="mr-2 font-bold text-black">
-                {item.name}
-              </span>
+              <span className="mr-2 font-bold text-black">{item.name}</span>
               <Image
                 src="/assets/preferences/X.svg"
                 alt="Delete"
@@ -167,13 +164,13 @@ export default function FoodPreferences() {
             </h1>
             {/* Save and Cancel buttons */}
             <div className="flex align-center justify-center gap-6">
-              <button 
+              <button
                 className="small-button bg-korofu-yellow"
                 onClick={() => setShowSavePopup(true)}
               >
                 Save
               </button>
-              <button 
+              <button
                 className="small-button bg-korofu-gray"
                 onClick={() => setShowCancelPopup(true)}
               >
