@@ -4,7 +4,6 @@ import UserNavbar from "../../components/UserNavbar";
 import Sidebar from "../../components/Sidebar";
 import { Video, Image } from "lucide-react";
 import { useState } from "react";
-
 export default function OurCommunity() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [posts, setPosts] = useState([
@@ -81,7 +80,7 @@ export default function OurCommunity() {
               </div>
 
               <div className="flex items-center gap-3">
-                <Image size={36} alt="Photo/Video" />
+                <Image size={36} />
                 <span className="text-black text-xl font-semibold">
                   Photo/Video
                 </span>
