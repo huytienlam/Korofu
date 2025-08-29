@@ -60,10 +60,11 @@ const Login = () => {
         </div>
 
         {/* Log In button */}
-        <button className="w-75 py-2 bg-[#FFF5CC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] text-[#FF6D4D] font-semibold mb-3  hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-          <Link href="/">Login</Link>
-        </button>
-
+        <Link href="/">
+          <button className="w-75 py-2 bg-[#FFF5CC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] text-[#FF6D4D] font-semibold mb-3  hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+            Login
+          </button>
+        </Link>
         {/* Links */}
         <div className="flex justify-between text-sm mb-4">
           <Link

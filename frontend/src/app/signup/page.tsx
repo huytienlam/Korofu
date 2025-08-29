@@ -83,9 +83,11 @@ const Signup = () => {
           </div>
         </div>
         {/* Sign Up button */}
-        <button className="w-75 py-2 bg-[#FF6D4D] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] text-[#FFF5CC] font-semibold mb-3  hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-          <Link href="/login">Sign Up</Link>
-        </button>
+        <Link href="/login">
+          <button className="w-75 py-2 bg-[#FF6D4D] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] text-[#FFF5CC] font-semibold mb-3  hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+            Sign Up
+          </button>
+        </Link>
 
         {/* Links */}
         <div className="text-sm mb-4 text-center">
