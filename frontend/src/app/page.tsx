@@ -234,7 +234,7 @@ export default function Home() {
                   <div className="flex items-start gap-4">
                     <div className="rounded-full">
                       <Image
-                        src="/assets/images/rectangle 8.svg"
+                        src="/assets/images/Rectangle 8.svg"
                         alt="1"
                         width={120}
                         height={120}
@@ -334,7 +334,7 @@ export default function Home() {
         {/* Bottom Banner/Footer */}
         <section className="bg-korofu-aqua py-6">
           <div className="text-center text-black font-bold text-4xl overflow-hidden whitespace-nowrap">
-            <span className="inline-block animate-[scroll_15s_linear_infinite]">
+            <span className="inline-block animate-[scroll_30s_linear_infinite]">
               let your mood choose your food • let your mood choose your food •
               let your mood choose your food • let your mood choose your food •
               let your mood choose your food • let your mood choose your food
