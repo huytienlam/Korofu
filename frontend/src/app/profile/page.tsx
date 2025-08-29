@@ -14,6 +14,7 @@ interface ProfileData {
   address: string;
   gender: string;
   id: string;
+  [key: string]: unknown;
 }
 
 const ProfilePage = () => {
