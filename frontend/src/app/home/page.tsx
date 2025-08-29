@@ -30,8 +30,8 @@ const TodayMenu = [
   {
     title: "Pasta",
     subtitle: "Pasta, sauce, meat, veggies, cheese.",
-    imageUrl:
-      "https://www.allrecipes.com/thmb/IrY572TXic4UXXVn8EetsarI3S0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-269500-creamy-garlic-pasta-Beauties-4x3-f404628aad2a435a9985b2cf764209b5.jpg",
+    imageUrl: "/assets/images/pasta-mock.jpg",
+    // "https://www.allrecipes.com/thmb/IrY572TXic4UXXVn8EetsarI3S0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-269500-creamy-garlic-pasta-Beauties-4x3-f404628aad2a435a9985b2cf764209b5.jpg",
   },
 ];
 const RecentDishes = [
@@ -39,19 +39,22 @@ const RecentDishes = [
     id: 1,
     title: "Grilled Sausages",
     imageUrl:
-      "https://www.allrecipes.com/thmb/IrY572TXic4UXXVn8EetsarI3S0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-269500-creamy-garlic-pasta-Beauties-4x3-f404628aad2a435a9985b2cf764209b5.jpg",
+      "https://assets.epicurious.com/photos/5748afc15a5fbbae31ae4af4/1:1/w_2560%2Cc_limit/shutterstock_409001401.jpg",
+    // "https://www.allrecipes.com/thmb/IrY572TXic4UXXVn8EetsarI3S0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-269500-creamy-garlic-pasta-Beauties-4x3-f404628aad2a435a9985b2cf764209b5.jpg",
   },
   {
     id: 2,
     title: "Beef Noodles",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
+      "https://i0.wp.com/vickypham.com/wp-content/uploads/2023/06/a20ce-2023_06_09eosm506018.jpg",
+    // "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
   },
   {
     id: 3,
     title: "Fried Chicken",
-    imageUrl:
-      "https://www.allrecipes.com/thmb/IrY572TXic4UXXVn8EetsarI3S0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-269500-creamy-garlic-pasta-Beauties-4x3-f404628aad2a435a9985b2cf764209b5.jpg",
+    imageUrl: "assets/images/chicken-mock.jpg",
+
+    // "https://www.allrecipes.com/thmb/IrY572TXic4UXXVn8EetsarI3S0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-269500-creamy-garlic-pasta-Beauties-4x3-f404628aad2a435a9985b2cf764209b5.jpg",
   },
 ];
 const MockPizzaRestaurants = [

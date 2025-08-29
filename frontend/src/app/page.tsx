@@ -257,7 +257,7 @@ export default function Home() {
                   <div className="flex items-start gap-4">
                     <div className="rounded-full">
                       <Image
-                        src="/assets/images/rectangle 8.svg"
+                        src="/assets/images/Rectangle 8.svg"
                         alt="1"
                         width={120}
                         height={120}
