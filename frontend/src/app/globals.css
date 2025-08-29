@@ -372,6 +372,13 @@
     leading-[57.5px] [text-shadow:_3px_2px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black];
   }
 
+  .drop-shadow-big-title {
+    @apply mb-6
+    text-left
+    text-4xl font-bold 
+    leading-[57.5px] [text-shadow:_6px_6px_0px_rgb(0_0_0)] [-webkit-text-stroke:1.5px_black];
+  }
+
   /* CARD STYLES */
 
   .card {

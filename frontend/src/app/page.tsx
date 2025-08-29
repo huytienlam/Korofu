@@ -7,13 +7,12 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className=" relative space-y-1">
-      <img 
-                    src="/assets/elements/Elements.svg" 
-                    alt="illustration" 
-                    className="absolute inset-0 w-full h-auto object-cover z-0"
-                />
-                           
+      <main className="overflow-x-hidden relative space-y-1">
+        <img 
+            src="/assets/elements/Elements.svg" 
+            alt="illustration" 
+            className="absolute left-[-60] top-[20] w-full h-auto object-cover z--1"
+        /> 
        <Hero />
 
         {/* Journey Section */}

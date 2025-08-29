@@ -3,6 +3,7 @@ import { useState } from "react";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   return (
@@ -60,7 +61,7 @@ const Login = () => {
         </div>
 
         {/* Log In button */}
-        <Link href="/">
+        <Link href="/home">
           <button className="w-75 py-2 bg-[#FFF5CC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] text-[#FF6D4D] font-semibold mb-3  hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
             Login
           </button>
