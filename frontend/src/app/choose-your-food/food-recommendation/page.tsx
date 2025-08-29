@@ -1,12 +1,12 @@
 // app/choose-your-food/food-recommendation/page.tsx
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import UserNavbar from '../../../components/UserNavbar';
-import Sidebar from '../../../components/Sidebar';
-import DishCard from '../../../components/Foodcards/Dish';
+import UserNavbar from "../../../components/UserNavbar";
+import Sidebar from "../../../components/Sidebar";
+import DishCard from "../../../components/Foodcards/Dish";
 
 const dishes = [
   {
@@ -47,30 +47,27 @@ const colors = [
   "bg-korofu-light-yellow",
 ];
 
-const hardcodedColors = [
-  "#FF6B6B",
-  "#FFD93D",
-  "#6BCB77",
-  "#4D96FF",
-  "#9D4EDD",
-]
+const hardcodedColors = ["#FF6B6B", "#FFD93D", "#6BCB77", "#4D96FF", "#9D4EDD"];
 
-export default function FoodRecommendation() {
+function FoodRecommendationContent() {
   const searchParams = useSearchParams();
   const moodSkip = searchParams.get("moodSkip") === "true";
   const colorSkip = searchParams.get("colorSkip") === "true";
   // palette can be read if you want to show the chosen colors
-  const palette = searchParams.get("palette") ? JSON.parse(decodeURIComponent(searchParams.get("palette")!)) : [];
+  const palette = searchParams.get("palette")
+    ? JSON.parse(decodeURIComponent(searchParams.get("palette")!))
+    : [];
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const handleCardClick = (index: number) => setActiveIndex((prev) => (prev === index ? null : index));
+  const handleCardClick = (index: number) =>
+    setActiveIndex((prev) => (prev === index ? null : index));
 
   const moodWithColors = useMemo(() => {
-      return moods.map((mood) => {
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        return { mood, color: randomColor };
-      });
-    }, []);
+    return moods.map((mood) => {
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      return { mood, color: randomColor };
+    });
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -134,11 +131,17 @@ export default function FoodRecommendation() {
                 <div className="flex flex-row gap-6">
                   <Link
                     href="/discover/recipes"
-                    className={activeIndex === null ? "pointer-events-none" : ""}
+                    className={
+                      activeIndex === null ? "pointer-events-none" : ""
+                    }
                   >
                     <button
                       className={`medium-button bg-korofu-light-red text-korofu-light-yellow 
-                      ${activeIndex === null ? "opacity-50 cursor-not-allowed" : ""}`}
+                      ${
+                        activeIndex === null
+                          ? "opacity-50 cursor-not-allowed"
+                          : ""
+                      }`}
                       disabled={activeIndex === null}
                     >
                       View Recipes
@@ -147,11 +150,17 @@ export default function FoodRecommendation() {
 
                   <Link
                     href="/discover/restaurants"
-                    className={activeIndex === null ? "pointer-events-none" : ""}
+                    className={
+                      activeIndex === null ? "pointer-events-none" : ""
+                    }
                   >
                     <button
                       className={`medium-button bg-korofu-light-yellow text-korofu-light-red 
-                      ${activeIndex === null ? "opacity-50 cursor-not-allowed" : ""}`}
+                      ${
+                        activeIndex === null
+                          ? "opacity-50 cursor-not-allowed"
+                          : ""
+                      }`}
                       disabled={activeIndex === null}
                     >
                       View Restaurants
@@ -166,7 +175,9 @@ export default function FoodRecommendation() {
                       query: {
                         moodSkip: moodSkip.toString(),
                         colorSkip: colorSkip.toString(),
-                        ...(palette.length > 0 && { palette: encodeURIComponent(JSON.stringify(palette)) }),
+                        ...(palette.length > 0 && {
+                          palette: encodeURIComponent(JSON.stringify(palette)),
+                        }),
                       },
                     }}
                   >
@@ -179,5 +190,13 @@ export default function FoodRecommendation() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function FoodRecommendation() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FoodRecommendationContent />
+    </Suspense>
   );
 }

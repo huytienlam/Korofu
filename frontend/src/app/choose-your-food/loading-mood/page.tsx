@@ -1,11 +1,11 @@
 "use client";
 
-import UserNavbar from '../../../components/UserNavbar';
-import Sidebar from '../../../components/Sidebar';
-import { useEffect } from "react";
+import UserNavbar from "../../../components/UserNavbar";
+import Sidebar from "../../../components/Sidebar";
+import { useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function ChooseYourFoodLoadingMood() {
+function ChooseYourFoodLoadingMoodContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -23,10 +23,10 @@ export default function ChooseYourFoodLoadingMood() {
   return (
     <div className="min-h-screen">
       <UserNavbar username="Username" />
-      
+
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
-        
+
         <main className="flex-1 flex flex-col items-center justify-center mr-10">
           <p className="drop-shadow-loading-text text-korofu-light-yellow mb-30">
             Scanning your mood vibes...
@@ -34,5 +34,13 @@ export default function ChooseYourFoodLoadingMood() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function ChooseYourFoodLoadingMood() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ChooseYourFoodLoadingMoodContent />
+    </Suspense>
   );
 }
