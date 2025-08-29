@@ -3,10 +3,10 @@
 
 import UserNavbar from "../../../components/UserNavbar";
 import Sidebar from "../../../components/Sidebar";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function ChooseYourFoodLoadingShuffle() {
+function ChooseYourFoodLoadingShuffleContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -43,5 +43,13 @@ export default function ChooseYourFoodLoadingShuffle() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function ChooseYourFoodLoadingShuffle() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ChooseYourFoodLoadingShuffleContent />
+    </Suspense>
   );
 }

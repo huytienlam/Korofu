@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Wheel from "@uiw/react-color-wheel";
 import UserNavbar from "../../../components/UserNavbar";
@@ -11,7 +11,7 @@ import SkipPopup from "../../../components/Popups/Skip";
 
 const MAX_COLORS = 5;
 
-export default function ColorPicker() {
+function ColorPickerContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -173,5 +173,13 @@ export default function ColorPicker() {
         />
       )}
     </div>
+  );
+}
+
+export default function ColorPicker() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ColorPickerContent />
+    </Suspense>
   );
 }

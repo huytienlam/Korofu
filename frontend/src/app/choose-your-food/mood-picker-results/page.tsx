@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import UserNavbar from "../../../components/UserNavbar";
 import Sidebar from "../../../components/Sidebar";
@@ -10,7 +10,7 @@ import { colors } from "../../../data/mockData";
 
 const moods = ["happy", "cheerful", "wants something heavy"];
 
-export default function MoodPickerResults() {
+function MoodPickerResultsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -117,5 +117,13 @@ export default function MoodPickerResults() {
         <CancelPopup onClose={() => setShowCancelPopup(false)} />
       )}
     </div>
+  );
+}
+
+export default function MoodPickerResults() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MoodPickerResultsContent />
+    </Suspense>
   );
 }

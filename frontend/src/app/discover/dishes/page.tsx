@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import UserNavbar from "../../../components/UserNavbar";
 import Sidebar from "../../../components/Sidebar";
@@ -8,7 +8,7 @@ import CategoryNavigation from "../../../components/CategoryNavigation";
 import DishCard from "../../../components/Foodcards/Dish";
 import { mockPizzaDishes } from "../../../data/mockData";
 
-export default function DishesPage() {
+function DishesPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("q") || "";
@@ -66,5 +66,13 @@ export default function DishesPage() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function DishesPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DishesPageContent />
+    </Suspense>
   );
 }

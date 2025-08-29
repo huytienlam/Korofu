@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import UserNavbar from "../../../components/UserNavbar";
 import Sidebar from "../../../components/Sidebar";
 import CancelPopup from "../../../components/Popups/Cancel";
 import SkipPopup from "../../../components/Popups/Skip";
 
-export default function MoodPicker() {
+function MoodPickerContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -115,5 +115,13 @@ export default function MoodPicker() {
         />
       )}
     </div>
+  );
+}
+
+export default function MoodPicker() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MoodPickerContent />
+    </Suspense>
   );
 }
