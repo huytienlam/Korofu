@@ -12,13 +12,13 @@ interface RecipeCardProps {
   onRemove?: (id: string) => void;
 }
 
-const RecipeCard: React.FC<RecipeCardProps> = ({ 
+const RecipeCard: React.FC<RecipeCardProps> = ({
   id,
-  title, 
-  contributor, 
-  imageUrl, 
+  title,
+  contributor,
+  imageUrl,
   rating,
-  onRemove
+  onRemove,
 }) => {
   const [saved, setSaved] = useState(false);
   const pathname = usePathname();
@@ -62,7 +62,11 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
       {/* Hình bên trái */}
       <div className="w-28 h-28 bg-gray-200 flex-shrink-0 overflow-hidden">
         {imageUrl ? (
-          <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
+          <img
+            src={imageUrl}
+            alt={title}
+            className="w-full h-full object-cover"
+          />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-gray-500">
             Img
@@ -78,11 +82,15 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
         <div className="flex items-center gap-1 my-1">
           {[1, 2, 3, 4, 5].map((star) => (
             <Image
-                key={star}
-                src={star <= rating ? "/assets/icon/Star.png" : "/assets/icon/Star_Default.png"}
-                alt="star"
-                width={24}
-                height={24}
+              key={star}
+              src={
+                star <= rating
+                  ? "/assets/icon/Star.png"
+                  : "/assets/icon/Star_Default.png"
+              }
+              alt="star"
+              width={24}
+              height={24}
             />
           ))}
         </div>
@@ -96,11 +104,20 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
       {/* Nút cố định ở góc phải trên */}
       <div className="absolute top-[20px] right-[18px] flex flex-col gap-2 items-end">
         <button onClick={() => setShowPopup(true)}>
-          <Image src="/assets/icon/Feedback.png" alt="Feedback" width={24} height={24} />
+          <Image
+            src="/assets/icon/Feedback.png"
+            alt="Feedback"
+            width={24}
+            height={24}
+          />
         </button>
         <button onClick={handleBookmarkClick}>
           <Image
-            src={isSavedPage || saved ? "/assets/icon/Bookmark.png" : "/assets/icon/Bookmark_Default.png"}
+            src={
+              isSavedPage || saved
+                ? "/assets/icon/Bookmark.png"
+                : "/assets/icon/Bookmark_Default.png"
+            }
             alt="bookmark"
             width={24}
             height={24}

@@ -53,6 +53,7 @@ export default function RecipesPage() {
                 contributor={recipe.contributor || ""}
                 rating={recipe.rating || 5}
                 imageUrl={recipe.imageUrl}
+                id={""}
               />
             ))}
           </div>

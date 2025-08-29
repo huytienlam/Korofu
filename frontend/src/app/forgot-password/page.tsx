@@ -6,7 +6,7 @@ import Link from "next/link";
 const ForgotPassword = () => {
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
-  const [code] = useState("");
+  const [code, setCode] = useState("");
   const [inputCode, setInputCode] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
