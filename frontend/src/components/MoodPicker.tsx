@@ -26,12 +26,22 @@ const MOOD_COLORS = [
 ];
 
 const MOOD_TAGS = [
-  "Happy", "Excited", "Relaxed", 
-  "Cozy", "Adventurous", "Comfortable",
-  "Energetic", "Peaceful", "Curious"
+  "Happy",
+  "Excited",
+  "Relaxed",
+  "Cozy",
+  "Adventurous",
+  "Comfortable",
+  "Energetic",
+  "Peaceful",
+  "Curious",
 ];
 
-export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalette }: MoodPickerProps) {
+export default function MoodPicker({
+  showMoodPicker,
+  onSkip,
+  onSkipToColorPalette,
+}: MoodPickerProps) {
   const [mood, setMood] = useState("");
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -92,14 +102,14 @@ export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalett
         <h1 className="text-5xl font-extrabold text-[#21120D] mb-8 text-center tracking-tight">
           How are you feeling today?
         </h1>
-        
+
         {/* Description */}
         <div className="text-center mb-12">
           <p className="text-2xl font-bold text-[#21120D] mb-2">
             Pick a mood that matches your vibe,
           </p>
           <p className="text-2xl font-bold text-[#21120D]">
-            and we'll find the perfect food for you.
+            and we&apos;ll find the perfect food for you.
           </p>
         </div>
 
@@ -112,13 +122,14 @@ export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalett
                 key={moodTag}
                 onClick={() => handleMoodSelect(moodTag)}
                 className={`px-6 py-4 border-2 border-black rounded-2xl shadow-[4px_4px_0_#000] hover:shadow-[6px_6px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 font-bold text-[#21120D] ${
-                  selectedMood === moodTag 
-                    ? "shadow-[6px_6px_0_#000]" 
+                  selectedMood === moodTag
+                    ? "shadow-[6px_6px_0_#000]"
                     : "hover:bg-opacity-90"
                 }`}
-                style={{ 
-                  backgroundColor: selectedMood === moodTag ? tagColor : tagColor,
-                  opacity: selectedMood === moodTag ? 1 : 0.8
+                style={{
+                  backgroundColor:
+                    selectedMood === moodTag ? tagColor : tagColor,
+                  opacity: selectedMood === moodTag ? 1 : 0.8,
                 }}
               >
                 {moodTag}
@@ -133,8 +144,8 @@ export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalett
             onClick={handleSpotOn}
             disabled={!selectedMood}
             className={`px-8 py-4 border-2 border-black rounded-2xl shadow-[4px_4px_0_#000] hover:shadow-[6px_6px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 font-bold text-[#21120D] ${
-              selectedMood 
-                ? "bg-[#FFD21E] hover:bg-[#FFE55C]" 
+              selectedMood
+                ? "bg-[#FFD21E] hover:bg-[#FFE55C]"
                 : "bg-gray-300 opacity-50 cursor-not-allowed"
             }`}
           >
@@ -156,16 +167,16 @@ export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalett
     <div className="flex flex-col items-center justify-center min-h-[50vh] p-8">
       {/* Title */}
       <h1 className="text-5xl font-extrabold text-[#21120D] mb-8 text-center tracking-tight">
-        What's your mood today?
+        What&apos;s your mood today?
       </h1>
-      
+
       {/* Description */}
       <div className="text-center mb-12">
         <p className="text-2xl font-bold text-[#21120D] mb-2">
-          Tell us how you're feeling,
+          Tell us how you&apos;re feeling,
         </p>
         <p className="text-2xl font-bold text-[#21120D]">
-          and we'll find the perfect food for you.
+          and we&apos;ll find the perfect food for you.
         </p>
       </div>
 
@@ -183,13 +194,26 @@ export default function MoodPicker({ showMoodPicker, onSkip, onSkipToColorPalett
             type="submit"
             disabled={!mood.trim()}
             className={`px-6 py-4 border-2 border-black rounded-2xl shadow-[4px_4px_0_#000] hover:shadow-[6px_6px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 font-bold text-[#21120D] ${
-              mood.trim() 
-                ? "bg-[#FFD21E] hover:bg-[#FFE55C]" 
+              mood.trim()
+                ? "bg-[#FFD21E] hover:bg-[#FFE55C]"
                 : "bg-gray-300 opacity-50 cursor-not-allowed"
             }`}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#21120D]">
-              <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="text-[#21120D]"
+            >
+              <path
+                d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
         </div>

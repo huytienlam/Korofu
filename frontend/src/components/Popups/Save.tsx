@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState } from "react";
 
@@ -50,7 +51,8 @@ export default function SavePopup({ onClose, profileData }: SavePopupProps) {
 
       <div className="popup">
         <p className="text-2xl mb-15 mt-3 font-semibold text-center">
-          Are you sure you want to save<br/>
+          Are you sure you want to save
+          <br />
           all changes?
         </p>
         <div className="flex justify-center gap-6">

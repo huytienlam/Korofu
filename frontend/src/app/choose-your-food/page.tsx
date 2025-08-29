@@ -28,7 +28,7 @@ export default function ChooseYourFood() {
                   data-size="Large"
                   className="large-button bg-korofu-green"
                 >
-                  Let's go!
+                  Let&apos;s go!
                 </button>
               </Link>
 

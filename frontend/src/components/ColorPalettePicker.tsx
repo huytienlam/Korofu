@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState } from "react";
-import Wheel from '@uiw/react-color-wheel';
+import Wheel from "@uiw/react-color-wheel";
 import LoadingScreen from "./LoadingScreen";
 
 const MAX_PALETTE_COLORS = 10;
@@ -15,7 +16,7 @@ export default function ColorPalettePicker() {
     "#9B59B6", // purple
     "#FF69B4", // pink
     "#8B4513", // dark brown
-    "#50af63"  // green
+    "#50af63", // green
   ]);
   const [showLimitMessage, setShowLimitMessage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +33,7 @@ export default function ColorPalettePicker() {
     if (colorPalette.length >= MAX_PALETTE_COLORS) {
       // FIFO: Remove oldest color and add new one
       setColorPalette([...colorPalette.slice(1), selectedColor]);
-      
+
       // Show notification
       setShowLimitMessage(true);
       setTimeout(() => setShowLimitMessage(false), 3000);
@@ -73,11 +74,11 @@ export default function ColorPalettePicker() {
       <h1 className="text-5xl font-extrabold text-[#21120D] mb-8 text-center tracking-tight">
         Color Palette Picker
       </h1>
-      
+
       {/* Description */}
       <div className="text-center mb-12">
         <p className="text-2xl font-bold text-[#21120D] mb-2">
-          Select the colors you're drawn to,
+          Select the colors you&apos;re drawn to,
         </p>
         <p className="text-2xl font-bold text-[#21120D]">
           and your food will match the mood.
@@ -127,7 +128,7 @@ export default function ColorPalettePicker() {
               </p>
             )}
           </div>
-          
+
           {/* Color Swatches - 2 Rows Layout */}
           <div className="flex flex-col gap-3 mb-8">
             {/* Top Row - 5 colors */}
@@ -135,7 +136,7 @@ export default function ColorPalettePicker() {
               {Array.from({ length: 5 }).map((_, index) => {
                 const color = topRowColors[index];
                 const actualIndex = index;
-                
+
                 if (color) {
                   return (
                     <div key={`top-${index}`} className="relative group">
@@ -161,7 +162,10 @@ export default function ColorPalettePicker() {
                   );
                 } else {
                   return (
-                    <div key={`top-empty-${index}`} className="w-12 h-12 rounded-full border-3 border-dashed border-gray-400 bg-gray-100" />
+                    <div
+                      key={`top-empty-${index}`}
+                      className="w-12 h-12 rounded-full border-3 border-dashed border-gray-400 bg-gray-100"
+                    />
                   );
                 }
               })}
@@ -172,7 +176,7 @@ export default function ColorPalettePicker() {
               {Array.from({ length: 5 }).map((_, index) => {
                 const color = bottomRowColors[index];
                 const actualIndex = index + 5;
-                
+
                 if (color) {
                   return (
                     <div key={`bottom-${index}`} className="relative group">
@@ -198,7 +202,10 @@ export default function ColorPalettePicker() {
                   );
                 } else {
                   return (
-                    <div key={`bottom-empty-${index}`} className="w-12 h-12 rounded-full border-3 border-dashed border-gray-400 bg-gray-100" />
+                    <div
+                      key={`bottom-empty-${index}`}
+                      className="w-12 h-12 rounded-full border-3 border-dashed border-gray-400 bg-gray-100"
+                    />
                   );
                 }
               })}
@@ -211,8 +218,8 @@ export default function ColorPalettePicker() {
               onClick={addToPalette}
               disabled={!canAddColor}
               className={`px-6 py-3 border-2 border-black rounded-xl shadow-[3px_3px_0_#000] transition-all duration-200 font-bold text-[#21120D] ${
-                canAddColor 
-                  ? "bg-[#FFD21E] hover:shadow-[4px_4px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1" 
+                canAddColor
+                  ? "bg-[#FFD21E] hover:shadow-[4px_4px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1"
                   : "bg-gray-300 opacity-50 cursor-not-allowed"
               }`}
             >
@@ -231,7 +238,7 @@ export default function ColorPalettePicker() {
 
       {/* Serve my colors Button */}
       <div className="mt-12">
-        <button 
+        <button
           onClick={handleServeColors}
           className="px-12 py-6 bg-[#FFD21E] border-3 border-black rounded-2xl shadow-[6px_6px_0_#000] hover:shadow-[8px_8px_0_#000] active:shadow-[4px_4px_0_#000] active:translate-x-1 active:translate-y-1 transition-all duration-200 font-bold text-[#21120D] text-xl"
         >

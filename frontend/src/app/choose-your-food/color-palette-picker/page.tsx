@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState } from "react";
@@ -26,7 +27,9 @@ export default function ColorPicker() {
 
   // color palette state
   const [selectedColor, setSelectedColor] = useState("#ffffff");
-  const [palette, setPalette] = useState<Array<string | null>>(Array(MAX_COLORS).fill(null));
+  const [palette, setPalette] = useState<Array<string | null>>(
+    Array(MAX_COLORS).fill(null)
+  );
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleColorChange = (color: any) => {
@@ -86,7 +89,11 @@ export default function ColorPicker() {
           <div className="skip-button" onClick={() => setShowSkipPopup(true)}>
             Skip
             <span className="ml-1 inline-flex items-center">
-              <img src="/assets/icon/Skip_Yellow.svg" alt="skip icon" className="w-10" />
+              <img
+                src="/assets/icon/Skip_Yellow.svg"
+                alt="skip icon"
+                className="w-10"
+              />
             </span>
           </div>
 
@@ -95,7 +102,8 @@ export default function ColorPicker() {
               Color Palette Picker
             </div>
             <div className="max-w-[40rem] text-center justify-center text-black text-2xl font-medium font-['Quicksand']">
-              Select the colors you're drawn to,<br />
+              Select the colors you&apos;re drawn to,
+              <br />
               and your food will match the mood.
             </div>
           </div>
@@ -103,7 +111,12 @@ export default function ColorPicker() {
           <div className="flex items-center gap-16 mb-12">
             <div className="relative">
               <div className="w-64 h-64 rounded-full border-4 border-black shadow-[6px_6px_0_#000] overflow-hidden">
-                <Wheel color={selectedColor} onChange={handleColorChange} width={256} height={256} />
+                <Wheel
+                  color={selectedColor}
+                  onChange={handleColorChange}
+                  width={256}
+                  height={256}
+                />
               </div>
             </div>
 
@@ -148,7 +161,9 @@ export default function ColorPicker() {
       </div>
 
       {/* Popups */}
-      {showCancelPopup && <CancelPopup onClose={() => setShowCancelPopup(false)} />}
+      {showCancelPopup && (
+        <CancelPopup onClose={() => setShowCancelPopup(false)} />
+      )}
       {showSkipPopup && (
         <SkipPopup
           onClose={() => setShowSkipPopup(false)}

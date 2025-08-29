@@ -6,10 +6,9 @@ import UserNavbar from "../../../components/UserNavbar";
 import Sidebar from "../../../components/Sidebar";
 import SkipPopup from "../../../components/Popups/Skip";
 import CancelPopup from "../../../components/Popups/Cancel";
-import { colors } from "../../../data/mockData"
+import { colors } from "../../../data/mockData";
 
 const moods = ["happy", "cheerful", "wants something heavy"];
-
 
 export default function MoodPickerResults() {
   const router = useRouter();
@@ -59,10 +58,7 @@ export default function MoodPickerResults() {
           >
             x
           </div>
-          <div
-            className="skip-button"
-            onClick={() => setShowSkipPopup(true)}
-          >
+          <div className="skip-button" onClick={() => setShowSkipPopup(true)}>
             Skip
             <span className="ml-1 inline-flex items-center">
               <img
@@ -78,7 +74,7 @@ export default function MoodPickerResults() {
               Mood Picker
             </div>
             <div className="max-w-[40rem] text-center justify-center text-black text-2xl font-medium font-['Quicksand']">
-              Does this match how you're feeling?
+              Does this match how you&apos;re feeling?
             </div>
 
             {/* Mood Tags */}
