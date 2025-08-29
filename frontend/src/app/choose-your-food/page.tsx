@@ -19,7 +19,7 @@ export default function ChooseYourFood() {
             </div>
             <div className="max-w-[40rem] h-28 text-center justify-center text-black text-2xl font-medium font-['Quicksand']">
               Set the mood, pick a color,<br></br>
-              and we’ll find your perfect dish!
+              and we&apos;ll find your perfect dish!
             </div>
             <div className="inline-flex justify-start items-center gap-12">
               <Link href="/choose-your-food/course-picker">

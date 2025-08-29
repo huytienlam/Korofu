@@ -4,7 +4,7 @@ import { useState } from "react";
 
 interface SavePopupProps {
   onClose: () => void;
-  profileData: any; // pass from ProfilePage
+  profileData: Record<string, unknown>; // pass from ProfilePage
 }
 
 export default function SavePopup({ onClose, profileData }: SavePopupProps) {

@@ -21,7 +21,7 @@ export default function ColorPalettePicker() {
   const [showLimitMessage, setShowLimitMessage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleColorChange = (color: any) => {
+  const handleColorChange = (color: { hex: string }) => {
     setSelectedColor(color.hex);
   };
 

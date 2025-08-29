@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import UserNavbar from "../../components/UserNavbar";
 import Sidebar from "../../components/Sidebar";
-import Link from "next/link";
+// import Link from "next/link";
 import { colors } from "../../data/mockData";
 import DishCard from "../../components/Foodcards/Dish";
 import Card from "../../components/Foodcards/Card";
@@ -200,7 +200,7 @@ export default function UserHome() {
                 These are your <br></br> recent dishes!
               </p>
               <p className="text-2xl !font-[Quicksand] font-semibold">
-                We think you will like these!<br></br>If you don’t?
+                We think you will like these!<br></br>If you don&apos;t?
               </p>
             </div>
             <div className="justify-end flex-1 flex gap-5">

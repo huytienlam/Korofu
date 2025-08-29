@@ -1,9 +1,9 @@
 "use client";
 
-import UserNavbar from '../../components/UserNavbar';
-import Sidebar from '../../components/Sidebar';
-import { Video, Image } from 'lucide-react';
-import { useState } from 'react';
+import UserNavbar from "../../components/UserNavbar";
+import Sidebar from "../../components/Sidebar";
+import { Video, Image } from "lucide-react";
+import { useState } from "react";
 
 export default function OurCommunity() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -47,9 +47,11 @@ export default function OurCommunity() {
 
       <div className="flex flex-1 max-h-screen">
         <Sidebar />
-        
+
         <main className="flex-1 flex flex-col mr-10 p-2">
-          <p className="drop-shadow-title-top text-korofu-blue">Our Community</p>
+          <p className="drop-shadow-title-top text-korofu-blue">
+            Our Community
+          </p>
           {/* Posting Box */}
           <div className="w-[100%] self-stretch px-6 py-6 bg-[#FFF5CC] rounded-2xl shadow-[3px_3px_0px_rgba(0,0,0,1)] outline outline-2 outline-offset-[-2px] outline-black flex flex-col items-center gap-5">
             {/* Post Input */}
@@ -61,7 +63,10 @@ export default function OurCommunity() {
                   alt="avatar"
                 />
               </div>
-              <div onClick={() => setIsPopupOpen(true)} className="flex-1 px-4 py-1 bg-white rounded-lg shadow-[3px_3px_0px_rgba(0,0,0,1)] outline outline-2 outline-offset-[-2px] outline-black flex items-center">
+              <div
+                onClick={() => setIsPopupOpen(true)}
+                className="flex-1 px-4 py-1 bg-white rounded-lg shadow-[3px_3px_0px_rgba(0,0,0,1)] outline outline-2 outline-offset-[-2px] outline-black flex items-center"
+              >
                 <span className="py-2 flex-1 text-black text-xl font-semibold leading-loose">
                   What are you thinking?
                 </span>
@@ -71,13 +76,15 @@ export default function OurCommunity() {
             {/* Options */}
             <div className="w-[480px] flex justify-between items-center">
               <div className="flex items-center gap-3">
-                <Video size={36}/>
+                <Video size={36} />
                 <span className="text-black text-xl font-semibold">Reel</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <Image size={36}/>
-                <span className="text-black text-xl font-semibold">Photo/Video</span>
+                <Image size={36} alt="Photo/Video" />
+                <span className="text-black text-xl font-semibold">
+                  Photo/Video
+                </span>
               </div>
             </div>
           </div>

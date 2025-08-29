@@ -50,10 +50,7 @@ export default function MoodPicker() {
           >
             x
           </div>
-          <div
-            className="skip-button"
-            onClick={() => setShowSkipPopup(true)}
-          >
+          <div className="skip-button" onClick={() => setShowSkipPopup(true)}>
             Skip
             <span className="ml-1 inline-flex items-center">
               <img
@@ -92,7 +89,11 @@ export default function MoodPicker() {
                     : "hover:shadow-[0px_0px_0_#000] active:shadow-[2px_2px_0_#000] active:translate-x-1 active:translate-y-1"
                 }`}
               >
-                <img src="/assets/icon/Send_Red.svg" className="h-10" />
+                <img
+                  src="/assets/icon/Send_Red.svg"
+                  alt="Send"
+                  className="h-10"
+                />
               </button>
             </div>
           </form>

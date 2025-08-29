@@ -27,7 +27,7 @@ export default function Preview() {
   );
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
-  const handleColorChange = (color: any) => {
+  const handleColorChange = (color: { hex: string }) => {
     setSelectedColor(color.hex);
     if (activeIndex !== null) {
       const newPalette = [...palette];
@@ -78,7 +78,11 @@ export default function Preview() {
               <button
                 className={`llm-input-submit-button bg-korofu-light-yellow transition-all duration-200`}
               >
-                <img src="/assets/icon/Send_Red.svg" className="h-10" />
+                <img
+                  src="/assets/icon/Send_Red.svg"
+                  alt="Send"
+                  className="h-10"
+                />
               </button>
             </div>
           </div>

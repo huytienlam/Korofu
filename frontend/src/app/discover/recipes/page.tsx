@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import UserNavbar from "../../../components/UserNavbar";
 import Sidebar from "../../../components/Sidebar";
@@ -11,14 +11,18 @@ import { mockPizzaRecipes } from "../../../data/mockData";
 export default function RecipesPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const searchQuery = searchParams.get('q') || '';
+  const searchQuery = searchParams.get("q") || "";
 
   const handleCategoryChange = (category: string) => {
-    router.push(`/discover/${category}${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ''}`);
+    router.push(
+      `/discover/${category}${
+        searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ""
+      }`
+    );
   };
 
   const handleRetry = () => {
-    router.push('/discover');
+    router.push("/discover");
   };
 
   return (
@@ -40,15 +44,13 @@ export default function RecipesPage() {
             />
           </div>
 
-
-
           {/* Recipes Grid */}
           <div className="grid grid-cols-2 gap-6">
             {mockPizzaRecipes.map((recipe) => (
-              <RecipeCard   
+              <RecipeCard
                 key={recipe.id}
                 title={recipe.title}
-                contributor={recipe.contributor || ''}
+                contributor={recipe.contributor || ""}
                 rating={recipe.rating || 5}
                 imageUrl={recipe.imageUrl}
               />
@@ -57,7 +59,9 @@ export default function RecipesPage() {
 
           {/* Pagination */}
           <div className="text-center mt-8">
-            <span className="flex justify-end text-3xl text-black-400 font-bold">...</span>
+            <span className="flex justify-end text-3xl text-black-400 font-bold">
+              ...
+            </span>
           </div>
         </main>
       </div>

@@ -6,7 +6,7 @@ import Link from "next/link";
 const ForgotPassword = () => {
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
-  const [code, setCode] = useState("");
+  const [code] = useState("");
   const [inputCode, setInputCode] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,14 +25,14 @@ const ForgotPassword = () => {
   const handleNextFromStep1 = () => {
     generateCode();
     setStep(2);
-    const storedCode = localStorage.getItem("verificationCode");
+    // const storedCode = localStorage.getItem("verificationCode");
 
     // alert(`Your code is ${storedCode}`);
   };
 
   // Step 2 → Step 3
   const handleNextFromStep2 = () => {
-    const storedCode = localStorage.getItem("verificationCode");
+    // const storedCode = localStorage.getItem("verificationCode");
     // if (inputCode === storedCode) {
     //   setStep(3);
     // } else {

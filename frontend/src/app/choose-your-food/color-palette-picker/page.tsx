@@ -23,7 +23,7 @@ export default function ColorPicker() {
   const [showSkipPopup, setShowSkipPopup] = useState(false);
 
   const [moodSkip, setMoodSkip] = useState<boolean>(initialMoodSkip);
-  const [colorSkip, setColorSkip] = useState<boolean>(false);
+  const [colorSkip] = useState<boolean>(false);
 
   // color palette state
   const [selectedColor, setSelectedColor] = useState("#ffffff");
@@ -32,7 +32,7 @@ export default function ColorPicker() {
   );
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const handleColorChange = (color: any) => {
+  const handleColorChange = (color: { hex: string }) => {
     setSelectedColor(color.hex);
     if (activeIndex !== null) {
       const newPalette = [...palette];
@@ -52,7 +52,7 @@ export default function ColorPicker() {
     );
   };
 
-  const handleSkipConfirm = (type: "color" | "both") => {
+  const handleSkipConfirm = (_type: "color" | "both") => {
     if (type === "both") {
       router.push(
         `/choose-your-food/loading-food?moodSkip=true&colorSkip=true&mood=${encodeURIComponent(

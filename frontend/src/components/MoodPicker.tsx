@@ -40,7 +40,7 @@ const MOOD_TAGS = [
 export default function MoodPicker({
   showMoodPicker,
   onSkip,
-  onSkipToColorPalette,
+  onSkipToColorPalette: _onSkipToColorPalette,
 }: MoodPickerProps) {
   const [mood, setMood] = useState("");
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
