@@ -133,7 +133,7 @@ export default function FoodRecommendation() {
               <div className="flex flex-col gap-5 mt-6 mb-3">
                 <div className="flex flex-row gap-6">
                   <Link
-                    href="/quick-pick-mode/loading"
+                    href="/discover/recipes"
                     className={activeIndex === null ? "pointer-events-none" : ""}
                   >
                     <button
@@ -146,7 +146,7 @@ export default function FoodRecommendation() {
                   </Link>
 
                   <Link
-                    href="/quick-pick-mode/loading"
+                    href="/discover/restaurants"
                     className={activeIndex === null ? "pointer-events-none" : ""}
                   >
                     <button

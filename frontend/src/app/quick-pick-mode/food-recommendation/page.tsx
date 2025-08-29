@@ -50,6 +50,7 @@ export default function FoodRecommendation() {
               {dishes.map((dish, index) => (
                 <DishCard
                   key={index}
+                  id={index.toString()}
                   title={dish.title}
                   subtitle={dish.subtitle}
                   imageUrl={dish.imageUrl}
@@ -62,7 +63,7 @@ export default function FoodRecommendation() {
               <div className="flex flex-col gap-5">
                 <div className="flex flex-row gap-6">
                   <Link
-                    href="/quick-pick-mode/loading"
+                    href="/discover/recipes"
                     className={activeIndex === null ? "pointer-events-none" : ""}
                   >
                     <button
@@ -75,7 +76,7 @@ export default function FoodRecommendation() {
                   </Link>
 
                   <Link
-                    href="/quick-pick-mode/loading"
+                    href="/discover/restaurants"
                     className={activeIndex === null ? "pointer-events-none" : ""}
                   >
                     <button
