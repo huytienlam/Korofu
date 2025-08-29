@@ -52,7 +52,7 @@ export default function DishesPage() {
                 title={dish.title}
                 subtitle={dish.description || ""}
                 imageUrl={dish.imageUrl}
-                id={""}
+                id={dish.id}
               />
             ))}
           </div>

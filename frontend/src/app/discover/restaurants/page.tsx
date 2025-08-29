@@ -11,14 +11,18 @@ import { mockPizzaRestaurants } from "../../../data/mockData";
 export default function RestaurantsPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const searchQuery = searchParams.get('q') || '';
+  const searchQuery = searchParams.get("q") || "";
 
   const handleCategoryChange = (category: string) => {
-    router.push(`/discover/${category}${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ''}`);
+    router.push(
+      `/discover/${category}${
+        searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ""
+      }`
+    );
   };
 
   const handleRetry = () => {
-    router.push('/discover');
+    router.push("/discover");
   };
 
   return (
@@ -49,13 +53,16 @@ export default function RestaurantsPage() {
                 location={restaurant.location}
                 imageUrl={restaurant.imageUrl}
                 rating={restaurant.rating}
+                id={restaurant.id}
               />
             ))}
           </div>
 
           {/* Pagination */}
           <div className="text-center mt-8">
-            <span className="flex justify-end text-3xl text-black-400 font-bold">...</span>
+            <span className="flex justify-end text-3xl text-black-400 font-bold">
+              ...
+            </span>
           </div>
         </main>
       </div>
