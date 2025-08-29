@@ -11,14 +11,18 @@ import { mockPizzaDishes } from "../../../data/mockData";
 export default function DishesPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const searchQuery = searchParams.get('q') || '';
+  const searchQuery = searchParams.get("q") || "";
 
   const handleCategoryChange = (category: string) => {
-    router.push(`/discover/${category}${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ''}`);
+    router.push(
+      `/discover/${category}${
+        searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ""
+      }`
+    );
   };
 
   const handleRetry = () => {
-    router.push('/discover');
+    router.push("/discover");
   };
 
   return (
@@ -46,15 +50,18 @@ export default function DishesPage() {
               <DishCard
                 key={dish.id}
                 title={dish.title}
-                subtitle={dish.description || ''}
+                subtitle={dish.description || ""}
                 imageUrl={dish.imageUrl}
+                id={""}
               />
             ))}
           </div>
 
           {/* Pagination */}
           <div className="text-center mt-8">
-            <span className="text-3xl flex justify-end text-black-400 font-bold">...</span>
+            <span className="text-3xl flex justify-end text-black-400 font-bold">
+              ...
+            </span>
           </div>
         </main>
       </div>
