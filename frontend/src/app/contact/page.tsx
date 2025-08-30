@@ -19,7 +19,7 @@ export default function Contact() {
     return (
         <div className="min-h-screen">
             <Navbar />
-            <div className="relative container mx-auto space-y-16">
+            <div className="relative container mx-auto space-y-16 mt-15">
                 {/* Background Elements */}
                 <img 
                     src="/assets/elements/Elements.svg" 

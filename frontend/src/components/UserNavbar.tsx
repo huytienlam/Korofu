@@ -237,18 +237,18 @@ export default function UserNavbar({ username }: UserNavbarProps) {
 
             {/* Dropdown menu */}
             {open && (
-              <div className="absolute right-0 mt-2 w-40 rounded-sm bg-white border-2 border-black shadow-[4px_4px_0_#000] z-50">
+              <div className="absolute right-0 mt-5 w-40 rounded-sm bg-white border-2 border-black shadow-[4px_4px_0_#000] z-50">
                 <Link
                   href="/profile"
-                  className="block px-4 py-2 text-black hover:bg-gray-100"
+                  className="block px-4 py-2 text-lg text-black text-center font-semibold hover:bg-gray-100"
                 >
                   Profile
                 </Link>
                 <Link
                   href="/"
-                  className="block px-4 py-2 text-black hover:bg-gray-100"
+                  className="block px-4 py-2 text-lg text-black text-center font-semibold hover:bg-gray-100"
                 >
-                  Logout
+                  Log Out
                 </Link>
               </div>
             )}

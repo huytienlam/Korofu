@@ -8,6 +8,7 @@ import { colors, allDishes } from "../../data/mockData";
 import Wheel from "@uiw/react-color-wheel";
 import DishCard from "../../components/Foodcards/Dish";
 import Link from "next/link";
+import Image from "next/image";
 
 const moods = ["happy", "cheerful", "wants something heavy"];
 
@@ -40,7 +41,7 @@ export default function Preview() {
     <div className="min-h-screen">
       <Navbar />
       <div>
-        <div className="relative z-10 mx-auto space-y-16">
+        <div className="relative z-10 mx-auto space-y-16 mt-15">
           <div className="relative w-full h-20 flex items-center justify-center">
             {/* Hình chữ nhật hồng */}
             <div className="absolute w-80 h-8 bg-korofu-yellow z-0 translate-x-1.5"></div>
@@ -106,7 +107,7 @@ export default function Preview() {
           <div className="max-w-[40rem] text-center justify-center text-black text-2xl font-medium font-['Quicksand']">
             Every color you pick adds flavor to your story.
           </div>
-          <div className="flex items-center gap-16">
+          <div className="flex items-center gap-16 mb-15">
             {/* Color Wheel */}
             <div className="relative">
               <div className="w-64 h-64 rounded-full border-4 border-black shadow-[6px_6px_0_#000] overflow-hidden">
@@ -146,27 +147,79 @@ export default function Preview() {
         </div>
 
         <div className="relative flex flex-col justify-center items-center gap-7 mb-20 mt-15 w-full">
-          <div className="drop-shadow-title-middle text-korofu-yellow mb-5">
+          <div className="drop-shadow-title-middle text-korofu-yellow">
             Your Food Has Arrived!
           </div>
           <div className="max-w-[45rem] text-center justify-center text-black text-2xl font-medium font-['Quicksand']">
             Once moods and colors are in, we deliver food suggestions that match
             your energy. Think of it as a menu written just for you.
           </div>
-          <div className="grid grid-cols-2 gap-6">
-            {allDishes.map((dish) => (
-              <DishCard
-                key={dish.id}
-                id={dish.id}
-                title={dish.title}
-                subtitle={dish.subtitle}
-                imageUrl={dish.imageUrl}
-              />
-            ))}
+          <div>
+            <div className="grid grid-cols-2 gap-6 w-[70rem] mb-15">
+              {allDishes.map((dish) => (
+                <DishCard
+                  key={dish.id}
+                  id={dish.id}
+                  title={dish.title}
+                  subtitle={dish.subtitle}
+                  imageUrl={dish.imageUrl}
+                />
+              ))}
+            </div>
           </div>
         </div>
+
         <div className="relative flex flex-col justify-center items-center gap-7 mb-20 mt-15 w-full">
-          <div className="drop-shadow-title-middle text-korofu-light-yellow mb-5">
+          <div className="drop-shadow-title-middle text-korofu-orange">
+            More To Come!
+          </div>
+          <div className="max-w-[40rem] text-center justify-center text-black text-2xl font-medium font-['Quicksand']">
+            Plenty of exciting features classified to your senses.
+          </div>
+          <div className="w-full flex justify-center mb-15">
+            <div className="grid grid-cols-3 gap-15 justify-center w-[62.5%]">
+              <div className="px-8 py-12 bg-white border-2 border-black rounded-lg shadow-[6px_6px_0_#000]
+                              flex flex-col gap-10 items-center justify-center">
+                <div className="rounded-full mx-auto flex items-center justify-center">
+                  <Image
+                    src="/assets/elements/Our Korofu Community.svg"
+                    alt="Step 1"
+                    width={125}
+                    height={125}
+                  />
+                </div>
+                <h3 className="text-3xl font-semibold text-black mb-4 text-center">Our Korofu <br></br> Community</h3>
+              </div>
+              <div className="px-8 py-12 bg-white border-2 border-black rounded-lg shadow-[6px_6px_0_#000]
+                              flex flex-col gap-10 items-center justify-center">
+                <div className="rounded-full mx-auto flex items-center justify-center relative">
+                  <Image
+                    src="/assets/elements/Quick Pick Mode.svg"
+                    alt="Step 2"
+                    width={125}
+                    height={125}
+                  />
+                </div>
+                <h3 className="text-3xl font-semibold text-black mb-4 text-center">Quick Pick <br></br> Mode</h3>
+              </div>
+              <div className="px-8 py-12 bg-white border-2 border-black rounded-lg shadow-[6px_6px_0_#000]
+                              flex flex-col gap-10 items-center justify-center">
+                <div className="rounded-full mx-auto flex items-center justify-center relative">
+                  <Image
+                    src="/assets/elements/Manage Food Preferences.svg"
+                    alt="Step 3"
+                    width={125}
+                    height={125}
+                  />
+                </div>
+                <h3 className="text-3xl font-semibold text-black mb-4 text-center">Manage Food <br></br> Preferences</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative flex flex-col justify-center items-center gap-7 mb-20 mt-15 w-full">
+          <div className="drop-shadow-title-middle text-korofu-light-yellow">
             Hungry For More?
           </div>
           <div className="max-w-[40rem] text-center justify-center text-black text-2xl font-medium font-['Quicksand']">

@@ -16,7 +16,7 @@ export default function About() {
     return (
         <div className="min-h-screen">
             <Navbar />
-            <div className="relative container mx-auto space-y-16">
+            <div className="relative container mx-auto space-y-16 mt-15">
                 {/* Background Elements */}
                 <img 
                     src="/assets/elements/Elements-about.svg" 
@@ -70,7 +70,7 @@ export default function About() {
                                     <div className="absolute w-78 h-7 bg-[#91A8EC] z-0 translate-x-1.5"></div>
                                     <h2 className="text-3xl font-bold text-black mb-4 text-center z-10">From Idea to Flavor</h2>
                                 </div>
-                                <p className="text-black text-xl leading-relaxed !font-[Quicksand] text-justify">
+                                <p className="text-black text-2xl leading-snug !font-[Quicksand] text-justify">
                                     <strong className='font-[SFUFutura]'>Korofu</strong> started as a spark in late-night brainstorms. We wanted food to be more than just a choice — 
                                     it should be an experience shaped by feelings, colors, and memories. Every day, friends and family scroll endlessly, 
                                     thinking <strong className='font-[SFUFutura] font-semibold'>“What should we eat today?”</strong>. We thought, what if the answer wasn’t just in recipes, but in moods and colors?
@@ -86,7 +86,7 @@ export default function About() {
                                     <div className="absolute w-45 h-7 bg-[#FF6D4D] z-0 translate-x-1.5"></div>
                                     <h2 className="text-3xl font-bold text-black mb-4 text-center z-10">New Vision</h2>
                                 </div>
-                                <p className="text-black leading-relaxed !font-[Quicksand] text-xl text-justify">
+                                <p className="text-black leading-snug !font-[Quicksand] text-2xl text-justify">
                                     In our minds, food is never just calories. It’s connection, culture, and comfort. We believe every bite should tell a story. 
                                     With <strong className='font-[SFUFutura]'>Korofu</strong>, we want to help people discover dishes that don’t just satisfy hunger, but resonate with the heart.
                                 </p>

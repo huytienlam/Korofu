@@ -2,10 +2,10 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <div className="flex flex-row items-center justify-between py-10 px-2 max-w-7xl mx-auto relative mb-20">
+    <div className="flex flex-row items-center justify-between relative mb-20 gap-10 px-25 h-[100vh-100px]">
       {/* Background Elements */}
                                                  
-      <div className="flex-1 w-[975px] h-[535px]">
+      <div className="flex-1.2">
 
         <div className="font-extrabold text-6xl text-korofu-yellow drop-shadow-big-title mb-12 leading-tight">
           LET YOUR MOOD
@@ -29,7 +29,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center flex-1">
           <Image
             src="/assets/elements/Handdrawn Pizza.svg"
             alt="Pizza Slice Illustration"

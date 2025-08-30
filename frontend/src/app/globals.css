@@ -226,11 +226,15 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+section {
+  margin-bottom: 0;
+}
+
 @layer components {
   * {
-  font-family: "SFUFutura", "Quicksand", sans-serif;
-  scrollbar-width: thin;
-  scrollbar-color: gray transparent;
+    font-family: "SFUFutura", "Quicksand", sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: gray transparent;
   }
 
   /* Chrome, Edge, Safari */
@@ -410,4 +414,24 @@
   .animate-scroll {
     animation: scroll 20s linear infinite;
   }
+}
+
+/* ANIMATION */
+
+@keyframes marquee-left {
+  0%   { transform: translateX(0%); }                   /* start off right */
+  100% { transform: translateX(calc(-100% - 0rem)); } /* move to left */
+}
+
+@keyframes marquee-right {
+  0%   { transform: translateX(calc(-100% - 0rem)); } /* start off left */
+  100% { transform: translateX(0%); }                   /* move to normal position */
+}
+
+.animate-marquee-left {
+  animation: marquee-left 10s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 10s linear infinite;
 }
