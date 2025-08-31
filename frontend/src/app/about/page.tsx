@@ -16,7 +16,7 @@ export default function About() {
     return (
         <div className="min-h-screen">
             <Navbar />
-            <div className="relative container mx-auto space-y-16 mt-15">
+            <div className="relative container mx-auto space-y-16 mt-15 mb-30">
                 {/* Background Elements */}
                 <img 
                     src="/assets/elements/Elements-about.svg" 
@@ -35,7 +35,7 @@ export default function About() {
                     </div>
                     {/* Tiêu đề */}
                     <div className="text-center space-y-3">
-                        <p className="text-2xl text-black !font-[Quicksand] font-medium relative inline-block">
+                        <p className="text-2xl text-black !font-[Quicksand] font-medium relative inline-block mb-10">
                             It all started with one simple question... 
                             <span className="relative inline-block">
                             {/* Hình chữ nhật hồng phía sau */}
@@ -54,13 +54,13 @@ export default function About() {
 
                     <div className="gap-55 flex flex-col items-center justify-center px-6 md:px-0">
                     {/* Card 1: Hình + content */}
-                        <div className="grid md:grid-cols-2 gap-10 items-center">
-                            <div className="flex justify-center bg-white rounded-[5px] shadow-[5px_5px_0_#000] border-[3px] border-black">
+                        <div className="grid md:grid-cols-2 gap-25 items-center">
+                            <div className="py-10 flex justify-center bg-white rounded-[5px] shadow-[5px_5px_0_#000] border-[3px] border-black">
                                 <Image
                                     src="/assets/images/what.svg"
                                     alt="From Idea to Flavor"
-                                    width={400}
-                                    height={200}
+                                    width={350}
+                                    height={400}
                                     
                                 />
                             </div>
@@ -79,7 +79,7 @@ export default function About() {
                         </div>
 
                         {/* Card 2: Content + hình */}
-                        <div className="grid md:grid-cols-2 gap-10 items-center">
+                        <div className="grid md:grid-cols-2 gap-25 items-center">
                             <div className="order-2 md:order-1">
                                 <div className="relative w-full h-20 flex items-center justify-center">
                                     {/* Hình chữ nhật hồng */}

@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <div className="flex flex-row items-center justify-between relative mb-20 gap-10 px-25 h-[100vh-100px]">
+    <div className="flex flex-row items-center justify-between relative w-full gap-10 px-25 mb-20">
       {/* Background Elements */}
                                                  
       <div className="flex-1.2">
@@ -35,8 +35,8 @@ const Hero = () => {
             alt="Pizza Slice Illustration"
             className="object-contain"
             priority
-            width={500} 
-            height={500}
+            width={450} 
+            height={450}
           />
       </div>
     </div>

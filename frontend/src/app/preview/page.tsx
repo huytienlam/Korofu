@@ -40,7 +40,7 @@ export default function Preview() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div>
+      <div className="mb-20">
         <div className="relative z-10 mx-auto space-y-16 mt-15">
           <div className="relative w-full h-20 flex items-center justify-center">
             {/* Hình chữ nhật hồng */}

@@ -7,7 +7,6 @@ export default function Footer() {
   return (
     <footer className="bg-[#F9F5F2] px-3 py-20 gap-15 flex flex-col items-center justify-center space-y-6">
       <div className="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-        
         {/* Logo */}
         <div className="flex-shrink-0">
           <Image

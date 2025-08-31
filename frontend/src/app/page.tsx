@@ -3,13 +3,17 @@ import Footer from "../components/Footer";
 import Hero from "@/components/Hero";
 import Image from "next/image";
 import Link from "next/link";
+import { guests, guests2 } from "../data/mockData";
+
 export default function Home() {
   return (
     <>
       <Navbar />
       <main className="overflow-x-hidden overflow-y-visible relative space-y-1 pb-[5px]">
         {/* Main Section */}
-        <Hero />
+        <div className="flex items-center justify-center h-[calc(100vh-100px)]">
+          <Hero />
+        </div>
 
         {/* Journey Section */}
         <section className="bg-korofu-yellow h-[100vh] flex flex-col items-center justify-center">
@@ -87,16 +91,16 @@ export default function Home() {
 
         {/* Repeating Banner */}
         <section className="bg-korofu-light-red py-6 border-3 border-black shadow-[5px_5px_0_#000]
-                            relative overflow-hidden flex">
+                            relative overflow-hidden flex z-1">
             <div className="flex-shrink-0 flex space-around min-w-full animate-marquee-right">
               <span className="text-korofu-light-yellow font-semibold text-5xl">
-                mood · color · food · mood · color · food · mood · color · food · mood · color · food ·&nbsp;
+                mood · color · food · mood · color · food · mood · color · food · mood · color · food · mood · color · food · mood · color · food · mood · color · food · mood · color · food ·&nbsp;
               </span>
             </div>
             {/* second copy for seamless loop */}
             <div className="flex-shrink-0 flex space-around min-w-full animate-marquee-right">
               <span className="text-korofu-light-yellow font-semibold text-5xl">
-                mood · color · food · mood · color · food · mood · color · food · mood · color · food ·&nbsp;
+                mood · color · food · mood · color · food · mood · color · food · mood · color · food · mood · color · food · mood · color · food · mood · color · food · mood · color · food ·&nbsp;
               </span>
             </div>
         </section>
@@ -149,132 +153,109 @@ export default function Home() {
         </section>
 
         {/* Guests & Storytellers Section */}
-        <section className="bg-korofu-default py-25 px-20 relative h-[100vh]">
-          <div className="relative w-full h-10 flex items-end justify-end mb-15">
+        <section className="bg-korofu-default py-20 flex flex-col justify-between relative h-[100vh]">
+          <div className="relative w-full h-10 flex items-end justify-end mb-15 px-25">
             <div className="absolute w-175 h-10 bg-korofu-green z-0 translate-x-3 translate-y-[-4px]"></div>
-              <h2 className="text-5xl font-bold text-gray-800 text-center mb-16 z-10 translate-x-1 translate-y-14">
-                Our guests, our storytellers.
-              </h2>
+            <h2 className="text-5xl font-bold text-gray-800 text-center mb-16 z-10 translate-x-1 translate-y-14">
+              Our guests, our storytellers.
+            </h2>
           </div>
 
-          <div className="max-w-7xl mx-auto py-10">
-            <div className="grid grid-cols-2 gap-16">
-              {/* Left Column - Vu Nguyen */}
-              <div className="space-y-6">
-                <div className="bg-white border-2 border-black rounded-xl p-6 shadow-[6px_6px_0_#000]">
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-full ">
-                      <Image
-                        src="/assets/images/vanvu.png"
-                        alt="1"
-                        width={120}
-                        height={120}
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-black mb-1">
-                        Vu Nguyen
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-3">Food Blogger</p>
-                      <p className="text-gray-800 italic">
-                        It&apos;s like Netflix recommendations, but for food —
-                        and it nailed my mood perfectly.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white border-2 border-black rounded-xl p-6 shadow-[6px_6px_0_#000]">
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-full ">
-                      <Image
-                        src="/assets/images/vanvu.png"
-                        alt="1"
-                        width={120}
-                        height={120}
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-black mb-1">
-                        Vu Nguyen
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-3">Food Blogger</p>
-                      <p className="text-gray-800 italic">
-                        It&apos;s like Netflix recommendations, but for food —
-                        and it nailed my mood perfectly.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column - Tuan Mai Anh */}
-              <div className="space-y-6">
-                <div className="bg-white border-2 border-black rounded-xl p-6 shadow-[6px_6px_0_#000]">
+          <div className="overflow-hidden flex gap-[5rem] relative">
+            <div className="flex-shrink-0 flex space-around gap-[5rem] animate-marquee-left-cards">
+              {guests.map((guest, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white border-2 border-black rounded-xl p-6 shadow-[6px_6px_0_#000] w-150"
+                >
                   <div className="flex items-start gap-4">
                     <div className="rounded-full">
-                      <Image
-                        src="/assets/images/Rectangle 8.svg"
-                        alt="1"
-                        width={120}
-                        height={120}
-                      />
+                      <Image src={guest.image} alt={guest.name} width={120} height={120} unoptimized />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-black mb-1">
-                        Tuan Mai Anh
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-3">Doctor</p>
-                      <p className="text-gray-800 italic">
-                        I found a new dish I would&apos;ve myself — now
-                        it&apos;s my favorite.
-                      </p>
+                      <h3 className="text-2xl font-bold text-black mb-1">{guest.name}</h3>
+                      <p className="text-lg text-gray-600 mb-3">{guest.role}</p>
+                      <p className="text-gray-800 text-xl font-[Quicksand] leading-tight">{guest.quote}</p>
                     </div>
                   </div>
                 </div>
-
-                <div className="bg-white border-2 border-black rounded-xl p-6 shadow-[6px_6px_0_#000]">
+              ))}
+            </div>
+            <div className="flex-shrink-0 flex space-around gap-[5rem] animate-marquee-left-cards">
+              {guests.map((guest, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white border-2 border-black rounded-xl p-6 shadow-[6px_6px_0_#000] w-150"
+                >
                   <div className="flex items-start gap-4">
                     <div className="rounded-full">
-                      <Image
-                        src="/assets/images/Rectangle 8.svg"
-                        alt="1"
-                        width={120}
-                        height={120}
-                      />
+                      <Image src={guest.image} alt={guest.name} width={120} height={120} unoptimized />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-black mb-1">
-                        Tuan Mai Anh
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-3">Doctor</p>
-                      <p className="text-gray-800 italic">
-                        I found a new dish I would&apos;ve myself — now
-                        it&apos;s my favorite.
-                      </p>
+                      <h3 className="text-2xl font-bold text-black mb-1">{guest.name}</h3>
+                      <p className="text-lg text-gray-600 mb-3">{guest.role}</p>
+                      <p className="text-gray-800 text-xl font-[Quicksand] leading-tight">{guest.quote}</p>
                     </div>
                   </div>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="overflow-hidden flex gap-[5rem] relative">
+            <div className="flex-shrink-0 flex space-around gap-[5rem] animate-marquee-right-cards">
+              {guests2.map((guest, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white border-2 border-black rounded-xl p-6 shadow-[6px_6px_0_#000] w-150"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="rounded-full">
+                      <Image src={guest.image} alt={guest.name} width={120} height={120} unoptimized />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-black mb-1">{guest.name}</h3>
+                      <p className="text-lg text-gray-600 mb-3">{guest.role}</p>
+                      <p className="text-gray-800 text-xl font-[Quicksand] leading-tight">{guest.quote}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="flex-shrink-0 flex space-around gap-[5rem] animate-marquee-right-cards">
+              {guests2.map((guest, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white border-2 border-black rounded-xl p-6 shadow-[6px_6px_0_#000] w-150"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="rounded-full">
+                      <Image src={guest.image} alt={guest.name} width={120} height={120} unoptimized />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-black mb-1">{guest.name}</h3>
+                      <p className="text-lg text-gray-600 mb-3">{guest.role}</p>
+                      <p className="text-gray-800 text-xl font-[Quicksand] leading-tight">{guest.quote}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-korofu-light-yellow py-40 px-8 relative">
-          <div className="max-w-7xl mx-auto flex items-center gap-16">
+        <section className="bg-korofu-light-yellow flex items-center justify-center gap-15 relative px-20 h-[calc(100vh-100px)]">
             {/* Left side - Main Graphic */}
-            <div className="flex-1 flex justify-center">
-              <div className=" rounded-full flex items-center justify-center ">
-                <Image
-                  src="/assets/logo/Logo_Image_Yellow.png"
-                  alt="1"
-                  width={600}
-                  height={300}
-                />
-              </div>
+            <div className="flex-1 flex items-center justify-center">
+              <Image
+                src="/assets/elements/Logo Bowl Yellow Big.svg"
+                alt="1"
+                width={500}
+                height={300}
+              />
             </div>
-
-            <div className="flex-1">
+            {/* Right side - Main Text */}
+            <div className="flex-1 flex flex-col">
               <Image
                 src="/assets/logo/Logo_Name_Yellow.png"
                 alt="1"
@@ -282,45 +263,38 @@ export default function Home() {
                 height={80}
               />
 
-              <p className="text-2xl text-black mb-4 font-bold">
-                Your emotions have
-                <span className="bg-korofu-aqua px-2 py-1 rounded ml-2">
-                  flavor
-                </span>
-                .
-              </p>
-              <p className="text-xl text-black mb-8 font-bold translate-y-1 translate-x-1 z-10">
-                Ready to
-                <span className="bg-red-400 px-2 py-1 rounded ml-2 z-0">
-                  taste
-                </span>{" "}
-                them?
-              </p>
+              <div className="mb-10">
+                <p className="text-3xl text-black font-semibold">
+                  Your emotions have flavor.
+                </p>
+                <p className="text-3xl text-black font-semibold">
+                  Ready to taste them?
+                </p>
+              </div>
 
               <div className="flex gap-6">
-                <button className="px-8 py-4 bg-korofu-purple text-black font-bold rounded-lg border-2 border-black shadow-[4px_4px_0_#000] hover:translate-y-1 hover:shadow-[0px_0px_0_#000] transition-all">
+                <button className="large-button w-[40%] bg-korofu-purple">
                   Yes, please!
                 </button>
-                <button className="px-8 py-4 bg-korofu-beige text-black font-bold rounded-lg border-2 border-black shadow-[4px_4px_0_#000] hover:translate-y-1 hover:shadow-[0px_0px_0_#000] transition-all">
+                <button className="large-button w-[40%] bg-korofu-beige">
                   Know more?
                 </button>
               </div>
             </div>
-          </div>
         </section>
 
         {/* Repeating Banner */}
         <section className="bg-korofu-aqua py-6 border-3 border-black shadow-[5px_5px_0_#000]
-                            overflow-hidden flex overflow-hidden relative">
+                            overflow-hidden flex relative">
             <div className="flex-shrink-0 flex space-around min-w-full animate-marquee-left">
               <span className="font-semibold text-5xl">
-                let your mood choose your food · let your mood choose your food · let your mood choose your food ·&nbsp;
+                let your mood choose your food · let your mood choose your food · let your mood choose your food · let your mood choose your food · let your mood choose your food · let your mood choose your food ·&nbsp;
               </span>
             </div>
             {/* second copy for seamless loop */}
             <div className="flex-shrink-0 flex space-around min-w-full animate-marquee-left">
               <span className="font-semibold text-5xl">
-                let your mood choose your food · let your mood choose your food · let your mood choose your food ·&nbsp;
+                let your mood choose your food · let your mood choose your food · let your mood choose your food · let your mood choose your food · let your mood choose your food · let your mood choose your food ·&nbsp;
               </span>
             </div>
         </section>

@@ -19,13 +19,14 @@ export default function Contact() {
     return (
         <div className="min-h-screen">
             <Navbar />
-            <div className="relative container mx-auto space-y-16 mt-15">
-                {/* Background Elements */}
-                <img 
-                    src="/assets/elements/Elements.svg" 
-                    alt="illustration" 
-                    className="absolute inset-0 w-full h-auto object-cover z-0"
-                />
+            {/* Background Elements */}
+            <img 
+                src="/assets/elements/Elements-contacts.svg" 
+                alt="illustration" 
+                className="absolute mx-auto top-45 inset-0 h-auto object-cover z-0 w-[90%]"
+            />
+            <div className="relative container mx-auto space-y-16 mt-15 mb-30">
+                
                 <div className="relative z-10 mx-auto space-y-16">
                     <div className="relative w-full h-20 flex items-center justify-center">
                         {/* Hình chữ nhật hồng */}

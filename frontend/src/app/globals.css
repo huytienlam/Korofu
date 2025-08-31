@@ -428,10 +428,28 @@ section {
   100% { transform: translateX(0%); }                   /* move to normal position */
 }
 
+@keyframes marquee-left-cards {
+  0%   { transform: translateX(0%); }                   /* start off right */
+  100% { transform: translateX(calc(-100% - 5rem)); }   /* move to left */
+}
+
+@keyframes marquee-right-cards {
+  0%   { transform: translateX(calc(-100% - 5rem)); }   /* start off left */
+  100% { transform: translateX(0%); }                   /* move to normal position */
+}
+
 .animate-marquee-left {
-  animation: marquee-left 10s linear infinite;
+  animation: marquee-left 20s linear infinite;
 }
 
 .animate-marquee-right {
-  animation: marquee-right 10s linear infinite;
+  animation: marquee-right 20s linear infinite;
+}
+
+.animate-marquee-left-cards {
+  animation: marquee-left-cards 10s linear infinite;
+}
+
+.animate-marquee-right-cards {
+  animation: marquee-right-cards 10s linear infinite;
 }

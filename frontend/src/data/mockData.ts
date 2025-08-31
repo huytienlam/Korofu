@@ -58,6 +58,51 @@ export interface Dish {
 //     },
 // ];
 
+export const guests = [
+  {
+    name: "Vu Nguyen",
+    role: "Food Blogger",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/12/User_icon_2.svg",
+    quote:
+      "It's like Netflix recommendations, but for food — and it nailed my mood perfectly.",
+  },
+  {
+    name: "Tuan Mai Anh",
+    role: "Doctor",
+    image: "/assets/images/mat.svg",
+    quote:
+      "I found a new dish I wouldn’t have tried myself — now it's my favorite.",
+  },
+  {
+    name: "Dung Nguyen",
+    role: "IT services",
+    image: "/assets/images/dung.svg",
+    quote: "I never realized how much my color choices said about what I wanted to eat. Mind blown."
+    
+  },
+];
+
+export const guests2 = [
+  {
+    name: "Tuan Thanh Ho",
+    role: "Logistics",
+    image: "https://static.vecteezy.com/system/resources/thumbnails/006/202/282/small_2x/flat-isometric-illustration-concept-logistics-delivery-location-map-free-vector.jpg",
+    quote: "It feels like Korofu gets me. Today’s pick was exactly what I was craving."
+  },
+  {
+    name: "Huy Lam",
+    role: "Big Foodie",
+    image: "/assets/images/htl.png",
+    quote: "Korofu actually saved me from spending 30 minutes deciding what to eat. I’m impressed."
+  },
+  {
+    name: "Duy Le",
+    role: "Worker",
+    image: "https://static.vecteezy.com/system/resources/thumbnails/022/529/165/small_2x/engineer-man-worker-in-hard-hat-png.png",
+    quote: "I used the mood picker after a tough day… and it gave me comfort food instantly."
+  }
+];
+
 export const allDishes = [
   {
     id: "1",
