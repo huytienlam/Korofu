@@ -4,8 +4,12 @@ const Hero = () => {
   return (
     <div className="flex flex-row items-center justify-between relative w-full gap-10 px-25 mb-20">
       {/* Background Elements */}
-                                                 
-      <div className="flex-1.2">
+      <img 
+        src="/assets/elements/Elements-home-1.svg" 
+        alt="illustration" 
+        className="absolute inset-0 w-[1450px] h-auto object-cover z-10"
+      />                                       
+      <div className="flex-1.2 relative mt-30">
 
         <div className="font-extrabold text-6xl text-korofu-yellow drop-shadow-big-title mb-12 leading-tight">
           LET YOUR MOOD
