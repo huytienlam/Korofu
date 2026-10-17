@@ -14,16 +14,16 @@ export default function About() {
     ];
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen overflow-x-clip">
             <Navbar />
-            <div className="relative container mx-auto space-y-16 mt-15 mb-30">
+            <div className="relative container mx-auto space-y-12 mt-10 mb-20 px-5 sm:px-8 lg:px-12">
                 {/* Background Elements */}
                 <img 
                     src="/assets/elements/Elements-about.svg" 
                     alt="illustration" 
                     className="absolute inset-0 w-full h-auto object-cover z-0"
                 />
-                <div className="relative z-10 mx-auto space-y-16">
+                <div className="relative z-10 mx-auto space-y-12 lg:space-y-16">
                     <div className="relative w-full h-20 flex items-center justify-center">
                         {/* Hình chữ nhật hồng */}
                         <div className="absolute w-40 h-8 bg-[#4FD3C6] z-0 translate-x-1.5"></div>
@@ -35,7 +35,7 @@ export default function About() {
                     </div>
                     {/* Tiêu đề */}
                     <div className="text-center space-y-3">
-                        <p className="text-2xl text-black !font-[Quicksand] font-medium relative inline-block mb-10">
+                        <p className="text-lg sm:text-2xl text-black !font-[Quicksand] font-medium relative inline-block mb-8">
                             It all started with one simple question... 
                             <span className="relative inline-block">
                             {/* Hình chữ nhật hồng phía sau */}
@@ -52,9 +52,9 @@ export default function About() {
                         </p>
                     </div>
 
-                    <div className="gap-55 flex flex-col items-center justify-center px-6 md:px-0">
+                    <div className="gap-16 lg:gap-40 flex flex-col items-center justify-center">
                     {/* Card 1: Hình + content */}
-                        <div className="grid md:grid-cols-2 gap-25 items-center">
+                        <div className="grid w-full md:grid-cols-2 gap-8 lg:gap-20 items-center">
                             <div className="py-10 flex justify-center bg-white rounded-[5px] shadow-[5px_5px_0_#000] border-[3px] border-black">
                                 <Image
                                     src="/assets/images/what.svg"
@@ -70,7 +70,7 @@ export default function About() {
                                     <div className="absolute w-78 h-7 bg-[#91A8EC] z-0 translate-x-1.5"></div>
                                     <h2 className="text-3xl font-bold text-black mb-4 text-center z-10">From Idea to Flavor</h2>
                                 </div>
-                                <p className="text-black text-2xl leading-snug !font-[Quicksand] text-justify">
+                                <p className="text-black text-lg sm:text-2xl leading-snug !font-[Quicksand] text-left sm:text-justify">
                                     <strong className='font-[SFUFutura]'>Korofu</strong> started as a spark in late-night brainstorms. We wanted food to be more than just a choice — 
                                     it should be an experience shaped by feelings, colors, and memories. Every day, friends and family scroll endlessly, 
                                     thinking <strong className='font-[SFUFutura] font-semibold'>“What should we eat today?”</strong>. We thought, what if the answer wasn’t just in recipes, but in moods and colors?
@@ -79,14 +79,14 @@ export default function About() {
                         </div>
 
                         {/* Card 2: Content + hình */}
-                        <div className="grid md:grid-cols-2 gap-25 items-center">
+                        <div className="grid w-full md:grid-cols-2 gap-8 lg:gap-20 items-center">
                             <div className="order-2 md:order-1">
                                 <div className="relative w-full h-20 flex items-center justify-center">
                                     {/* Hình chữ nhật hồng */}
                                     <div className="absolute w-45 h-7 bg-[#FF6D4D] z-0 translate-x-1.5"></div>
                                     <h2 className="text-3xl font-bold text-black mb-4 text-center z-10">New Vision</h2>
                                 </div>
-                                <p className="text-black leading-snug !font-[Quicksand] text-2xl text-justify">
+                                <p className="text-black leading-snug !font-[Quicksand] text-lg sm:text-2xl text-left sm:text-justify">
                                     In our minds, food is never just calories. It’s connection, culture, and comfort. We believe every bite should tell a story. 
                                     With <strong className='font-[SFUFutura]'>Korofu</strong>, we want to help people discover dishes that don’t just satisfy hunger, but resonate with the heart.
                                 </p>
@@ -107,24 +107,10 @@ export default function About() {
                                 <div className="absolute w-45 h-7 bg-[#FFDED0] z-0 translate-x-1.5 translate-y-0.5"></div>
                                 <h2 className="text-4xl font-bold text-black z-10">The Team</h2>
                             </div>
-                            {/* Hàng trên 3 card */}
-                            <div className="flex justify-center gap-8">
-                                {team.slice(0, 3).map((member, idx) => (
-                                <div key={idx} className="w-[300px] h-[480px] flex flex-col items-center p-4 bg-white rounded-[5px] shadow-[5px_5px_0_#000] border-[3px] border-black">
-                                    <Image src={member.img} alt={member.name} width={300} height={300} className="rounded-[5px] object-cover w-[300px] h-[300px] mb-4" />
-                                    <h3 className="text-2xl font-semibold text-black">{member.name}</h3>
-                                    <p className="text-xl text-black">{member.role1}</p>
-                                    <p className="text-xl text-black">{member.role2}</p>
-                                    <p className="text-xl text-black">{member.role3}</p>
-                                </div>
-                                ))}
-                            </div>
-
-                            {/* Hàng dưới 2 card */}
-                            <div className="flex justify-center gap-8">
-                                {team.slice(3).map((member, idx) => (
-                                <div key={idx} className="w-[300px] h-[480px] flex flex-col items-center p-4 bg-white rounded-[5px] shadow-[5px_5px_0_#000] border-[3px] border-black">
-                                    <Image src={member.img} alt={member.name} width={300} height={300} className="rounded-[5px] object-cover w-[300px] h-[300px] mb-4" />
+                            <div className="flex w-full max-w-[964px] flex-wrap justify-center gap-6 lg:gap-8">
+                                {team.map((member, idx) => (
+                                <div key={idx} className="w-full sm:w-[300px] min-h-[440px] flex flex-col items-center p-4 bg-white rounded-[5px] shadow-[5px_5px_0_#000] border-[3px] border-black">
+                                    <Image src={member.img} alt={member.name} width={300} height={300} className="rounded-[5px] object-cover w-full aspect-square mb-4" />
                                     <h3 className="text-2xl font-semibold text-black">{member.name}</h3>
                                     <p className="text-xl text-black">{member.role1}</p>
                                     <p className="text-xl text-black">{member.role2}</p>

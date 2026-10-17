@@ -45,8 +45,8 @@ export default function FoodRecommendationShuffle() {
             The flavor gods have spoken and chosen…
           </div>
 
-          <div className="flex flex-row justify-between gap-12">
-            <div className="flex flex-col gap-4">
+          <div className="flex flex-col xl:flex-row justify-between gap-6 xl:gap-12">
+            <div className="flex min-w-0 flex-1 flex-col gap-4">
               {dishes.map((dish, index) => (
                 <DishCard
                   key={index}
@@ -59,9 +59,9 @@ export default function FoodRecommendationShuffle() {
                 />
               ))}
             </div>
-            <div className="flex flex-col justify-center align-center">
+            <div className="flex min-w-0 flex-1 flex-col justify-center align-center">
               <div className="flex flex-col gap-5">
-                <div className="flex flex-row gap-6">
+                <div className="flex flex-wrap gap-3 xl:gap-6">
                   <Link
                     href="/discover/recipes"
                     className={activeIndex === null ? "pointer-events-none" : ""}

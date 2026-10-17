@@ -38,7 +38,7 @@ export default function Preview() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <div>
         <img 
@@ -46,7 +46,7 @@ export default function Preview() {
           alt="illustration" 
           className="absolute inset-0 w-full h-auto object-cover z-0 translate-y-[300px]"
         />
-        <div className="mb-20 relative z-10">
+        <div className="mb-20 relative z-10 px-4 sm:px-8">
           <div className="relative z-10 mx-auto space-y-16 mt-15">
             <div className="relative w-full h-20 flex items-center justify-center">
               {/* Hình chữ nhật hồng */}
@@ -59,7 +59,7 @@ export default function Preview() {
             </div>
             {/* Tiêu đề */}
             <div className="text-center space-y-3">
-              <p className="text-2xl text-black !font-[Quicksand] font-medium relative inline-block mb-10">
+              <p className="text-lg sm:text-2xl text-black !font-[Quicksand] font-medium relative inline-block mb-10">
                 Before you sign up, take a little walk through how we work.
                 <br></br>
                 Think of it as your appetizer before the full meal.
@@ -75,8 +75,8 @@ export default function Preview() {
               Start with inputing how you feel today.
             </div>
             {/* Input Form */}
-            <div className="w-[70%] mb-5">
-              <div className="flex gap-4">
+            <div className="w-full max-w-4xl mb-5">
+              <div className="flex min-w-0 gap-4">
                 <textarea
                   placeholder="What are you feeling today?"
                   className="llm-input bg-korofu-light-red text-korofu-light-yellow placeholder-korofu-light-yellow h-16 flex items-center"
@@ -112,7 +112,7 @@ export default function Preview() {
             <div className="max-w-[40rem] text-center justify-center text-black text-2xl font-medium font-['Quicksand']">
               Every color you pick adds flavor to your story.
             </div>
-            <div className="flex items-center gap-16 mb-15">
+            <div className="flex flex-col sm:flex-row items-center gap-8 sm:gap-16 mb-15">
               {/* Color Wheel */}
               <div className="relative">
                 <div className="w-64 h-64 rounded-full border-4 border-black shadow-[6px_6px_0_#000] overflow-hidden">
@@ -159,8 +159,8 @@ export default function Preview() {
               Once moods and colors are in, we deliver food suggestions that match
               your energy. Think of it as a menu written just for you.
             </div>
-            <div>
-              <div className="grid grid-cols-2 gap-6 w-[70rem] mb-15">
+            <div className="w-full max-w-[70rem]">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full mb-15">
                 {allDishes.map((dish) => (
                   <DishCard
                     key={dish.id}
@@ -182,7 +182,7 @@ export default function Preview() {
               Plenty of exciting features classified to your senses.
             </div>
             <div className="w-full flex justify-center mb-15">
-              <div className="grid grid-cols-3 gap-15 justify-center w-[62.5%]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-15 justify-center w-full max-w-5xl">
                 <div className="px-8 py-12 bg-white border-2 border-black rounded-lg shadow-[6px_6px_0_#000]
                                 flex flex-col gap-10 items-center justify-center">
                   <div className="rounded-full mx-auto flex items-center justify-center">

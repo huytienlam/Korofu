@@ -2,42 +2,39 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <div className="flex flex-row items-center justify-between relative w-full gap-10 px-25 mb-20">
+    <div className="flex flex-col-reverse lg:flex-row items-center justify-between relative w-full gap-4 lg:gap-10 px-5 sm:px-10 lg:px-25 py-4 lg:py-0 lg:mb-20">
       {/* Background Elements */}
       <img 
         src="/assets/elements/Elements-home-1.svg" 
         alt="illustration" 
-        className="absolute inset-0 w-[1450px] h-auto object-cover z-10"
+        className="pointer-events-none absolute inset-0 hidden w-full h-auto object-cover lg:block"
       />                                       
-      <div className="flex-1.2 relative mt-30">
+      <div className="min-w-0 w-full lg:w-auto lg:flex-[1.2] relative text-center lg:mt-30 lg:text-left">
 
-        <div className="font-extrabold text-6xl text-korofu-yellow drop-shadow-big-title mb-12 leading-tight">
-          LET YOUR MOOD
-          <br />
-          CHOOSE YOUR FOOD
+        <div className="hero-title font-extrabold text-[clamp(1.5rem,7.4vw,3rem)] lg:text-4xl xl:text-[clamp(2.9rem,3.65vw,3.25rem)] 2xl:text-[3.7rem] text-korofu-yellow drop-shadow-big-title mb-6 lg:mb-12 leading-tight">
+          <span className="block whitespace-nowrap">LET YOUR MOOD</span>
+          <span className="block whitespace-nowrap">CHOOSE YOUR FOOD</span>
         </div>
 
-        <p className="text-3xl text-gray-800 mb-10 font-medium !font-[Quicksand] leading-tight">
-          Discover food with heart, color, and emotions
-          <br />
-          - no more endless scrolling.
+        <p className="text-base sm:text-xl lg:text-lg xl:text-2xl text-gray-800 mb-7 lg:mb-10 font-medium !font-[Quicksand] leading-tight">
+          Discover food with heart, color, and emotions - no more endless scrolling.
         </p>
 
-        <div className="flex flex-row gap-10 justify-start">
-          <button className="large-button bg-korofu-orange">
+        <div className="flex flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+          <button className="large-button min-w-0 flex-1 bg-korofu-orange">
             Try It Out!
           </button>
-          <button className="large-button bg-korofu-indigo">
+          <button className="large-button min-w-0 flex-1 bg-korofu-indigo">
             Get Started!
           </button>
         </div>
       </div>
       
-      <div className="flex justify-center items-center flex-1">
+      <div className="hero-pizza-wrap flex w-full max-w-[min(80vw,20rem)] items-center justify-center sm:max-w-64 md:max-w-72 lg:w-auto lg:max-w-none lg:flex-1">
           <Image
             src="/assets/elements/Handdrawn Pizza.svg"
             alt="Pizza Slice Illustration"
-            className="object-contain"
+            className="hero-pizza object-contain"
             priority
             width={450} 
             height={450}

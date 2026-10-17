@@ -79,8 +79,8 @@ function FoodRecommendationContent() {
             The food stars aligned and chose...
           </div>
 
-          <div className="flex flex-row justify-between gap-12">
-            <div className="flex flex-col gap-4">
+          <div className="flex flex-col xl:flex-row justify-between gap-6 xl:gap-12">
+            <div className="flex min-w-0 flex-1 flex-col gap-4">
               {dishes.map((dish, index) => (
                 <DishCard
                   key={index}
@@ -94,7 +94,7 @@ function FoodRecommendationContent() {
               ))}
             </div>
 
-            <div className="flex flex-col justify-center align-center gap-4">
+            <div className="flex min-w-0 flex-1 flex-col justify-center align-center gap-4">
               {!moodSkip && (
                 <div className="text-4xl p-4 rounded">
                   <p className="text-2xl font-bold !font-[Quicksand] text-black mb-4">
@@ -128,7 +128,7 @@ function FoodRecommendationContent() {
               )}
 
               <div className="flex flex-col gap-5 mt-6 mb-3">
-                <div className="flex flex-row gap-6">
+                <div className="flex flex-wrap gap-3 xl:gap-6">
                   <Link
                     href="/discover/recipes"
                     className={

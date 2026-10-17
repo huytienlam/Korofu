@@ -102,11 +102,11 @@ const MENU_ITEMS: MenuItem[] = [
   },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ mobile = false, onNavigate }: { mobile?: boolean; onNavigate?: () => void }) {
   const pathname = usePathname();
 
   return (
-    <aside className="w-90 p-5 h-[calc(100vh-100px)] flex flex-col items-center">
+    <aside className={`${mobile ? "mobile-app-sidebar" : "app-sidebar"} flex flex-col items-center gap-0 p-4`}>
       {MENU_ITEMS.map((item) => {
         const isActive = pathname.startsWith(item.href);
 
@@ -114,7 +114,8 @@ export default function Sidebar() {
           <Link
             key={item.href}
             href={item.href}
-            className="group relative w-[300px] h-[56px]"
+            onClick={onNavigate}
+            className="group relative block h-[67px] w-full max-w-[300px] shrink-0"
           >
             {/* Default */}
             {!isActive && (

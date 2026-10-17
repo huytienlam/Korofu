@@ -7,7 +7,7 @@ import Link from "next/link";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#FFF5CC] relative">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#FFF5CC] relative px-4 pt-24 pb-8">
       {/* Logo box */}
       <div className="rounded-[11px] absolute top-7 left-7 w-15 h-15 flex items-center justify-center border-3 border-black bg-white shadow-[4px_4px_0_#000]">
         <Link href="/">
@@ -21,7 +21,7 @@ const Login = () => {
       </div>
 
       {/* Login Form */}
-      <div className="w-100 h-auto bg-white border-3 border-black rounded-lg shadow-[4px_4px_0_#000] p-6 text-center">
+      <div className="w-full max-w-[400px] h-auto bg-white border-3 border-black rounded-lg shadow-[4px_4px_0_#000] p-4 sm:p-6 text-center">
         {/* Title */}
         <Image
           src="/assets/login-logo/Logo.png"
@@ -36,18 +36,18 @@ const Login = () => {
           <input
             type="text"
             placeholder="Username/Email"
-            className="w-75 border-2 text-black border-black rounded-sm px-3 py-2 focus:outline-none shadow-[4px_4px_0_#000]"
+            className="w-full max-w-[300px] border-2 text-black border-black rounded-sm px-3 py-2 focus:outline-none shadow-[4px_4px_0_#000]"
           />
-          <div className="relative">
+          <div className="relative mx-auto max-w-[300px]">
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="w-75 border-2 border-black rounded-sm px-3 py-2 pr-10 shadow-[4px_4px_0_#000] focus:outline-none"
+              className="w-full border-2 border-black rounded-sm px-3 py-2 pr-10 shadow-[4px_4px_0_#000] focus:outline-none"
             />
 
             {/* help me make this toggle to show password or hide it */}
             <span
-              className="absolute right-3 top-2.5 mr-5 cursor-pointer"
+              className="absolute right-3 top-2.5 cursor-pointer"
               onClick={() => setShowPassword(!showPassword)}
             >
               <Image
@@ -62,21 +62,21 @@ const Login = () => {
 
         {/* Log In button */}
         <Link href="/home">
-          <button className="w-75 py-2 bg-[#FFF5CC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] text-[#FF6D4D] font-semibold mb-3  hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+          <button className="w-full max-w-[300px] py-2 bg-[#FFF5CC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] text-[#FF6D4D] font-semibold mb-3  hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
             Login
           </button>
         </Link>
         {/* Links */}
-        <div className="flex justify-between text-sm mb-4">
+        <div className="mx-auto flex max-w-[300px] flex-wrap justify-between gap-2 text-sm mb-4">
           <Link
             href="forgot-password"
-            className="text-sm font-semibold hover:underline ml-6"
+            className="text-sm font-semibold hover:underline"
           >
             Forgot Password?
           </Link>
           <Link
             href="/signup"
-            className="text-[#FF6D4D] text-sm font-semibold hover:underline mr-6"
+            className="text-[#FF6D4D] text-sm font-semibold hover:underline"
           >
             Register Now!
           </Link>

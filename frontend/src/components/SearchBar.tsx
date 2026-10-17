@@ -23,8 +23,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <div className="flex justify-center w-full">
-      <form onSubmit={handleSubmit} className="w-[80%] mb-15 flex gap-4">
-        <div className="flex-1 relative">
+      <form onSubmit={handleSubmit} className="w-full max-w-4xl mb-15 flex gap-4">
+        <div className="min-w-0 flex-1 relative">
           <input
             type="text"
             value={searchQuery}

@@ -27,7 +27,7 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
 
   return (
     
-    <div className="flex items-center gap-4">
+    <div className="flex max-w-full flex-wrap items-center gap-2 sm:gap-4">
       <button
           onClick={() => onCategoryChange("dishes")}
           className={getButtonStyle("dishes")}

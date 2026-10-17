@@ -52,7 +52,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#91A8EC] relative">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#91A8EC] relative px-4 pt-24 pb-8">
       {/* Logo box */}
       <div className="rounded-[11px] absolute top-7 left-7 w-15 h-15 flex items-center justify-center border-3 border-black bg-white shadow-[4px_4px_0_#000]">
         <Link href="/">
@@ -66,7 +66,7 @@ const ForgotPassword = () => {
       </div>
 
       {/* Forgot Password Form */}
-      <div className="w-130 h-auto bg-white border-3 border-black rounded-lg shadow-[4px_4px_0_#000] p-6 text-center">
+      <div className="w-full max-w-[520px] h-auto bg-white border-3 border-black rounded-lg shadow-[4px_4px_0_#000] p-4 sm:p-6 text-center">
         <h1 className="text-3xl font-bold text-[#21120D] mb-8">
           Forgot Password?
         </h1>
@@ -153,13 +153,13 @@ const ForgotPassword = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Username/Email"
-                className="w-75 border-2 text-black border-black rounded-sm px-3 py-2 focus:outline-none shadow-[4px_4px_0_#000]"
+                className="w-full max-w-[300px] border-2 text-black border-black rounded-sm px-3 py-2 focus:outline-none shadow-[4px_4px_0_#000]"
               />
             </div>
             <div>
               <button
                 onClick={handleNextFromStep1}
-                className="mt-5 w-75 py-2 bg-[#91A8EC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] transition-all font-semibold"
+                className="mt-5 w-full max-w-[300px] py-2 bg-[#91A8EC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] transition-all font-semibold"
               >
                 Next
               </button>
@@ -177,7 +177,7 @@ const ForgotPassword = () => {
             </p>
 
             {/* Input + Resend inside a bordered box */}
-            <div className="flex items-center w-75 mx-auto border-2 border-black rounded-sm shadow-[4px_4px_0_#000] mb-4 overflow-hidden">
+            <div className="flex items-center w-full max-w-[300px] mx-auto border-2 border-black rounded-sm shadow-[4px_4px_0_#000] mb-4 overflow-hidden">
               <input
                 type="text"
                 value={inputCode}
@@ -199,7 +199,7 @@ const ForgotPassword = () => {
 
             <button
               onClick={handleNextFromStep2}
-              className="w-75 py-2 bg-[#91A8EC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] transition-all font-semibold"
+              className="w-full max-w-[300px] py-2 bg-[#91A8EC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] transition-all font-semibold"
             >
               Next
             </button>
@@ -210,17 +210,17 @@ const ForgotPassword = () => {
         {step === 3 && (
           <>
             <p className="mb-4">Please set a strong password!</p>
-            <div className="relative mb-3">
+            <div className="relative mx-auto mb-3 max-w-[300px]">
               <input
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password (8 characters)"
-                className="w-75 border-2 border-black rounded-sm px-3 py-2 pr-10 shadow-[4px_4px_0_#000] focus:outline-none"
+                className="w-full border-2 border-black rounded-sm px-3 py-2 pr-10 shadow-[4px_4px_0_#000] focus:outline-none"
               />
               <span
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-2.5 mr-20 cursor-pointer"
+                className="absolute right-3 top-2.5 cursor-pointer"
               >
                 <Image
                   src="/assets/login-logo/Eye.png"
@@ -230,17 +230,17 @@ const ForgotPassword = () => {
                 />
               </span>
             </div>
-            <div className="relative mb-4">
+            <div className="relative mx-auto mb-4 max-w-[300px]">
               <input
                 type={showConfirmPassword ? "text" : "password"}
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Please enter password again"
-                className="w-75 border-2 border-black rounded-sm px-3 py-2 pr-10 shadow-[4px_4px_0_#000] focus:outline-none"
+                className="w-full border-2 border-black rounded-sm px-3 py-2 pr-10 shadow-[4px_4px_0_#000] focus:outline-none"
               />
               <span
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute right-3 top-2.5 mr-20 cursor-pointer"
+                className="absolute right-3 top-2.5 cursor-pointer"
               >
                 <Image
                   src="/assets/login-logo/Eye.png"
@@ -252,7 +252,7 @@ const ForgotPassword = () => {
             </div>
             <button
               onClick={handleComplete}
-              className="w-75 py-2 bg-[#91A8EC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000]  hover:translate-x-[2px] hover:translate-y-[2px] transition-all font-semibold"
+              className="w-full max-w-[300px] py-2 bg-[#91A8EC] border-2 border-black rounded-sm shadow-[4px_4px_0_#000]  hover:translate-x-[2px] hover:translate-y-[2px] transition-all font-semibold"
             >
               Complete
             </button>

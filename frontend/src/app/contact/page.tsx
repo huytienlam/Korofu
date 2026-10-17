@@ -25,7 +25,7 @@ export default function Contact() {
                 alt="illustration" 
                 className="absolute mx-auto top-45 inset-0 h-auto object-cover z-0 w-[90%]"
             />
-            <div className="relative container mx-auto space-y-16 mt-15 mb-30">
+            <div className="relative container mx-auto space-y-12 mt-10 mb-20 px-5 sm:px-8 lg:px-12">
                 
                 <div className="relative z-10 mx-auto space-y-16">
                     <div className="relative w-full h-20 flex items-center justify-center">
@@ -39,7 +39,7 @@ export default function Contact() {
                     </div>
                     {/* Tiêu đề */}
                     <div className="text-center space-y-8 flex flex-col items-center">
-                        <p className="text-2xl text-black !font-[Quicksand] font-medium w-[70%]">
+                        <p className="text-lg sm:text-2xl text-black !font-[Quicksand] font-medium max-w-3xl">
                             We’d love to hear from you! Whether you have questions, feedback, or ideas for collaboration, feel free to reach out through any of the channels below.
                         </p>
                         <div className="flex justify-center gap-4">
@@ -49,28 +49,28 @@ export default function Contact() {
                         </div>
                     </div>
                     
-                    <div className="flex justify-center gap-8 mt-10 font-semibold">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-6 lg:gap-8 mt-10 font-semibold">
                         {/* Card 1 */}
-                        <div className="w-[400px] bg-[#A2E59C] border-2 border-black shadow-[5px_5px_0_#000] rounded-[10px] p-6 flex flex-col gap-10">
+                        <div className="w-full max-w-[500px] min-w-0 bg-[#A2E59C] border-2 border-black shadow-[5px_5px_0_#000] rounded-[10px] p-4 sm:p-6 flex flex-col gap-8">
                             <h2 className="text-3xl font-semibold">Any question?</h2>
                             <div className="flex flex-col gap-4">
                                 {/* Name */}
-                                <div className="flex flex-row items-center gap-2">
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                                     <label className="text-medium w-15">Name</label>
                                     <input 
                                         type="text" 
                                         placeholder='Type something...'
-                                        className="flex-1 bg-white border-2 border-black shadow-[3px_3px_0_#000] rounded-[5px] p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                                        className="w-full min-w-0 flex-1 bg-white border-2 border-black shadow-[3px_3px_0_#000] rounded-[5px] p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                     />
                                 </div>
 
                                 {/* Email */}
-                                <div className="flex flex-row items-center gap-2">
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                                     <label className="text-medium w-15">Email</label>
                                     <input 
                                         type="email" 
                                         placeholder='Type something...'
-                                        className="flex-1 bg-white border-2 border-black shadow-[3px_3px_0_#000] rounded-[5px] p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                                        className="w-full min-w-0 flex-1 bg-white border-2 border-black shadow-[3px_3px_0_#000] rounded-[5px] p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                     />
                                 </div>
 
@@ -117,20 +117,20 @@ export default function Contact() {
                             </div>
                         </div>
                         {/* Card 2 */}
-                        <div className="w-[400px] bg-[#ADDFFF] border-2 border-black shadow-[5px_5px_0_#000] rounded-[10px] p-6 flex flex-col gap-10">
+                        <div className="w-full max-w-[500px] min-w-0 bg-[#ADDFFF] border-2 border-black shadow-[5px_5px_0_#000] rounded-[10px] p-4 sm:p-6 flex flex-col gap-8">
                             <h2 className="text-3xl font-semibold">Get in touch!</h2>
                             <div className="flex flex-col gap-4">
                                 {/* Contact Info 1 */}
                                 <div className="flex items-start gap-3">
                                     <img src="/assets/icon/location.png" alt="location" width={48} height={48} />
-                                    <div className="flex flex-col">
+                                    <div className="flex min-w-0 flex-col break-words">
                                         <span className="font-bold text-lg">Address</span>
                                         <span className="text-lg font-normal">227 Nguyễn Văn Cừ, Chợ Quán Ward, Hồ Chí Minh City</span>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3">
                                     <img src="/assets/icon/phone.png" alt="phone"  width={48} height={48} />
-                                    <div className="flex flex-col">
+                                    <div className="flex min-w-0 flex-col break-words">
                                         <span className="font-bold text-lg">Phone</span>
                                         <span className="text-lg font-normal">0987.654.321 (Mr. Huy)</span>
                                         <span className="text-lg font-normal">0907.087.381 (Mr. Nhân)</span>
@@ -139,7 +139,7 @@ export default function Contact() {
                                 {/* Contact Info 2 */}
                                 <div className="flex items-start gap-3">
                                     <img src="/assets/icon/mail.png" alt="email"  width={48} height={48} />
-                                    <div className="flex flex-col">
+                                    <div className="flex min-w-0 flex-col break-words">
                                         <span className="font-bold text-lg">Email</span>
                                         <span className="text-lg font-normal">korofu.food@gmail.com</span>
                                     </div>

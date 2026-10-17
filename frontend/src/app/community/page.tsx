@@ -73,7 +73,7 @@ export default function OurCommunity() {
             </div>
 
             {/* Options */}
-            <div className="w-[480px] flex justify-between items-center">
+            <div className="w-full max-w-[480px] flex flex-wrap justify-between items-center gap-3">
               <div className="flex items-center gap-3">
                 <Video size={36} />
                 <span className="text-black text-xl font-semibold">Reel</span>

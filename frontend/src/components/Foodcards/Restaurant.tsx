@@ -71,7 +71,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
       </div>
 
       {/* Nội dung chữ */}
-      <div className="flex flex-col flex-1 pr-14">
+      <div className="flex min-w-0 flex-col flex-1 pr-9 sm:pr-14">
         <h2 className="text-2xl font-bold text-[#21120D]">{name}</h2>
 
         {/* Rating stars */}

@@ -73,7 +73,7 @@ const DishCard: React.FC<DishCardProps> = ({
       </div>
 
       {/* Nội dung chữ */}
-      <div className="flex flex-col flex-1 gap-1">
+      <div className="flex min-w-0 flex-col flex-1 gap-1">
         <h2 className="text-2xl font-bold text-[#21120D]">{title}</h2>
         <p className="!font-[Quicksand] text-xl leading-tight">{subtitle}</p>
       </div>

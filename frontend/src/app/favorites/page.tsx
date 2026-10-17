@@ -25,7 +25,7 @@ export default function FavoriteDishes() {
             Favorite Dishes
           </h1>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
             {favoriteDishes.map((dish) => (
               <DishCard
                 key={dish.id}

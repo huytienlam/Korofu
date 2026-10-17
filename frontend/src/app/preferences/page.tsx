@@ -78,16 +78,18 @@ export default function FoodPreferences() {
     setItems: SetItemsFunction,
     badgeSrc: string
   ) => (
-    <div className="relative flex flex-col items-center">
+    <div className="relative flex min-w-0 flex-col items-center pb-10">
       {/* Card */}
       <div
-        className="relative w-80 h-[62.5vh]
+        className="relative w-full min-h-[22rem] lg:min-h-[28rem]
                   border-2 border-black rounded-2xl
                   shadow-[4px_4px_0_#000] p-4 flex flex-col"
         style={{ backgroundColor: bgColor }}
       >
         {/* Add button */}
-        <div
+        <button
+          type="button"
+          aria-label="Add food"
           className="absolute top-3 right-3 cursor-pointer z-10"
           onClick={() => openModal(setItems)}
         >
@@ -98,10 +100,10 @@ export default function FoodPreferences() {
             height={24}
             className="scale-110"
           />
-        </div>
+        </button>
 
         {/* Tags Container */}
-        <div className="tags-scroll flex flex-wrap gap-2 content-start overflow-y-auto pr-4 -mr-3 pb-2">
+        <div className="tags-scroll flex min-h-0 flex-wrap gap-2 content-start overflow-y-auto pr-4 -mr-3 pb-2">
           {items.map((item, index) => (
             <div
               key={index}
@@ -133,13 +135,14 @@ export default function FoodPreferences() {
       </div>
 
       {/* Badge */}
-      <div className="absolute -bottom-10 right-[-25px]">
+      <div className="pointer-events-none absolute bottom-0 right-0 translate-x-2 translate-y-2">
         <Image
           src={badgeSrc}
           width={140}
           height={140}
           alt="badge"
-          className="scale-130"
+          unoptimized
+          className="h-32 w-32 object-contain sm:h-36 sm:w-36"
         />
       </div>
     </div>
@@ -149,7 +152,7 @@ export default function FoodPreferences() {
     <div className="min-h-screen">
       <UserNavbar />
 
-      <div className="flex flex-1 max-h-screen">
+      <div className="flex flex-1">
         <Sidebar />
 
         <main className="flex-1 flex flex-col mr-10 p-2">
@@ -158,12 +161,12 @@ export default function FoodPreferences() {
             Manage Food Preferences
           </h1> */}
 
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
             <h1 className="drop-shadow-title-top text-korofu-orange mb-0">
               Manage Food Preferences
             </h1>
             {/* Save and Cancel buttons */}
-            <div className="flex align-center justify-center gap-6">
+            <div className="flex align-center justify-center gap-3 sm:gap-6">
               <button
                 className="small-button bg-korofu-yellow"
                 onClick={() => setShowSavePopup(true)}
@@ -180,7 +183,7 @@ export default function FoodPreferences() {
           </div>
 
           {/* Cards */}
-          <div className="flex flex-row justify-center gap-12 relative">
+          <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-8">
             {renderCard(
               "#FF6D4D",
               dislikes,

@@ -102,10 +102,10 @@ export default function UserHome() {
           </div>
 
           {/* Mood and Color Palette Sections - Side by Side */}
-          <div className="flex gap-6 mb-6">
+          <div className="grid gap-6 mb-6 xl:grid-cols-2">
             {/* Mood Section */}
             <div
-              className="bg-white border-2 border-black rounded-xl p-7 flex-1 shadow-[4px_4px_0_#000]
+              className="min-w-0 bg-white border-2 border-black rounded-xl p-4 sm:p-7 flex-1 shadow-[4px_4px_0_#000]
                             flex flex-col gap-5"
             >
               <div className="flex items-center justify-center gap-4">
@@ -115,7 +115,7 @@ export default function UserHome() {
                   width={64}
                   height={64}
                 />
-                <div className="flex-1 font-semibold text-2xl min-h-15 flex items-center">
+                <div className="flex-1 font-semibold text-lg sm:text-2xl min-h-15 flex items-center">
                   You seem to be so happy these days!
                 </div>
               </div>
@@ -135,12 +135,12 @@ export default function UserHome() {
 
             {/* Color Palette Section */}
             <div
-              className="bg-white border-2 border-black rounded-xl p-7 flex-1 shadow-[4px_4px_0_#000]
+              className="min-w-0 bg-white border-2 border-black rounded-xl p-4 sm:p-7 flex-1 shadow-[4px_4px_0_#000]
                               flex flex-col gap-5"
             >
               <div className="flex items-center justify-center gap-4">
-                <div className="w-16 h-16 rounded-full border-3 border-black shadow-[3px_3px_0_#000] bg-korofu-aqua"></div>
-                <div className="flex-1 font-semibold text-2xl min-h-15 flex items-center">
+                <div className="w-16 h-16 shrink-0 rounded-full border-3 border-black shadow-[3px_3px_0_#000] bg-korofu-aqua"></div>
+                <div className="flex-1 font-semibold text-lg sm:text-2xl min-h-15 flex items-center">
                   Recently, you really seem to love a bright soft aqua.
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default function UserHome() {
                 <p className="text-2xl font-bold !font-[Quicksand] text-black mb-3">
                   Your color palette
                 </p>
-                <div className="flex w-full gap-5">
+                <div className="flex w-full flex-wrap gap-3 sm:gap-5">
                   {hardcodedColors.map((color, index) => (
                     <div
                       key={index}
@@ -163,10 +163,10 @@ export default function UserHome() {
 
           {/* Today's Menu Section */}
           <div
-            className="bg-korofu-light-yellow border-2 border-black flex gap-15
-                          rounded-xl p-8 mb-6 shadow-[4px_4px_0_#000]"
+            className="bg-korofu-light-yellow border-2 border-black flex flex-col xl:flex-row gap-6 xl:gap-15
+                          rounded-xl p-4 sm:p-8 mb-6 shadow-[4px_4px_0_#000]"
           >
-            <div className="flex w-[35%] flex-col justify-between">
+            <div className="flex w-full xl:w-[35%] flex-col justify-between gap-4">
               <p className="text-3xl font-semibold">Today&apos;s Menu</p>
               <p className="text-2xl !font-[Quicksand] font-semibold">
                 We think you will like these!<br></br>If you don’t?
@@ -180,7 +180,7 @@ export default function UserHome() {
                 </button>
               </div>
             </div>
-            <div className="flex-1 flex flex-col gap-5">
+            <div className="min-w-0 flex-1 flex flex-col gap-5">
               {TodayMenu.map((dish, index) => (
                 <DishCard
                   key={index}
@@ -195,10 +195,10 @@ export default function UserHome() {
 
           {/* Recent Dishes Section */}
           <div
-            className="bg-korofu-blue border-2 border-black flex gap-15
-                          rounded-xl p-8 mb-6 shadow-[4px_4px_0_#000]"
+            className="bg-korofu-blue border-2 border-black flex flex-col xl:flex-row gap-6 xl:gap-15
+                          rounded-xl p-4 sm:p-8 mb-6 shadow-[4px_4px_0_#000]"
           >
-            <div className="flex w-[35%] flex-col justify-between">
+            <div className="flex w-full xl:w-[35%] flex-col justify-between gap-4">
               <p className="text-3xl font-semibold">
                 These are your <br></br> recent dishes!
               </p>
@@ -206,7 +206,7 @@ export default function UserHome() {
                 We think you will like these!<br></br>If you don&apos;t?
               </p>
             </div>
-            <div className="justify-end flex-1 flex gap-5">
+            <div className="min-w-0 flex-1 flex flex-wrap justify-start xl:justify-end gap-5">
               {RecentDishes.map((dish) => (
                 <Card
                   key={dish.id}
@@ -219,10 +219,10 @@ export default function UserHome() {
 
           {/* Nearby Offers Section */}
           <div
-            className="bg-korofu-green border-2 border-black flex gap-15
-                          rounded-xl p-8 mb-6 shadow-[4px_4px_0_#000]"
+            className="bg-korofu-green border-2 border-black flex flex-col-reverse xl:flex-row gap-6 xl:gap-15
+                          rounded-xl p-4 sm:p-8 mb-6 shadow-[4px_4px_0_#000]"
           >
-            <div className="flex-1 flex flex-col gap-5">
+            <div className="min-w-0 flex-1 flex flex-col gap-5">
               {MockPizzaRestaurants.map((restaurant) => (
                 <RestaurantCard
                   id={restaurant.id}
@@ -234,7 +234,7 @@ export default function UserHome() {
                 />
               ))}
             </div>
-            <div className="flex w-[35%] flex-col justify-between">
+            <div className="flex w-full xl:w-[35%] flex-col justify-between gap-4">
               <p className="text-3xl font-semibold">Nearby Offers</p>
               <p className="text-2xl !font-[Quicksand] font-semibold">
                 Hand-picked deals catered <br></br> just for you!

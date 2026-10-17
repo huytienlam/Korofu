@@ -30,15 +30,15 @@ export default function SavedCollection() {
         <Sidebar />
 
         <main className="flex-1 flex flex-col mr-10 p-2">
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
             <h1 className="drop-shadow-title-top text-korofu-indigo mb-0">
               Saved Collection
             </h1>
 
-            <div className="flex gap-4">
+            <div className="flex w-full sm:w-auto flex-wrap gap-3 sm:gap-4">
               <button
                 onClick={() => setViewMode("recipes")}
-                className={`medium-button ${
+                className={`medium-button flex-1 sm:flex-none ${
                   viewMode === "recipes" ? "bg-korofu-indigo" : "bg-korofu-gray"
                 }`}
               >
@@ -46,7 +46,7 @@ export default function SavedCollection() {
               </button>
               <button
                 onClick={() => setViewMode("restaurants")}
-                className={`medium-button ${
+                className={`medium-button flex-1 sm:flex-none ${
                   viewMode === "restaurants" ? "bg-korofu-indigo" : "bg-korofu-gray"
                 }`}
               >
@@ -55,7 +55,7 @@ export default function SavedCollection() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
             {viewMode === "recipes" ? (
               // Recipes View
               savedRecipes.map((recipe) => (

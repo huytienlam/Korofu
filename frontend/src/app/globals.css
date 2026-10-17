@@ -453,3 +453,120 @@ section {
 .animate-marquee-right-cards {
   animation: marquee-right-cards 10s linear infinite;
 }
+
+/* Shared responsive layout for the logged-in pages. */
+.user-navbar {
+  position: sticky;
+  top: 0;
+  height: 116px;
+}
+
+.app-sidebar {
+  width: 340px;
+  flex: 0 0 340px;
+  padding: 0 0 0 40px;
+  align-items: stretch;
+  position: static;
+  align-self: stretch;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.mobile-app-sidebar {
+  width: 100%;
+}
+
+.app-sidebar a + a { margin-top: -8px; }
+
+*:has(> .app-sidebar) {
+  height: calc(100dvh - 116px);
+  min-height: 0;
+  max-height: none;
+  width: 100%;
+  overflow: hidden;
+}
+
+*:has(> .app-sidebar) > main {
+  min-width: 0;
+  width: 0;
+  margin-left: 40px;
+  margin-right: 0;
+  padding: 0 40px 2.5rem 0;
+  height: 100%;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+*:has(> .app-sidebar) > main .skip-button { right: 40px; }
+
+.large-button,
+.medium-button,
+.small-button {
+  max-width: 100%;
+  height: auto;
+  line-height: 1.2;
+  white-space: normal;
+}
+
+.large-button { min-height: 4.5rem; padding-top: .75rem; padding-bottom: .75rem; }
+.medium-button { min-height: 3.75rem; padding-top: .6rem; padding-bottom: .6rem; }
+.small-button { min-height: 3rem; padding-top: .5rem; padding-bottom: .5rem; }
+
+.popup {
+  width: min(32rem, calc(100vw - 2rem));
+  max-width: none;
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+}
+
+.card:not(.card-square) { min-width: 0; }
+
+@media (max-width: 639px) {
+  .card:not(.card-square) {
+    height: auto;
+    min-height: 0;
+    padding: .75rem;
+    gap: .75rem;
+  }
+  .card:not(.card-square) > div:first-child {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+  .card:not(.card-square) h2 { font-size: 1.125rem; line-height: 1.2; }
+  .card:not(.card-square) p { font-size: .95rem; }
+}
+
+@media (max-width: 1023px) {
+  .user-navbar { height: 80px; }
+  .hero-pizza { transform: translateX(-13%); }
+  *:has(> .app-sidebar) { height: calc(100dvh - 80px); }
+  .app-sidebar { display: none; }
+  *:has(> .app-sidebar) > main {
+    width: 100%;
+    margin-left: 0;
+    padding: 1.25rem;
+  }
+  *:has(> .app-sidebar) > main .skip-button { right: 1.25rem; }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero-title { font-size: clamp(2rem, 5.2vw, 2.5rem); }
+}
+
+@media (max-width: 639px) {
+  body { overflow-x: hidden; }
+  *:has(> .app-sidebar) > main { padding: 1rem; }
+  *:has(> .app-sidebar) > main .skip-button { right: 1rem; }
+  .drop-shadow-title-top,
+  .drop-shadow-title-homepage,
+  .drop-shadow-big-title { font-size: clamp(1.8rem, 8vw, 3rem); line-height: 1.15; }
+  .drop-shadow-title-middle { font-size: clamp(1.6rem, 7vw, 2.25rem); line-height: 1.2; }
+  .hero-title { font-size: clamp(1.4rem, 6.9vw, 2rem); }
+  .hero-pizza-wrap { max-width: min(80vw, 20rem, max(9rem, calc(88.9dvh - 312px))); }
+  .large-button { width: 100%; font-size: 1.125rem; }
+  .medium-button { font-size: 1rem; }
+  .small-button { font-size: 1rem; }
+  .popup { padding: 2rem 1.25rem; }
+}
