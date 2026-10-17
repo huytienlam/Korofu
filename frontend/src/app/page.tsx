@@ -173,13 +173,14 @@ export default function Home() {
         </section>
 
         {/* Guests & Storytellers Section */}
-        <section className="bg-korofu-default py-16 lg:py-20 flex flex-col justify-between relative min-h-screen">
+        <section className="relative flex min-h-screen flex-col justify-between overflow-hidden bg-korofu-default py-16 lg:py-20">
           <img 
             src="/assets/elements/Elements-home-4.svg" 
-            alt="illustration" 
-            className="absolute inset-0 w-[1300px] h-auto object-cover z-10"
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-auto w-[min(180vw,60rem)] max-w-none -translate-x-1/2 object-cover"
           /> 
-          <div className="relative z-0 space-y-10">
+          <div className="relative z-10 space-y-8 lg:space-y-10">
             <div className="relative w-full flex items-center justify-center lg:justify-end mb-10 px-5 lg:px-25">
               <div className="absolute right-[8%] w-[min(80%,44rem)] h-10 bg-korofu-green z-0 translate-x-3 translate-y-[-4px]"></div>
               <h2 className="text-3xl sm:text-5xl font-bold text-gray-800 text-center lg:text-right z-10">
@@ -187,21 +188,21 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="overflow-hidden flex gap-[5rem] relative">
+            <div className="relative flex gap-[5rem] overflow-hidden">
               <div className="flex-shrink-0 flex space-around gap-[5rem] animate-marquee-left-cards">
                 {guests.map((guest, idx) => (
                   <div
                     key={idx}
-                    className="bg-white border-2 border-black rounded-xl p-4 sm:p-6 shadow-[6px_6px_0_#000] w-[min(85vw,37.5rem)]"
+                    className="w-[min(82vw,32rem)] min-h-44 rounded-xl border-2 border-black bg-white p-4 shadow-[6px_6px_0_#000] sm:min-h-42 sm:p-5"
                   >
-                    <div className="flex items-start gap-4">
-                      <div className="rounded-full">
-                        <Image src={guest.image} alt={guest.name} width={120} height={120} unoptimized />
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full sm:h-20 sm:w-20">
+                        <Image src={guest.image} alt={guest.name} width={80} height={80} unoptimized className="h-full w-full object-cover" />
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-black mb-1">{guest.name}</h3>
-                        <p className="text-lg text-gray-600 mb-3">{guest.role}</p>
-                        <p className="text-gray-800 text-xl font-[Quicksand] leading-tight">{guest.quote}</p>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="mb-1 text-lg font-bold text-black sm:text-xl">{guest.name}</h3>
+                        <p className="mb-2 text-sm text-gray-600 sm:text-base">{guest.role}</p>
+                        <p className="font-[Quicksand] text-sm leading-snug text-gray-800 sm:text-base">{guest.quote}</p>
                       </div>
                     </div>
                   </div>
@@ -211,16 +212,16 @@ export default function Home() {
                 {guests.map((guest, idx) => (
                   <div
                     key={idx}
-                    className="bg-white border-2 border-black rounded-xl p-4 sm:p-6 shadow-[6px_6px_0_#000] w-[min(85vw,37.5rem)]"
+                    className="w-[min(82vw,32rem)] min-h-44 rounded-xl border-2 border-black bg-white p-4 shadow-[6px_6px_0_#000] sm:min-h-42 sm:p-5"
                   >
-                    <div className="flex items-start gap-4">
-                      <div className="rounded-full">
-                        <Image src={guest.image} alt={guest.name} width={120} height={120} unoptimized />
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full sm:h-20 sm:w-20">
+                        <Image src={guest.image} alt={guest.name} width={80} height={80} unoptimized className="h-full w-full object-cover" />
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-black mb-1">{guest.name}</h3>
-                        <p className="text-lg text-gray-600 mb-3">{guest.role}</p>
-                        <p className="text-gray-800 text-xl font-[Quicksand] leading-tight">{guest.quote}</p>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="mb-1 text-lg font-bold text-black sm:text-xl">{guest.name}</h3>
+                        <p className="mb-2 text-sm text-gray-600 sm:text-base">{guest.role}</p>
+                        <p className="font-[Quicksand] text-sm leading-snug text-gray-800 sm:text-base">{guest.quote}</p>
                       </div>
                     </div>
                   </div>
@@ -228,21 +229,21 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="overflow-hidden flex gap-[5rem] relative">
+            <div className="relative flex gap-[5rem] overflow-hidden">
               <div className="flex-shrink-0 flex space-around gap-[5rem] animate-marquee-right-cards">
                 {guests2.map((guest, idx) => (
                   <div
                     key={idx}
-                    className="bg-white border-2 border-black rounded-xl p-4 sm:p-6 shadow-[6px_6px_0_#000] w-[min(85vw,37.5rem)]"
+                    className="w-[min(82vw,32rem)] min-h-44 rounded-xl border-2 border-black bg-white p-4 shadow-[6px_6px_0_#000] sm:min-h-42 sm:p-5"
                   >
-                    <div className="flex items-start gap-4">
-                      <div className="rounded-full">
-                        <Image src={guest.image} alt={guest.name} width={120} height={120} unoptimized />
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full sm:h-20 sm:w-20">
+                        <Image src={guest.image} alt={guest.name} width={80} height={80} unoptimized className="h-full w-full object-cover" />
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-black mb-1">{guest.name}</h3>
-                        <p className="text-lg text-gray-600 mb-3">{guest.role}</p>
-                        <p className="text-gray-800 text-xl font-[Quicksand] leading-tight">{guest.quote}</p>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="mb-1 text-lg font-bold text-black sm:text-xl">{guest.name}</h3>
+                        <p className="mb-2 text-sm text-gray-600 sm:text-base">{guest.role}</p>
+                        <p className="font-[Quicksand] text-sm leading-snug text-gray-800 sm:text-base">{guest.quote}</p>
                       </div>
                     </div>
                   </div>
@@ -252,16 +253,16 @@ export default function Home() {
                 {guests2.map((guest, idx) => (
                   <div
                     key={idx}
-                    className="bg-white border-2 border-black rounded-xl p-4 sm:p-6 shadow-[6px_6px_0_#000] w-[min(85vw,37.5rem)]"
+                    className="w-[min(82vw,32rem)] min-h-44 rounded-xl border-2 border-black bg-white p-4 shadow-[6px_6px_0_#000] sm:min-h-42 sm:p-5"
                   >
-                    <div className="flex items-start gap-4">
-                      <div className="rounded-full">
-                        <Image src={guest.image} alt={guest.name} width={120} height={120} unoptimized />
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full sm:h-20 sm:w-20">
+                        <Image src={guest.image} alt={guest.name} width={80} height={80} unoptimized className="h-full w-full object-cover" />
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-black mb-1">{guest.name}</h3>
-                        <p className="text-lg text-gray-600 mb-3">{guest.role}</p>
-                        <p className="text-gray-800 text-xl font-[Quicksand] leading-tight">{guest.quote}</p>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="mb-1 text-lg font-bold text-black sm:text-xl">{guest.name}</h3>
+                        <p className="mb-2 text-sm text-gray-600 sm:text-base">{guest.role}</p>
+                        <p className="font-[Quicksand] text-sm leading-snug text-gray-800 sm:text-base">{guest.quote}</p>
                       </div>
                     </div>
                   </div>

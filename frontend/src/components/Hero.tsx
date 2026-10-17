@@ -11,12 +11,12 @@ const Hero = () => {
       />                                       
       <div className="min-w-0 w-full lg:w-auto lg:flex-[1.2] relative text-center lg:mt-30 lg:text-left">
 
-        <div className="hero-title font-extrabold text-[clamp(1.5rem,7.4vw,3rem)] lg:text-4xl xl:text-[clamp(2.9rem,3.65vw,3.25rem)] 2xl:text-[3.7rem] text-korofu-yellow drop-shadow-big-title mb-6 lg:mb-12 leading-tight">
+        <div className="hero-title text-center lg:text-left font-extrabold text-[clamp(1.5rem,7.4vw,3rem)] lg:text-4xl xl:text-[clamp(2.9rem,3.65vw,3.25rem)] 2xl:text-[3.7rem] text-korofu-yellow drop-shadow-big-title mb-6 lg:mb-12 leading-tight">
           <span className="block whitespace-nowrap">LET YOUR MOOD</span>
           <span className="block whitespace-nowrap">CHOOSE YOUR FOOD</span>
         </div>
 
-        <p className="text-base sm:text-xl lg:text-lg xl:text-2xl text-gray-800 mb-7 lg:mb-10 font-medium !font-[Quicksand] leading-tight">
+        <p className="text-lg sm:text-xl lg:text-lg xl:text-2xl text-gray-800 mb-7 lg:mb-10 font-medium !font-[Quicksand] leading-tight">
           Discover food with heart, color, and emotions - no more endless scrolling.
         </p>
 
@@ -30,14 +30,14 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="hero-pizza-wrap flex w-full max-w-[min(80vw,20rem)] items-center justify-center sm:max-w-64 md:max-w-72 lg:w-auto lg:max-w-none lg:flex-1">
+      <div className="hero-pizza-wrap flex w-full max-w-[min(68vw,17rem)] items-center justify-center sm:max-w-60 md:max-w-64 lg:w-auto lg:max-w-none lg:flex-1">
           <Image
             src="/assets/elements/Handdrawn Pizza.svg"
             alt="Pizza Slice Illustration"
             className="hero-pizza object-contain"
             priority
-            width={450} 
-            height={450}
+            width={400}
+            height={400}
           />
       </div>
     </div>

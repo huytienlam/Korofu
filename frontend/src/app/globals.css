@@ -466,9 +466,10 @@ section {
   flex: 0 0 340px;
   padding: 0 0 0 40px;
   align-items: stretch;
-  position: static;
-  align-self: stretch;
-  height: 100%;
+  position: sticky;
+  top: 116px;
+  align-self: flex-start;
+  height: calc(100dvh - 116px);
   overflow-y: auto;
 }
 
@@ -479,11 +480,11 @@ section {
 .app-sidebar a + a { margin-top: -8px; }
 
 *:has(> .app-sidebar) {
-  height: calc(100dvh - 116px);
-  min-height: 0;
+  height: auto;
+  min-height: calc(100dvh - 116px);
   max-height: none;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 *:has(> .app-sidebar) > main {
@@ -492,11 +493,10 @@ section {
   margin-left: 40px;
   margin-right: 0;
   padding: 0 40px 2.5rem 0;
-  height: 100%;
-  min-height: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  height: auto;
+  min-height: calc(100dvh - 116px);
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 *:has(> .app-sidebar) > main .skip-button { right: 40px; }
@@ -541,18 +541,25 @@ section {
 @media (max-width: 1023px) {
   .user-navbar { height: 80px; }
   .hero-pizza { transform: translateX(-13%); }
-  *:has(> .app-sidebar) { height: calc(100dvh - 80px); }
+  *:has(> .app-sidebar) { min-height: calc(100dvh - 80px); }
   .app-sidebar { display: none; }
   *:has(> .app-sidebar) > main {
     width: 100%;
     margin-left: 0;
     padding: 1.25rem;
+    min-height: calc(100dvh - 80px);
   }
   *:has(> .app-sidebar) > main .skip-button { right: 1.25rem; }
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
   .hero-title { font-size: clamp(2rem, 5.2vw, 2.5rem); }
+}
+
+.hero-title { text-align: center; }
+
+@media (min-width: 1024px) {
+  .hero-title { text-align: left; }
 }
 
 @media (max-width: 639px) {
@@ -564,7 +571,7 @@ section {
   .drop-shadow-big-title { font-size: clamp(1.8rem, 8vw, 3rem); line-height: 1.15; }
   .drop-shadow-title-middle { font-size: clamp(1.6rem, 7vw, 2.25rem); line-height: 1.2; }
   .hero-title { font-size: clamp(1.4rem, 6.9vw, 2rem); }
-  .hero-pizza-wrap { max-width: min(80vw, 20rem, max(9rem, calc(88.9dvh - 312px))); }
+  .hero-pizza-wrap { max-width: min(68vw, 17rem, max(9rem, calc(88.9dvh - 335px))); }
   .large-button { width: 100%; font-size: 1.125rem; }
   .medium-button { font-size: 1rem; }
   .small-button { font-size: 1rem; }

@@ -147,7 +147,17 @@ export default function UserNavbar({ username }: UserNavbarProps) {
           </button>
           {/* Notifications + Toggle Dropdown  */}
             <div className="relative flex h-9 w-9 items-center justify-center sm:h-12 sm:w-12" ref={notificationRef}>
-              <button type="button" className="flex h-full w-full items-center justify-center" aria-label="Notifications" aria-expanded={openNotification} onClick={() => setOpenNotification((prev) => !prev)}>
+              <button
+                type="button"
+                className="flex h-full w-full items-center justify-center"
+                aria-label="Notifications"
+                aria-expanded={openNotification}
+                onClick={() => {
+                  setOpenNotification((prev) => !prev);
+                  setOpen(false);
+                  setMenuOpen(false);
+                }}
+              >
               <Image
                 src="/assets/icon/Notifications_Hover.png"
                 alt="Notifications icon hover"
@@ -159,7 +169,7 @@ export default function UserNavbar({ username }: UserNavbarProps) {
 
             {/* Notification Dropdown */}
             {openNotification && (
-              <div className="rounded-lg absolute right-[-82px] sm:right-0 mt-5 w-[min(20rem,calc(100vw-1rem))] bg-white border-2 border-black shadow-[4px_4px_0_#000] z-50 max-h-96 overflow-y-auto">
+              <div className="absolute right-[-82px] top-[62px] z-50 max-h-[calc(100dvh-6rem)] w-[min(20rem,calc(100vw-1rem))] overflow-y-auto rounded-lg border-2 border-black bg-white shadow-[4px_4px_0_#000] sm:right-0 sm:top-[68px] lg:top-[86px]">
                 {/* Header */}
                 <div className="px-4 py-3">
                   <h3 className="font-bold text-2xl text-black">
@@ -224,7 +234,11 @@ export default function UserNavbar({ username }: UserNavbarProps) {
           {/* Avatar + Username + Dropdown */}
           <div className="relative flex items-center" ref={dropdownRef}>
             <button
-              onClick={() => setOpen((prev) => !prev)}
+              onClick={() => {
+                setOpen((prev) => !prev);
+                setOpenNotification(false);
+                setMenuOpen(false);
+              }}
               className="flex items-center justify-center gap-2 sm:gap-3"
               aria-label={`Account menu for ${localUsername}`}
               aria-expanded={open}
@@ -245,7 +259,7 @@ export default function UserNavbar({ username }: UserNavbarProps) {
 
             {/* Dropdown menu */}
             {open && (
-              <div className="absolute right-0 mt-5 w-40 rounded-sm bg-white border-2 border-black shadow-[4px_4px_0_#000] z-50">
+              <div className="absolute right-0 top-[62px] z-50 w-40 rounded-sm border-2 border-black bg-white shadow-[4px_4px_0_#000] sm:top-[68px] lg:top-[86px]">
                 <Link
                   href="/profile"
                   className="block px-4 py-2 text-lg text-black text-center font-semibold hover:bg-gray-100"
@@ -267,7 +281,11 @@ export default function UserNavbar({ username }: UserNavbarProps) {
             aria-label={menuOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={menuOpen}
             aria-controls="app-mobile-menu"
-            onClick={() => setMenuOpen((value) => !value)}
+            onClick={() => {
+              setMenuOpen((value) => !value);
+              setOpen(false);
+              setOpenNotification(false);
+            }}
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
