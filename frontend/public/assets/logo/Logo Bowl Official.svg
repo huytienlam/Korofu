@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="185" height="95" viewBox="0 0 185 95">
+<defs><filter id="shadow" x="-20%" y="-30%" width="150%" height="160%" color-interpolation-filters="sRGB"><feOffset in="SourceAlpha" dx="7" dy="4" result="offset"/><feFlood flood-color="#000"/><feComposite in2="offset" operator="in" result="black"/><feMerge><feMergeNode in="black"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g filter="url(#shadow)">
+<path d="M100.918 55.4461V52.0855H62.8625V39.1694H100.918V18.4608H62.8625V5.54467H113.736V55.4461H100.918Z" fill="#FFE262" stroke="black" stroke-width="8" stroke-linejoin="miter" paint-order="stroke fill" fill-rule="evenodd"/>
+<path d="M55.6573 86.5448 V59.036 H121.662 V85.8644 H106.418 V84.3607 H70.8976 V86.5448 Z M70.8976 68.2344 H106.418 V75.1586 H70.8976 Z" fill="#FFE262" stroke="black" stroke-width="8" stroke-linejoin="miter" paint-order="stroke fill" fill-rule="evenodd"/>
+<path d="M123.7 59.8404L128.157 58.4872C147.103 52.7245 157.321 40.3385 159.251 20.6824H120.858V5.97696H162.889L167.97 4.54852L173.033 10.563L172.995 12.0666C172.274 43.6126 159.37 64.0618 134.648 72.8918L132.352 73.7113L123.7 59.8404Z" fill="#FFE262" stroke="black" stroke-width="8" stroke-linejoin="miter" paint-order="stroke fill" fill-rule="evenodd"/>
+<path d="M42.4138 72.8918C17.6914 64.0618 4.7918 43.6125 4.06643 12.0703L4.03278 10.5667L9.09167 4.55225L14.173 5.98069H56.2033V20.6898H17.8111C19.7554 40.3422 29.9591 52.7282 48.9048 58.4909L53.3617 59.8441L44.7096 73.715L42.4138 72.8918Z" fill="#FFE262" stroke="black" stroke-width="8" stroke-linejoin="miter" paint-order="stroke fill" fill-rule="evenodd"/>
+</g></svg>
